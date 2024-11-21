@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="../js/register.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <body>
+        <main>
+            <h2>Register</h2>
+            <form class="register-form" action="register.php" method="post">
+                <label class="register-form__first" for="first_name">First Name</label class="register-form__label">
+                <input class="register-form__firstname" type="text" name="first_name" id="first_name" required>
+                <label class="register-form__label" for="last_name">Last Name</label>
+                <input class="register-form__lastname" type="text" name="last_name" id="last_name" required>
+                <label class="register-form__label" for="email">Email</label>
+                <input class="register-form__emil" type="email" name="email" id="email" required>
+                <label class="register-form__label" for="password">Password</label>
+                <input class="register-form__password" type="password" name="password" id="password" required>
+                <label class="register-form__label" for="confirm_password">Confirm Password</label>
+                <input class="register-form__confirm-password" type="password" name="confirm_password"
+                    id="confirm_password" required>
+
+                <button type="submit">Register</button>
+            </form>
+        </main>
+        <footer>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </footer>
+    </body>
+</body>
+
+</html>
