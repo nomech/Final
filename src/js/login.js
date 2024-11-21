@@ -1,7 +1,12 @@
 const form = document.querySelector(".login-form");
+const register = document.querySelector(".login-form__button--register");
 
 window.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", loginUser);
+  register.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "./register.html";
+  });
 });
 
 const loginUser = (e) => {
@@ -22,15 +27,23 @@ const loginUser = (e) => {
       }
     }
   }
+  console.log(users);
+  console.log(users.length);
+  console.log(users.length > 0);
 
-  users.forEach((user) => {
-    console.log();
-    if (user.email === email && user.password === password) {
-      user.loggedIn = true;
-      storeData(users);
-    }
-  });
 
+  if (users.length > 0) {
+    users.forEach((user) => {
+      console.log(user.email);
+      console.log(user.password);
+      if (user.email === email && user.password === password) {
+        user.loggedIn = true;
+        storeData(users);
+      } else {
+        console.error("Invalid username or password");
+      }
+    });
+  }
   redirectUser();
 };
 
@@ -45,6 +58,7 @@ const storeData = (data) => {
 
 const checkLoggedInUser = () => {
   let loginStatus = false;
+  const userCount = getData().length;
   const findLoggedInUser = getData().find((user) => user.loggedIn);
   if (findLoggedInUser) {
     const loggedInUser = {
@@ -55,6 +69,8 @@ const checkLoggedInUser = () => {
     };
     localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
     loginStatus = findLoggedInUser.loggedIn;
+  } else if (userCount <= 0) {
+    window.location.href = "./register.html";
   }
   return loginStatus;
 };
@@ -62,8 +78,6 @@ const checkLoggedInUser = () => {
 const redirectUser = () => {
   if (checkLoggedInUser()) {
     window.location.href = "../index.html";
-  } else {
-    console.error("Invalid username or password")
   }
 };
 

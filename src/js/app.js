@@ -7,16 +7,17 @@ const getLoggedInUser = () => {
   }
 };
 
+getLoggedInUser();
+
 const getUser = () => {
   const users = localStorage.getItem("users");
   console.log(users);
   return users;
 };
 
-const currentuser = JSON.parse(getLoggedInUser());
+const currentUser = JSON.parse(getLoggedInUser());
 
 const logOut = () => {
-  const currentUser = JSON.parse(getLoggedInUser());
   const users = JSON.parse(getUser());
 
   users.forEach((user) => {
@@ -26,6 +27,11 @@ const logOut = () => {
 
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.removeItem("loggedInUser");
+
+  window.location.href="./pages/loign.html  "
 };
 
-logOut();
+
+const welcomeSign = document.querySelector(".welcome-sign")
+console.log(welcomeSign)
+welcomeSign.innerText = `Welcome, ${currentUser.first_name}`

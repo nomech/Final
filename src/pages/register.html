@@ -16,26 +16,28 @@
 
     <body>
         <main>
-            <h2>Register</h2>
-            <form class="register-form" action="register.php" method="post">
-                <label class="register-form__first" for="first_name">First Name</label class="register-form__label">
-                <input class="register-form__firstname" type="text" name="first_name" id="first_name" required>
-                <label class="register-form__label" for="last_name">Last Name</label>
-                <input class="register-form__lastname" type="text" name="last_name" id="last_name" required>
-                <label class="register-form__label" for="email">Email</label>
-                <input class="register-form__emil" type="email" name="email" id="email" required>
-                <label class="register-form__label" for="password">Password</label>
-                <input class="register-form__password" type="password" name="password" id="password" required>
-                <label class="register-form__label" for="confirm_password">Confirm Password</label>
-                <input class="register-form__confirm-password" type="password" name="confirm_password"
-                    id="confirm_password" required>
+            <fieldset>
+                <legend>Login</legend>
+                <form class="register-form" action="register.php" method="post">
+                    <label class="register-form__first" for="first_name">First Name</label class="register-form__label">
+                    <input class="register-form__input register-form__firstname" type="text" name="first_name" id="first_name" required>
+                    <label class="register-form__label" for="last_name">Last Name</label>
+                    <input class="register-form__input register-form__lastname" type="text" name="last_name" id="last_name" required>
+                    <label class="register-form__label" for="email">Email</label>
+                    <input class="register-form__input register-form__emil" type="email" name="email" id="email" required>
+                    <label class="register-form__label" for="password">Password</label>
+                    <input class="register-form__input register-form__password" type="password" name="password" id="password" required>
+                    <label class="register-form__label" for="confirm_password">Confirm Password</label>
+                    <input class="register-form__input register-form__confirm-password" type="password" name="confirm_password"
+                        id="confirm_password" required>
 
-                <button type="submit">Register</button>
-            </form>
+                    <button class="register-form__button" type="submit">Register</button>
+                </form>
+            </fieldset>
         </main>
         <footer>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="./login.html">Login</a></li>
             </ul>
         </footer>

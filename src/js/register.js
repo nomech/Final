@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const registerUser = (e) => {
   e.preventDefault();
-  const userList = getData()
+  const userList = getData();
   const user = { id: Date.now(), loggedIn: false };
 
   let password;
@@ -21,27 +21,31 @@ const registerUser = (e) => {
     }
 
     if (element.name && element.tagName.toLowerCase() === "input") {
-      user[element.name] = element.value.toLowerCase();
+      console.log(element.name)
+      if (element.name === "email") {
+        user[element.name] = element.value.toLowerCase();;
+      } else {
+        user[element.name] = element.value;
+      }
     }
   }
 
   if (user.password === user.confirm_password) {
-
-    userList.push(user)
+    userList.push(user);
     storeData(userList);
+    window.location.href="./login.html"
   } else {
     console.error(
       `You need to enter the same password in both "Passowrd" and "Confirm Password"`
     );
   }
-  window.location.href = "./login.html";
 };
 
 const storeData = (data) => {
-    localStorage.setItem("users", JSON.stringify(data));
+  localStorage.setItem("users", JSON.stringify(data));
 };
 
 const getData = () => {
   const data = JSON.parse(localStorage.getItem("users")) || [];
-  return data
+  return data;
 };
