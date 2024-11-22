@@ -31,7 +31,7 @@ const logOut = () => {
   window.location.href="./pages/login.html  "
 };
 
-const logOutButton = document.querySelector(".logout")
+const logOutButton = document.querySelector(".header__profile-item--logout")
 logOutButton.addEventListener("click", logOut)
 
 const welcomeSign = document.querySelector(".welcome-sign")
