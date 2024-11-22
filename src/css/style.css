@@ -7,52 +7,53 @@
 /* LG München, Urteil vom 20.01.2022, Az. 3 O 17493/20 (REWIS RS 2022, 1892)*/
 
 @font-face {
-    font-family: "Roboto";
-    src: url("../assets/fonts/Roboto-Light.ttf") format("truetype");
-    font-weight: 300;
-    font-style: light;
-  }
-  
-  @font-face {
-    font-family: "Roboto";
-    src: url("../assets/fonts/Roboto-Black.ttf") format("truetype");
-    font-weight: 900;
-    font-style: Bolder;
-  }
-  
-  @font-face {
-    font-family: "Roboto";
-    src: url("../assets/fonts/Roboto-Bold.ttf") format("truetype");
-    font-weight: 700;
-    font-style: Bold;
-  }
-  
-  @font-face {
-    font-family: "Roboto";
-    src: url("../assets/fonts/Roboto-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: "Roboto";
-    src: url("../assets/fonts/Roboto-Regular.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-  }
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: light;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: Bolder;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: Bold;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
-
 
 :root {
-
+  --primary-color: #d4af37;
+  --primary-bg-color: #030303;
+  --seconday-bg-color: #141414;
+  --text-color: #ffffff;
 }
-
 
 body {
   display: flex;
@@ -68,4 +69,65 @@ main {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+}
+
+.header__profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  width: 200px;
+  gap: 8px;
+  cursor: pointer;
+
+}
+.header__profile-dropdown {
+  position: absolute;
+  bottom: -90px;
+}
+
+.header__profile-item{
+  background-color: var(--primary-color);
+  padding: 12px;
+}
+
+.header__profile-dropdown--hide {
+  display: none;
+}
+
+.header__profile-list {
+  list-style: none;
+  padding: 0;
+  width: 164px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background-color: var(--seconday-bg-color);
+}
+
+.header__profile-icon {
+  border-radius: 24px;
+}
+
+.header__profile-wrapper {
+  display: flex;
+  place-content: center;
+}
+
+.header__profile-icon {
+  height: 48px;
+  fill: var(--text-color);
+}
+
+.header__profile-name {
+  background-color: var(--seconday-bg-color);
+  border: none;
+  color: var(--text-color);
+  font-size: 16px;
+  text-transform: capitalize;
+  align-self: center;
+}
+
+.welcome-sign {
+  text-transform: capitalize;
 }

@@ -35,5 +35,16 @@ const logOutButton = document.querySelector(".logout")
 logOutButton.addEventListener("click", logOut)
 
 const welcomeSign = document.querySelector(".welcome-sign")
-console.log(welcomeSign)
 welcomeSign.innerText = `Welcome, ${currentUser.first_name}`
+
+
+const profileDropdown = document.querySelector(".header__profile-dropdown")
+
+const profileButton = document.querySelector(".header__profile")
+profileButton.addEventListener("click", () => {
+  profileDropdown.classList.toggle("header__profile-dropdown--hide")
+})
+
+const profileName = document.querySelector(".header__profile-name")
+profileName.innerText = `${currentUser.first_name}`
+
