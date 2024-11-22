@@ -69,9 +69,10 @@ const checkLoggedInUser = () => {
     };
     localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
     loginStatus = findLoggedInUser.loggedIn;
-  } else if (userCount <= 0) {
+  } 
+  /* else if (userCount <= 0) {
     window.location.href = "./register.html";
-  }
+  } */
   return loginStatus;
 };
 
@@ -81,4 +82,7 @@ const redirectUser = () => {
   }
 };
 
-redirectUser();
+//redirectUser();
+
+
+//TOD: Add alert message for invalid username or password

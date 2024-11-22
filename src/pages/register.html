@@ -17,9 +17,9 @@
     <body>
         <main>
             <fieldset>
-                <legend>Login</legend>
+                <legend>Register</legend>
                 <form class="register-form" action="register.php" method="post">
-                    <label class="register-form__first" for="first_name">First Name</label class="register-form__label">
+                    <label class="register-form__label" for="first_name">First Name</label class="register-form__label">
                     <input class="register-form__input register-form__firstname" type="text" name="first_name" id="first_name" required>
                     <label class="register-form__label" for="last_name">Last Name</label>
                     <input class="register-form__input register-form__lastname" type="text" name="last_name" id="last_name" required>
@@ -32,14 +32,12 @@
                         id="confirm_password" required>
 
                     <button class="register-form__button" type="submit">Register</button>
+                    <p class="register-form__text">Already have an account? Sign in <a href="./login.html">here</a></p>
                 </form>
             </fieldset>
         </main>
         <footer>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="./login.html">Login</a></li>
-            </ul>
+
         </footer>
     </body>
 </body>

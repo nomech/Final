@@ -52,3 +52,20 @@
 :root {
 
 }
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #030303;
+  color: #ffffff;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}

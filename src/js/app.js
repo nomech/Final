@@ -28,9 +28,11 @@ const logOut = () => {
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.removeItem("loggedInUser");
 
-  window.location.href="./pages/loign.html  "
+  window.location.href="./pages/login.html  "
 };
 
+const logOutButton = document.querySelector(".logout")
+logOutButton.addEventListener("click", logOut)
 
 const welcomeSign = document.querySelector(".welcome-sign")
 console.log(welcomeSign)

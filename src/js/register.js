@@ -49,3 +49,5 @@ const getData = () => {
   const data = JSON.parse(localStorage.getItem("users")) || [];
   return data;
 };
+
+//TODO: Add a function to check if the user is already exists
