@@ -28,23 +28,34 @@ const logOut = () => {
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.removeItem("loggedInUser");
 
-  window.location.href="./pages/login.html  "
+  window.location.href = "./pages/login.html  ";
 };
 
-const logOutButton = document.querySelector(".header__profile-item--logout")
-logOutButton.addEventListener("click", logOut)
+const logOutButton = document.querySelector(".header__profile-item--logout");
+logOutButton.addEventListener("click", logOut);
 
-const welcomeSign = document.querySelector(".welcome-sign")
-welcomeSign.innerText = `Welcome, ${currentUser.first_name}`
+const welcomeSign = document.querySelector(".welcome-sign");
+welcomeSign.innerText = `Welcome, ${currentUser.first_name}`;
+
+const profileDropdown = document.querySelector(".header__profile-dropdown");
+
+const profileButton = document.querySelector(".header__profile");
+profileButton.addEventListener("click", (e) => {
+  
+  profileDropdown.focus();
+
+  profileDropdown.classList.toggle("header__profile-dropdown--show");
+});
+
+const profileName = document.querySelector(".header__profile-name");
+profileName.innerText = `${currentUser.first_name}`;
 
 
-const profileDropdown = document.querySelector(".header__profile-dropdown")
+document.addEventListener("click", (e) => {
+  if (!profileButton.contains(e.target)) {
+    profileDropdown.classList.remove("header__profile-dropdown--show");
+  }
+});
 
-const profileButton = document.querySelector(".header__profile")
-profileButton.addEventListener("click", () => {
-  profileDropdown.classList.toggle("header__profile-dropdown--hide")
-})
 
-const profileName = document.querySelector(".header__profile-name")
-profileName.innerText = `${currentUser.first_name}`
 

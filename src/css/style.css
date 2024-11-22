@@ -72,7 +72,9 @@ main {
   flex-grow: 1;
 }
 
-
 .welcome-sign {
-  text-transform: capitalize;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
+
+
