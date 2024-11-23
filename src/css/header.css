@@ -43,6 +43,7 @@ header {
 
 .header__profile-dropdown {
   visibility: hidden;
+  width: 170px;
   opacity: 0;
   bottom: -105px;
   position: absolute;
@@ -57,6 +58,10 @@ header {
 }
 
 .header__profile-item {
+  display: grid;
+  width: 170px;
+  grid-template-columns: 16px 1fr;
+  align-items: center;
   background-color: var(--primary-color);
   padding: 12px;
   color: var(--secondary-text-color);
@@ -110,4 +115,35 @@ header {
   text-transform: uppercase;
   letter-spacing: 2px;
   user-select: none;
+}
+
+.header__list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header__list-item {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 1rem;
+  text-decoration: underline 4px var(--secondary-bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header__list-item:hover {
+  color: var(--primary-color);
+}
+
+.header__nav-links {
+  flex-grow: 1;
+}
+
+.header__logput-icon{
+  width: 14px;
+  height: 14px;
 }

@@ -1,3 +1,5 @@
+import { data } from "./data.js";
+
 const getLoggedInUser = () => {
   const loggedInUser = localStorage.getItem("loggedInUser");
   if (loggedInUser === null) {
@@ -41,21 +43,28 @@ const profileDropdown = document.querySelector(".header__profile-dropdown");
 
 const profileButton = document.querySelector(".header__profile");
 profileButton.addEventListener("click", (e) => {
-  
   profileDropdown.focus();
 
   profileDropdown.classList.toggle("header__profile-dropdown--show");
 });
 
 const profileName = document.querySelector(".header__profile-name");
-profileName.innerText = `${currentUser.first_name}`;
-
+//profileName.innerText = `${currentUser.first_name}`;
 
 document.addEventListener("click", (e) => {
   if (!profileButton.contains(e.target)) {
     profileDropdown.classList.remove("header__profile-dropdown--show");
   }
 });
+const headerList = document.querySelector(".header__list");
 
+const createNavLinks = () => {
+  data.categories.forEach((category) => {
+    const navLink = document.createElement("a");
+    navLink.innerText = category.category;
+    navLink.classList.add("header__list-item");
+    headerList.append(navLink);
+  });
+};
 
-
+createNavLinks();
