@@ -6,10 +6,11 @@ const domElemets = {
   profileName: document.querySelector(".header__profile-name"),
   headerList: document.querySelector(".header__list"),
   dropdownList: document.querySelector(".header__dropdown-list"),
-  welcomeSign: document.querySelector(".welcome-sign"),
+  welcomeSign: document.querySelector(".welcome__sign"),
+  welcomeText: document.querySelector(".welcome__text"),
 };
 
-const { headerDropdown, profileIcon, headerList, dropdownList, welcomeSign } =
+const { headerDropdown, profileIcon, headerList, dropdownList, welcomeSign, welcomeText } =
   domElemets;
 
 const getLoggedInUser = () => {
@@ -94,15 +95,4 @@ profileIcon.addEventListener("click", toggleDropdown);
 
 logOutButton.addEventListener("click", logOut);
 welcomeSign.innerText = `Welcome, ${currentUser.first_name}`;
-
-const createPreviews = () => {
-  const options = document.querySelector(".option__container");
-  data.categories.forEach((category) => {
-    const option = document.createElement("img");
-    option.classList.add("option__preview");
-    option.src = category.preview;
-    options.append(option);
-  });
-};
-
-createPreviews();
+welcomeText.innerText = `Indulge in Excellence, Redefined`;
