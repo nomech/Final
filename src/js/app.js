@@ -40,8 +40,8 @@ welcomeSign.innerText = `Welcome, ${currentUser.first_name}`;
 
 const headerDropdown = document.querySelector(".header__dropdown");
 
-const profileButton = document.querySelector(".header__profile");
-profileButton.addEventListener("click", (e) => {
+const profileIcon = document.querySelector(".header__profile-icon");
+profileIcon.addEventListener("click", (e) => {
   headerDropdown.focus();
   headerDropdown.classList.toggle("header__dropdown--show");
 });
@@ -50,7 +50,7 @@ const profileName = document.querySelector(".header__profile-name");
 //  profileName.innerText = `${currentUser.first_name}`;
 
 document.addEventListener("click", (e) => {
-  if (!profileButton.contains(e.target)) {
+  if (!profileIcon.contains(e.target)) {
     headerDropdown.classList.remove("header__dropdown--show");
   }
 });
