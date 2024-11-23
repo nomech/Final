@@ -6,7 +6,6 @@ const domElemets = {
   profileName: document.querySelector(".header__profile-name"),
   headerList: document.querySelector(".header__list"),
   dropdownList: document.querySelector(".header__dropdown-list"),
-
   welcomeSign: document.querySelector(".welcome-sign"),
 };
 
@@ -24,15 +23,12 @@ const getLoggedInUser = () => {
 
 const getUsers = () => {
   const users = localStorage.getItem("users");
-  console.log(users);
   return users;
 };
 
 const logOut = () => {
   const users = JSON.parse(getUsers());
-
   users.forEach((user) => {
-    console.log(user);
     if (currentUser.id === user.id) {
       user.loggedIn = false;
     }
@@ -61,6 +57,7 @@ const createNavLinks = () => {
     const navLink = document.createElement("a");
     navLink.innerText = category.category;
     navLink.classList.add("header__list-item");
+    domElemets.headerListItem = document.querySelectorAll(".header__list-item");
     headerList.append(navLink);
   });
 };
@@ -74,6 +71,10 @@ const createDropdownItem = () => {
     );
     listItem.innerHTML = item.icon;
 
+    domElemets[
+      "headerDropdownItem" + item.name.replace(" ", "")
+    ] = `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`;
+
     const listLink = document.createElement("a");
     listLink.classList.add("header__dropdown-link");
     listLink.innerText = item.name;
@@ -84,6 +85,7 @@ const createDropdownItem = () => {
 };
 
 createNavLinks();
+
 createDropdownItem();
 
 const logOutButton = document.querySelector(".header__dropdown-item--logout");
@@ -92,3 +94,15 @@ profileIcon.addEventListener("click", toggleDropdown);
 
 logOutButton.addEventListener("click", logOut);
 welcomeSign.innerText = `Welcome, ${currentUser.first_name}`;
+
+const createPreviews = () => {
+  const options = document.querySelector(".option__container");
+  data.categories.forEach((category) => {
+    const option = document.createElement("img");
+    option.classList.add("option__preview");
+    option.src = category.preview;
+    options.append(option);
+  });
+};
+
+createPreviews();

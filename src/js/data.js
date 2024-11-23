@@ -3,6 +3,7 @@ export const data = {
     {
       id: 1,
       category: "Yachts",
+      preview: "./assets/images/yacht-preview.webp",
       items: [
         {
           id: 1,
@@ -26,7 +27,8 @@ export const data = {
     },
     {
       id: 2,
-      category: "Private Planes",
+      category: "Private Jets",
+      preview: "./assets/images/jet-preview.webp",
       items: [
         {
           id: 1,
@@ -51,6 +53,7 @@ export const data = {
     {
       id: 3,
       category: "Luxury Cars",
+      preview: "./assets/images/car-preview.webp",
       items: [
         {
           id: 1,
@@ -75,6 +78,7 @@ export const data = {
     {
       id: 4,
       category: "Luxury Homes",
+      preview: "./assets/images/home-preview.webp",
     },
   ],
   dropdown: [
