@@ -84,8 +84,6 @@ header {
 }
 
 .header__dropdown-link{
-  text-transform: uppercase;
-  letter-spacing: 2px;
   color: var(--secondary-text-color);
   text-decoration: none;
 }
@@ -104,8 +102,6 @@ header {
   border: none;
   color: var(--text-color);
   font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   user-select: none;
 }
 
@@ -118,8 +114,6 @@ header {
 .header__list-item {
   display: flex;
   justify-content: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   padding: 1rem;
   text-decoration: underline 4px var(--secondary-bg-color);
   color: var(--text-color);

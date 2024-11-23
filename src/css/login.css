@@ -30,6 +30,7 @@ fieldset {
 
 .login-form__label {
   margin-top: 16px;
+  font-size: 14px;
 }
 
 .login-form__input {
@@ -38,6 +39,7 @@ fieldset {
   border: 0;
   outline: 0;
   width: 100%;
+  text-transform: none;
 }
 
 .login-form__label,
@@ -57,8 +59,6 @@ legend {
   border: none;
   color: #000000;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   transition: background-color 0.3s ease;
 }
 

@@ -31,6 +31,7 @@ fieldset {
 
 .register-form__label {
   margin-top: 16px;
+  font-size: 14px;
 }
 
 .register-form__label,
@@ -41,9 +42,9 @@ legend {
   width: 100%;
   padding: 6px;
   border: 0;
-  /* border-radius: 8px; */
   outline: 0;
   width: 100%;
+  text-transform: none;
 }
 
 .register-form__button {
@@ -54,8 +55,6 @@ legend {
   border: none;
   color: #000000;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   transition: background-color 0.3s ease;
 }
 
@@ -67,11 +66,15 @@ legend {
   margin-top: 16px;
   font-size: 14px;
   align-self: center;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .register-form__text a {
   color: #d4af37;
   transition: color 0.3s ease;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .register-form__text a:hover{
