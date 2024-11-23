@@ -29,31 +29,29 @@ const logOut = () => {
 
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.removeItem("loggedInUser");
-
-  window.location.href = "./pages/login.html  ";
+  window.location.href = "./pages/login.html";
 };
 
-const logOutButton = document.querySelector(".header__profile-item--logout");
-logOutButton.addEventListener("click", logOut);
+/* const logOutButton = document.querySelector(".header__profile-item--logout");
+logOutButton.addEventListener("click", logOut); */
 
 const welcomeSign = document.querySelector(".welcome-sign");
 welcomeSign.innerText = `Welcome, ${currentUser.first_name}`;
 
-const profileDropdown = document.querySelector(".header__profile-dropdown");
+const headerDropdown = document.querySelector(".header__dropdown");
 
 const profileButton = document.querySelector(".header__profile");
 profileButton.addEventListener("click", (e) => {
-  profileDropdown.focus();
-
-  profileDropdown.classList.toggle("header__profile-dropdown--show");
+  headerDropdown.focus();
+  headerDropdown.classList.toggle("header__dropdown--show");
 });
 
 const profileName = document.querySelector(".header__profile-name");
-//profileName.innerText = `${currentUser.first_name}`;
+//  profileName.innerText = `${currentUser.first_name}`;
 
 document.addEventListener("click", (e) => {
   if (!profileButton.contains(e.target)) {
-    profileDropdown.classList.remove("header__profile-dropdown--show");
+    headerDropdown.classList.remove("header__dropdown--show");
   }
 });
 const headerList = document.querySelector(".header__list");
@@ -68,3 +66,25 @@ const createNavLinks = () => {
 };
 
 createNavLinks();
+
+const dropdownList = document.querySelector(".header__dropdown-list");
+
+const createDropdownItem = (item) => {
+  const listItem = document.createElement("li");
+  listItem.classList.add(
+    "header__dropdown-item",
+    `header__dropdown-item--${item.name.replace(" ", "-").toLowerCase()}`
+  );
+  listItem.innerHTML = item.icon;
+
+  const listLink = document.createElement("a");
+  listLink.classList.add("header__dropdown-link");
+  listLink.innerText = item.name;
+  listLink.href = item.link;
+  listItem.append(listLink);
+  dropdownList.append(listItem);
+};
+
+data.dropdown.forEach((item) => {
+  createDropdownItem(item);
+});

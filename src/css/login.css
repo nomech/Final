@@ -25,8 +25,7 @@ fieldset {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* padding: 20px; */
-  width: 255px;
+  width: 308px;
 }
 
 .login-form__label {
@@ -47,7 +46,11 @@ legend {
 }
 
 .login-form__button {
-  align-self: center;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-grow: 1;
+  width: 50%;
   margin-top: 32px;
   padding: 12px 24px;
   background-color: #d4af37;
@@ -57,7 +60,11 @@ legend {
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: background-color 0.3s ease;
-  width: 120px;
+}
+
+.login-form__button-icon {
+  width: 14px;
+  height: 14px;
 }
 
 .login-form__button-container {
@@ -65,6 +72,7 @@ legend {
   align-items: center;
   justify-content: center;
   gap: 16px;
+  width: 100%;
 }
 
 .login-form__button:hover {
