@@ -50,4 +50,4 @@ const getData = () => {
   return data;
 };
 
-//TODO: Add a function to check if the user is already exists
+//TODO: Add a function to check if the user already exists
