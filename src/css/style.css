@@ -100,6 +100,11 @@ main {
   letter-spacing: 2px;
   animation: fadeInColor 4s ease-in-out;
   color: #d4af37;
+  
+}
+
+.welcome__sign, .welcome__text{
+  font-weight: 200w;
 }
 
 .button{
