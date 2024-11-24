@@ -4,14 +4,21 @@ const domElemets = {
   headerDropdown: document.querySelector(".header__dropdown"),
   profileIcon: document.querySelector(".header__profile-icon"),
   profileName: document.querySelector(".header__profile-name"),
-  headerList: document.querySelector(".header__list"),
-  dropdownList: document.querySelector(".header__dropdown-list"),
   welcomeSign: document.querySelector(".welcome__sign"),
   welcomeText: document.querySelector(".welcome__text"),
+  preview: document.querySelector(".preview"),
+  previewText: document.querySelector(".preview__text"),
+  previewOptions: document.querySelector(".preview__options"),
 };
 
-const { headerDropdown, profileIcon, headerList, dropdownList, welcomeSign, welcomeText } =
-  domElemets;
+const {
+  headerDropdown,
+  profileIcon,
+  welcomeSign,
+  welcomeText,
+  previewText,
+  previewOptions,
+} = domElemets;
 
 const getLoggedInUser = () => {
   const loggedInUser = localStorage.getItem("loggedInUser");
@@ -45,54 +52,35 @@ const toggleDropdown = () => {
   headerDropdown.classList.toggle("header__dropdown--show");
 };
 
-//  profileName.innerText = `${currentUser.first_name}`;
-
 document.addEventListener("click", (e) => {
   if (!profileIcon.contains(e.target)) {
     headerDropdown.classList.remove("header__dropdown--show");
   }
 });
-
-const createNavLinks = () => {
-  data.categories.forEach((category) => {
-    const navLink = document.createElement("a");
-    navLink.innerText = category.category;
-    navLink.classList.add("header__list-item");
-    domElemets.headerListItem = document.querySelectorAll(".header__list-item");
-    headerList.append(navLink);
-  });
-};
-
-const createDropdownItem = () => {
-  data.dropdown.forEach((item) => {
-    const listItem = document.createElement("li");
-    listItem.classList.add(
-      "header__dropdown-item",
-      `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`
-    );
-    listItem.innerHTML = item.icon;
-
-    domElemets[
-      "headerDropdownItem" + item.name.replace(" ", "")
-    ] = `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`;
-
-    const listLink = document.createElement("a");
-    listLink.classList.add("header__dropdown-link");
-    listLink.innerText = item.name;
-    listLink.href = item.link;
-    listItem.append(listLink);
-    dropdownList.append(listItem);
-  });
-};
-
-createNavLinks();
-
-createDropdownItem();
-
-const logOutButton = document.querySelector(".header__dropdown-item--logout");
 const currentUser = JSON.parse(getLoggedInUser());
-profileIcon.addEventListener("click", toggleDropdown);
-
-logOutButton.addEventListener("click", logOut);
 welcomeSign.innerText = `Welcome, ${currentUser.first_name}`;
 welcomeText.innerText = `Indulge in Excellence, Redefined`;
+previewText.innerText = `Choose your indulgence`;
+
+const createPreview = () => {
+  data.categories.forEach((category) => {
+    const previewGroup = document.createElement("div");
+    previewGroup.classList.add("preview__group");
+    previewOptions.append(previewGroup);
+
+    const previewImage = document.createElement("img");
+    previewImage.src = category.preview;
+    previewImage.alt = category.category;
+    previewImage.classList.add("preview__image");
+    domElemets.previewImage = document.querySelector(".preview__image");
+
+    const previewTitle = document.createElement("h2");
+    previewTitle.innerText = category.category;
+    previewTitle.classList.add("preview__title");
+    previewGroup.append(previewImage, previewTitle);
+    previewGroup.addEventListener("click", () => {
+      window.location.href = `/src/pages${category.link}${category.id}`;
+    });
+  });
+};
+createPreview();

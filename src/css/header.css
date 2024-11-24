@@ -12,6 +12,7 @@ header {
   width: 100%;
   background: #141414;
   z-index: 100;
+  border-bottom: 2px solid var(--primary-bg-color);
 }
 
 .header__logo {

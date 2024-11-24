@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/footer.css">
   <title>noMech store</title>
   <script type="module" src="./js/data.js" defer></script>
+  <script type="module" src="./js/header.js" defer></script>
   <script type="module" src="./js/app.js" defer></script>
 </head>
 
@@ -38,19 +39,33 @@
     <section class="welcome">
       <h2 class="welcome__sign">
       </h2>
-      <p class="welcome__text"></p>
-      <a href="#" class="welcome__explore">Explore</a>
+      <h3 class="welcome__text"></h3>
+      <a href="#preview" class="welcome__explore button button--explore">Explore</a>
     </section>
+
+    <section class="preview" id="preview">
+      <p class="preview__text"></p>
+      <div class="preview__options">
+        <!-- Data -->
+      </div>
+    </section>
+    <section class="contact">
+      <h2 class="contact__title">Let's get in touch</h2>
+      <p class="contact__text">We are here to help you with any questions you may have. Reach out to us and we will
+        respond as soon as we can.</p>
+        <a href="./pages/contact_us" class="contact__email button button--contact">Connect</a>
+    </section>
+
   </main>
   <footer class="footer">
-    <!-- <ul class="footer__list">
+    <ul class="footer__list">
       <li class="footer__list-item">About</li>
       <li class="footer__list-item">Contact</li>
       <li class="footer__list-item">Terms of Service</li>
       <li class="footer__list-item">Privacy Policy</li>
       <li class="footer__list-item">Help</li>
       <li class="footer__list-item">Careers</li>
-    </ul> -->
+    </ul>
   </footer>
 
 </body>
