@@ -29,28 +29,6 @@ const getLoggedInUser = () => {
   }
 };
 
-const getUsers = () => {
-  const users = localStorage.getItem("users");
-  return users;
-};
-
-const logOut = () => {
-  const users = JSON.parse(getUsers());
-  users.forEach((user) => {
-    if (currentUser.id === user.id) {
-      user.loggedIn = false;
-    }
-  });
-
-  localStorage.setItem("users", JSON.stringify(users));
-  localStorage.removeItem("loggedInUser");
-  console.log(localStorage);
-  window.location.href = "./pages/login.html";
-};
-
-const toggleDropdown = () => {
-  headerDropdown.classList.toggle("header__dropdown--show");
-};
 
 document.addEventListener("click", (e) => {
   if (!profileIcon.contains(e.target)) {

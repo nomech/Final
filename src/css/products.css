@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  margin: 220px 0;
 }
 
 .products--show {
@@ -57,6 +58,7 @@
   display: none;
   padding: 4rem;
   gap: 1rem;
+  margin: 50px 0;
 }
 
 .details--show {
@@ -75,10 +77,10 @@
 
 .details__list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
-  padding: 2rem;
+  width: 100%;
 }
 
 .details__product {
@@ -88,6 +90,12 @@
 
 .details__specs {
   background-color: var(--seconday-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
 }
 
 .details__information {
@@ -98,6 +106,7 @@
 
 .button--order {
   animation: none;
+  width: 300px;
 }
 .button--order:hover {
   background-color: var(--text-color);

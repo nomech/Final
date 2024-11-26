@@ -52,7 +52,6 @@ const toggleDropdown = () => {
   headerDropdown.classList.toggle("header__dropdown--show");
 };
 
-//  profileName.innerText = `${currentUser.first_name}`;
 
 document.addEventListener("click", (e) => {
   if (!profileIcon.contains(e.target)) {
@@ -72,16 +71,13 @@ const createNavLinks = () => {
 };
 
 const createDropdownItem = () => {
-  data.dropdown.forEach((item) => {
+data.dropdown.forEach((item) => {
     const listItem = document.createElement("li");
-    listItem.classList.add(
-      "header__dropdown-item",
-      `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`
-    );
+    listItem.classList.add("header__dropdown-item",`header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`);
     listItem.innerHTML = item.icon;
 
     domElemets[
-      "headerDropdownItem" + item.name.replace(" ", "")
+        "headerDropdownItem" + item.name.replace(" ", "")
     ] = `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`;
 
     const listLink = document.createElement("a");

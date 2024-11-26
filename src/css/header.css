@@ -15,13 +15,13 @@ header {
   border-bottom: 2px solid var(--primary-bg-color);
 }
 
-.header__logo {
+.header__logo-link{
   color: var(--primary-color);
   font-size: 1.5rem;
   font-weight: 300;
   letter-spacing: 3px;
+  text-decoration: none;
 }
-
 .header__profile {
   position: relative;
   display: flex;
