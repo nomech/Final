@@ -6,11 +6,7 @@ const domElemets = {
   profileName: document.querySelector(".header__profile-name"),
   headerList: document.querySelector(".header__list"),
   dropdownList: document.querySelector(".header__dropdown-list"),
-  welcomeSign: document.querySelector(".welcome__sign"),
-  welcomeText: document.querySelector(".welcome__text"),
-  preview: document.querySelector(".preview"),
-  previewText: document.querySelector(".preview__text"),
-  previewOptions: document.querySelector(".preview__options"),
+
 };
 
 const { headerDropdown, profileIcon, headerList, dropdownList } = domElemets;
@@ -54,10 +50,11 @@ document.addEventListener("click", (e) => {
 });
 
 const createNavLinks = () => {
+  const origin = window.location.origin;
   data.productCategories.forEach((category) => {
     const navLink = document.createElement("a");
     navLink.innerText = category.name;
-    navLink.href = `/src/pages${category.link}`;
+    navLink.href = `${origin}/pages${category.link}`;
     navLink.classList.add("header__list-item");
     domElemets.headerListItem = document.querySelectorAll(".header__list-item");
     headerList.append(navLink);

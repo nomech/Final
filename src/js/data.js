@@ -6,7 +6,20 @@ export const data = {
       name: "Yachts",
       preview: "./assets/images/yacht-preview.webp",
       link: "/yachts.html",
-      sortingOptions: ["all","name","price", "length", "cabins","length","cabins","guests","crew","maxSpeed","range","year"]
+      sortingOptions: [
+        "all",
+        "name",
+        "price",
+        "length",
+        "cabins",
+        "length",
+        "cabins",
+        "guests",
+        "crew",
+        "maxSpeed",
+        "range",
+        "year",
+      ],
     },
     {
       id: 2,
@@ -45,7 +58,7 @@ export const data = {
         guests: 10,
         crew: 8,
         maxSpeed: 25,
-        range:4000,
+        range: 4000,
         builder: "Oceanic Yachts",
         year: 2021,
       },
@@ -121,7 +134,7 @@ export const data = {
         guests: 14,
         crew: 12,
         maxSpeed: 26,
-        range: 5500 ,
+        range: 5500,
         builder: "Eco Marine Luxury",
         year: 2023,
       },
@@ -139,8 +152,8 @@ export const data = {
         cabins: 10,
         guests: 20,
         crew: 25,
-        maxSpeed: 24 ,
-        range: 8000 ,
+        maxSpeed: 24,
+        range: 8000,
         builder: "Future Marine Technologies",
         year: 2025,
       },
@@ -196,7 +209,7 @@ export const data = {
         speed: "Mach 0.925",
         passengers: 19,
         crew: 4,
-        cabinLength: 54.5 ,
+        cabinLength: 54.5,
         cabinWidth: 8,
         manufacturer: "Bombardier Aerospace",
         year: 2022,
@@ -211,7 +224,7 @@ export const data = {
       description:
         "The Cessna Citation Longitude is a super-midsize jet that offers a perfect blend of performance, comfort, and efficiency. Its stand-up cabin is the quietest in its class and features fully berthable seats, a modern galley, and an advanced entertainment system. The aircraft is equipped with the latest navigation and communication technology, ensuring a safe and efficient flight. Ideal for both business and leisure travel, it can connect cities like Los Angeles to New York non-stop.",
       spec: {
-        range: 3500 ,
+        range: 3500,
         speed: 0.84,
         passengers: 12,
         crew: 2,
@@ -249,12 +262,12 @@ export const data = {
       description:
         "The Embraer Lineage 1000E transforms commercial aircraft technology into the ultimate private jet experience. Based on the successful E190 commercial platform, this jet offers the largest cabin in its class, with five distinct living spaces that can be fully customized. Features include a master bedroom with a full-size shower, a private office, an entertainment lounge, and a conference area. Its advanced avionics and efficient engines provide an exceptional blend of performance, range, and comfort.",
       spec: {
-        range: 4600 ,
+        range: 4600,
         speed: 0.82,
         passengers: 19,
         crew: 4,
-        cabinLength: 84 ,
-        cabinWidth: 8.4 ,
+        cabinLength: 84,
+        cabinWidth: 8.4,
         manufacturer: "Embraer",
         year: 2021,
       },
@@ -268,8 +281,8 @@ export const data = {
       description:
         "The Honda HA-420 HondaJet Elite II represents a breakthrough in light jet technology, offering unprecedented efficiency and comfort. Its revolutionary over-the-wing engine mount design reduces drag and increases fuel efficiency, while the composite fuselage provides exceptional strength and lightweight performance. The jet features a fully customizable cabin with advanced noise reduction, high-speed internet, and a sophisticated entertainment system. Its range and performance make it ideal for short to medium-range business and leisure travel.",
       spec: {
-        range: 1437 ,
-        speed:  0.83,
+        range: 1437,
+        speed: 0.83,
         passengers: 6,
         crew: 2,
         cabinLength: 17.7,
@@ -287,8 +300,8 @@ export const data = {
       description:
         "The Pilatus PC-24 is a revolutionary super versatile jet that combines the comfort of a business jet with the capability of a utility aircraft. Capable of landing on unprepared runways and gravel strips, this jet offers unprecedented flexibility for adventurous travelers. Its spacious cabin can be quickly reconfigured for various missions, from executive transport to medical evacuation. The jet features advanced avionics, a sliding cargo door, and exceptional short-field performance, making it the most versatile aircraft in its class.",
       spec: {
-        range: 3610 ,
-        speed:  0.84,
+        range: 3610,
+        speed: 0.84,
         passengers: 10,
         crew: 2,
         cabinLength: 30.5,
@@ -311,7 +324,7 @@ export const data = {
         torque: 664,
         topSpeed: 155,
         acceleration: "0-60 mph in 5.1 sec",
-        seating:4,
+        seating: 4,
         manufacturer: "Rolls-Royce Motor Cars",
         year: 2022,
       },
@@ -327,7 +340,7 @@ export const data = {
       spec: {
         engine: "8.0L W16 Quad-Turbo",
         horsepower: 1500,
-        torque:1180,
+        torque: 1180,
         topSpeed: 261,
         acceleration: "0-60 mph in 2.4 sec",
         seating: 2,
@@ -347,7 +360,7 @@ export const data = {
         engine: "6.5L V12",
         horsepower: 730,
         torque: 509,
-        topSpeed: 217 ,
+        topSpeed: 217,
         acceleration: "0-60 mph in 2.9 sec",
         seating: 2,
         manufacturer: "Automobili Lamborghini",
@@ -384,7 +397,7 @@ export const data = {
       spec: {
         engine: "5.0L Twin-Turbo V8",
         horsepower: 1600,
-        torque: 1106 ,
+        torque: 1106,
         topSpeed: 330,
         acceleration: "0-60 mph in 2.5 sec",
         seating: 2,
@@ -406,7 +419,7 @@ export const data = {
         torque: 774,
         topSpeed: 238,
         acceleration: "0-60 mph in 2.7 sec",
-        seating: 2 ,
+        seating: 2,
         manufacturer: "Pagani Automobili",
         year: 2023,
       },
@@ -421,11 +434,11 @@ export const data = {
         "The McLaren Speedtail is the ultimate expression of automotive innovation, a 'Hyper-GT' that pushes the boundaries of speed and design. Limited to just 106 units, this extraordinary vehicle is designed to be the fastest McLaren ever created. Its carbon fiber body is sculpted for absolute aerodynamic efficiency, with a central driving position reminiscent of the legendary McLaren F1. The powertrain combines a twin-turbo V8 with hybrid technology, delivering unprecedented performance while showcasing McLaren's commitment to cutting-edge automotive engineering.",
       spec: {
         engine: "4.0L Twin-Turbo V8 Hybrid",
-        horsepower: 1036 ,
+        horsepower: 1036,
         torque: 848,
-        topSpeed: 250 ,
+        topSpeed: 250,
         acceleration: "0-60 mph in 2.9 sec",
-        seating: 3 ,
+        seating: 3,
         manufacturer: "McLaren Automotive",
         year: 2024,
       },
@@ -441,7 +454,7 @@ export const data = {
       spec: {
         bedrooms: 8,
         bathrooms: 10,
-        livingArea: 10000 ,
+        livingArea: 10000,
         landArea: 2,
         amenities: [
           "Infinity pool",
@@ -466,7 +479,7 @@ export const data = {
         bedrooms: 6,
         bathrooms: 8,
         livingArea: 8000,
-        landArea: 1.5 ,
+        landArea: 1.5,
         amenities: [
           "Indoor pool",
           "Private cinema",
@@ -512,8 +525,8 @@ export const data = {
       spec: {
         bedrooms: 7,
         bathrooms: 9,
-        livingArea: 15000 ,
-        landArea: 3 ,
+        livingArea: 15000,
+        landArea: 3,
         amenities: [
           "Infinity pool",
           "Private art gallery",
@@ -537,7 +550,7 @@ export const data = {
         bedrooms: 5,
         bathrooms: 6,
         livingArea: 9000,
-        landArea: 2.5 ,
+        landArea: 2.5,
         amenities: [
           "All-glass exterior",
           "Geothermal heating",
@@ -584,7 +597,7 @@ export const data = {
       spec: {
         bedrooms: 5,
         bathrooms: 7,
-        livingArea: 12000 ,
+        livingArea: 12000,
         landArea: 50,
         amenities: [
           "Suspended architecture",
@@ -607,13 +620,13 @@ export const data = {
       <path
         d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
     </svg>`,
-      link: "./profile.html",
+      link: "./pages/profile.html",
     },
     {
       id: 2,
       name: "Cart",
       icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>`,
-      link: "./cart.html",
+      link: "./pages/cart.html",
     },
     {
       id: 3,
@@ -623,7 +636,7 @@ export const data = {
                     <path
                         d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
                   </svg>`,
-      link: "/src/pages/login.html",
+      link: "./pages/login.html",
     },
   ],
 };
