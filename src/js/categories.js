@@ -12,7 +12,7 @@ const cachedElements = {
   detailsSpecs: document.querySelector(".details__specs")
 };
 
-const {productSection, details, detailsTitle, detailsPrice, detailsText, detailsList, detailsSpecs} = cachedElements;
+const {productSection, details, detailsImage, detailsTitle, detailsPrice, detailsText, detailsList, detailsSpecs} = cachedElements;
 
 
 const page = window.location.pathname.split("/").pop().split(".")[0];
@@ -26,14 +26,15 @@ console.log("products", products);
 
 
 const redirect = (event) => {
-  window.location.href =
-    window.location.pathname + "?id=" + event.target.parentNode.dataset.categgoryId;
+  const parentId= event.target.parentNode.dataset.id
+  window.location.href = window.location.pathname + "?id=" + parentId;
 };
 const viewProduct = (id) => {
+  console.log(id)
   const product = products.find((category) => category.id === id);
   productSection.classList.toggle("products--show");
   details.classList.toggle("details--show");
-
+  detailsTitle.innerText = product.name;
   detailsImage.alt = `Image of the ${product.name}`;
   detailsImage.src = product.image;
 
@@ -57,6 +58,7 @@ const viewProduct = (id) => {
     specItem.append(specTitle, specValue);
     detailsList.append(specItem);
   }
+
   const orderButton = document.createElement("button");
   orderButton.classList.add("details__order", "button", "button--order");
   orderButton.innerText = "Order";
@@ -71,12 +73,13 @@ const renderProducts = () => {
 
     product.dataset.id = item.id;
 
-      detailsTitle.innerText = item.name;
+
 
     const productImage = document.createElement("img");
     productImage.classList.add("products__image");
     productImage.src = item.image;
     productImage.alt = `Image of the ${item.name}`;
+    console.log("loading img")
 
     const textGroup = document.createElement("div");
     textGroup.classList.add("products__text-group");
@@ -108,9 +111,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (id) {
     viewProduct(id);
-
     document.addEventListener("click", (event) => {
-      console.log(event.target.classList)
       if (event.target.classList.contains("details__back-button")) {
         window.location.href = window.location.pathname;
       }

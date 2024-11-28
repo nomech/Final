@@ -1,15 +1,21 @@
+
+main {
+ padding: 220px 0;
+}
+
 .products {
-  display: none;
+  visibility: hidden;
+  display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin: 220px 0;
+ 
 }
 
 .products--show {
-  display: flex;
+  visibility: visible;
 }
 
 .products__item {
@@ -65,16 +71,16 @@
 }
 
 .details {
-  display: none;
+  visibility: hidden;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 4rem;
+  padding: 0 4rem;
   gap: 1rem;
-  margin: 50px 0;
 }
 
 .details--show {
-  display: flex;
+  visibility: visible;
 }
 
 .details__title, .details__back-button {

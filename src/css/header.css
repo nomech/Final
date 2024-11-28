@@ -36,6 +36,8 @@ header {
 }
 .header__profile-icon {
   cursor: pointer;
+  width: 48px;
+  height: 48px;
 }
 .header__profile-icon:hover {
   color: var(--primary-color);

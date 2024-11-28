@@ -53,11 +53,11 @@ const createPreview = () => {
     domElemets.previewImage = document.querySelector(".preview__image");
 
     const previewTitle = document.createElement("h2");
-    previewTitle.innerText = category.category;
+    previewTitle.innerText = category.name;
     previewTitle.classList.add("preview__title");
     previewGroup.append(previewImage, previewTitle);
     previewGroup.addEventListener("click", () => {
-      window.location.href = `/src/pages${category.link}${category.id}`;
+      window.location.href = `/src/pages${category.link}`;
     });
   });
 };
