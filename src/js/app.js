@@ -41,6 +41,7 @@ welcomeText.innerText = `Indulge in Excellence, Redefined`;
 previewText.innerText = `Choose your indulgence`;
 
 const createPreview = () => {
+  const origin = window.location.origin;
   data.productCategories.forEach((category) => {
     const previewGroup = document.createElement("div");
     previewGroup.classList.add("preview__group");
@@ -57,7 +58,7 @@ const createPreview = () => {
     previewTitle.classList.add("preview__title");
     previewGroup.append(previewImage, previewTitle);
     previewGroup.addEventListener("click", () => {
-      window.location.href = `/src/pages${category.link}`;
+      window.location.href = `${origin}/pages${category.link}`;
     });
   });
 };
