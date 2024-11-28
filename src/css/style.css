@@ -79,7 +79,8 @@ main {
   gap: 3rem;
 }
 
-.welcome, .contact {
+.welcome,
+.contact {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,14 +101,14 @@ main {
   letter-spacing: 2px;
   animation: fadeInColor 4s ease-in-out;
   color: #d4af37;
-  
 }
 
-.welcome__sign, .welcome__text{
+.welcome__sign,
+.welcome__text {
   font-weight: 200w;
 }
 
-.button{
+.button {
   padding: 1rem 2rem;
   background: var(--primary-color);
   color: var(--secondary-text-color);
@@ -165,6 +166,7 @@ main {
 
 .preview__image {
   width: 400px;
+  height: 230px;
 }
 
 .preview__group {

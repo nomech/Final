@@ -16,6 +16,8 @@ const viewProduct = (event) => {
   const product = getProductObject().items.find(
     (category) => category.id == id
   );
+
+  console.log
   const products = document.querySelector(".products");
   products.classList.toggle("products--show");
 
@@ -107,6 +109,7 @@ const createProductItems = (category) => {
     products.append(product);
   });
 };
+
 createSortingOptions();
 createProductItems(getProductObject());
 

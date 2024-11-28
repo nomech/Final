@@ -1,4 +1,5 @@
 import { data } from "./data.js";
+console.log(data);
 
 const domElemets = {
   headerDropdown: document.querySelector(".header__dropdown"),
@@ -29,7 +30,6 @@ const getLoggedInUser = () => {
   }
 };
 
-
 document.addEventListener("click", (e) => {
   if (!profileIcon.contains(e.target)) {
     headerDropdown.classList.remove("header__dropdown--show");
@@ -41,7 +41,7 @@ welcomeText.innerText = `Indulge in Excellence, Redefined`;
 previewText.innerText = `Choose your indulgence`;
 
 const createPreview = () => {
-  data.categories.forEach((category) => {
+  data.productCategories.forEach((category) => {
     const previewGroup = document.createElement("div");
     previewGroup.classList.add("preview__group");
     previewOptions.append(previewGroup);

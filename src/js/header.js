@@ -13,6 +13,8 @@ const domElemets = {
   previewOptions: document.querySelector(".preview__options"),
 };
 
+console.log(data)
+
 const {
   headerDropdown,
   profileIcon,
@@ -60,10 +62,10 @@ document.addEventListener("click", (e) => {
 });
 
 const createNavLinks = () => {
-  data.categories.forEach((category) => {
+  data.productCategories.forEach((category) => {
     const navLink = document.createElement("a");
-    navLink.innerText = category.category;
-    navLink.href = `/src/pages${category.link}${category.id}`;
+    navLink.innerText = category.name;
+    navLink.href = `/src/pages${category.link}`;
     navLink.classList.add("header__list-item");
     domElemets.headerListItem = document.querySelectorAll(".header__list-item");
     headerList.append(navLink);
@@ -71,7 +73,7 @@ const createNavLinks = () => {
 };
 
 const createDropdownItem = () => {
-data.dropdown.forEach((item) => {
+data.userActions.forEach((item) => {
     const listItem = document.createElement("li");
     listItem.classList.add("header__dropdown-item",`header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`);
     listItem.innerHTML = item.icon;
