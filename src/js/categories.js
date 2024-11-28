@@ -1,40 +1,50 @@
 import { data } from "./data.js";
 
+
+const cachedElements = {
+  productSection: document.querySelector(".products"),
+  details: document.querySelector(".details"),
+  detailsTitle: document.querySelector(".details__title"),
+  detailsPrice: document.querySelector(".details__price"),
+  detailsImage: document.querySelector(".details__image"),
+  detailsText: document.querySelector(".details__text"),
+  detailsList: document.querySelector(".details__list"),
+  detailsSpecs: document.querySelector(".details__specs")
+};
+
+const {productSection, details, detailsTitle, detailsPrice, detailsText, detailsList, detailsSpecs} = cachedElements;
+
+
 const page = window.location.pathname.split("/").pop().split(".")[0];
-const id = data.productCategories.find(
+const categgoryId = data.productCategories.find(
   (category) => category.value.toLowerCase() === page
 ).id;
 
-const products = data.products.filter((product) => product.categoryId === id);
-const productSection = document.querySelector(".products");
+const products = data.products.filter((product) => product.categoryId === categgoryId);
+console.log("products", products);
+
+
 
 const redirect = (event) => {
   window.location.href =
-    window.location.pathname + "?id=" + event.target.parentNode.dataset.id;
+    window.location.pathname + "?id=" + event.target.parentNode.dataset.categgoryId;
 };
 const viewProduct = (id) => {
   const product = products.find((category) => category.id === id);
-  console.log(product);
-
-  const productSection = document.querySelector(".products");
   productSection.classList.toggle("products--show");
-
-  const details = document.querySelector(".details");
   details.classList.toggle("details--show");
 
-  const detailsImage = document.querySelector(".details__image");
+  detailsImage.alt = `Image of the ${product.name}`;
   detailsImage.src = product.image;
 
-  const productPrice = document.querySelector(".details__price");
-  productPrice.innerText = new Intl.NumberFormat("en-US", {
+  detailsPrice.innerText = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   }).format(product.price);
 
-  const detailsText = document.querySelector(".details__text");
   detailsText.innerText = product.description;
 
-  const detailsList = document.querySelector(".details__list");
+
 
   for (let spec in product.spec) {
     const specItem = document.createElement("li");
@@ -45,15 +55,12 @@ const viewProduct = (id) => {
     specValue.innerText = product.spec[spec];
 
     specItem.append(specTitle, specValue);
-    //    specItem.innerText = `${spec}: ${product.spec[spec]}`;
-
     detailsList.append(specItem);
   }
   const orderButton = document.createElement("button");
   orderButton.classList.add("details__order", "button", "button--order");
   orderButton.innerText = "Order";
 
-  const detailsSpecs = document.querySelector(".details__specs");
   detailsSpecs.append(orderButton);
 };
 
@@ -64,12 +71,12 @@ const renderProducts = () => {
 
     product.dataset.id = item.id;
 
-    const detailsTitle = document.querySelector(".details__title");
-    detailsTitle.innerText = item.name;
+      detailsTitle.innerText = item.name;
 
     const productImage = document.createElement("img");
     productImage.classList.add("products__image");
     productImage.src = item.image;
+    productImage.alt = `Image of the ${item.name}`;
 
     const textGroup = document.createElement("div");
     textGroup.classList.add("products__text-group");
@@ -88,7 +95,6 @@ const renderProducts = () => {
     const viewButton = document.createElement("button");
     viewButton.classList.add("products__view", "button", "button--view");
     viewButton.innerText = "View";
-    viewButton.addEventListener("click", (event) => redirect(event));
 
     textGroup.append(productName, productPrice);
     product.append(productImage, textGroup, viewButton);
@@ -96,17 +102,26 @@ const renderProducts = () => {
   });
 };
 
-const backButton = document.querySelector(".details__back-button");
-
 window.addEventListener("DOMContentLoaded", () => {
   const search = window.location.search;
   const id = parseInt(new URLSearchParams(search).get("id"));
+
   if (id) {
     viewProduct(id);
-    backButton.addEventListener("click", () => {
-      window.location.href = window.location.pathname;
+
+    document.addEventListener("click", (event) => {
+      console.log(event.target.classList)
+      if (event.target.classList.contains("details__back-button")) {
+        window.location.href = window.location.pathname;
+      }
     });
+    
   } else {
     renderProducts();
+    document.addEventListener("click", (event) => {
+      if (event.target.classList.contains("products__view")) {
+        redirect(event);
+      }
+    });
   }
 });

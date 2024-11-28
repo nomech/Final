@@ -13,15 +13,7 @@ const domElemets = {
   previewOptions: document.querySelector(".preview__options"),
 };
 
-console.log(data)
-
-const {
-  headerDropdown,
-  profileIcon,
-  headerList,
-  dropdownList,
-
-} = domElemets;
+const { headerDropdown, profileIcon, headerList, dropdownList } = domElemets;
 
 const getLoggedInUser = () => {
   const loggedInUser = localStorage.getItem("loggedInUser");
@@ -37,7 +29,7 @@ const getUsers = () => {
   return users;
 };
 
-const logOut = () => {
+const logOut = (e) => {
   const users = JSON.parse(getUsers());
   users.forEach((user) => {
     if (currentUser.id === user.id) {
@@ -47,13 +39,13 @@ const logOut = () => {
 
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.removeItem("loggedInUser");
-  window.location.href = "./pages/login.html";
+  const id = e.targer.dataset.id;
+  window.location.href = data.userActions[id].link;
 };
 
 const toggleDropdown = () => {
   headerDropdown.classList.toggle("header__dropdown--show");
 };
-
 
 document.addEventListener("click", (e) => {
   if (!profileIcon.contains(e.target)) {
@@ -73,22 +65,25 @@ const createNavLinks = () => {
 };
 
 const createDropdownItem = () => {
-data.userActions.forEach((item) => {
+  data.userActions.forEach((item) => {
     const listItem = document.createElement("li");
-    listItem.classList.add("header__dropdown-item",`header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`);
+    listItem.classList.add(
+      "header__dropdown-item",
+      `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`
+    );
     listItem.innerHTML = item.icon;
 
     domElemets[
-        "headerDropdownItem" + item.name.replace(" ", "")
+      "headerDropdownItem" + item.name.replace(" ", "")
     ] = `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`;
 
     const listLink = document.createElement("a");
     listLink.classList.add("header__dropdown-link");
     listLink.innerText = item.name;
     listLink.href = item.link;
+    listLink.dataset.id = item.id;
     listItem.append(listLink);
     dropdownList.append(listItem);
-
   });
 };
 
@@ -98,8 +93,4 @@ createDropdownItem();
 const logOutButton = document.querySelector(".header__dropdown-item--logout");
 const currentUser = JSON.parse(getLoggedInUser());
 profileIcon.addEventListener("click", toggleDropdown);
-
-logOutButton.addEventListener("click", logOut);
-
-
-
+logOutButton.addEventListener("click", (e) => logOut());
