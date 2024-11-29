@@ -36,10 +36,20 @@ const redirect = (event) => {
   const parentId = event.target.parentNode.dataset.id;
   window.location.href = window.location.pathname + "?id=" + parentId;
 };
-const viewProduct = (id) => {
-  productSection.innerText = "";
-  const product = products.find((category) => category.id === id);
 
+const addProduct = (event) => {
+  const parentId = parseInt(new URLSearchParams(window.location.search).get("id"));
+  const product = products.find((category) => category.id === parentId);
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
+
+const viewProduct = (id) => {
+  //productSection.innerText = "";
+  const product = products.find((category) => category.id === id);
+  console.log(id);
   productSection.classList.toggle("products--show");
   details.classList.toggle("details--show");
   detailsTitle.innerText = product.name;
@@ -68,7 +78,7 @@ const viewProduct = (id) => {
   const orderButton = document.createElement("button");
   orderButton.classList.add("details__order", "button", "button--order");
   orderButton.innerText = "Order";
-
+  orderButton.addEventListener("click", addProduct);
   detailsSpecs.append(orderButton);
 };
 
@@ -83,7 +93,6 @@ const renderProducts = () => {
     productImage.classList.add("products__image");
     productImage.src = item.image;
     productImage.alt = `Image of the ${item.name}`;
-    console.log("loading img");
 
     const textGroup = document.createElement("div");
     textGroup.classList.add("products__text-group");
@@ -106,27 +115,26 @@ const renderProducts = () => {
     textGroup.append(productName, productPrice);
     product.append(productImage, textGroup, viewButton);
     productSection.append(product);
-    
   });
-
 };
 
 window.addEventListener("DOMContentLoaded", () => {
-  renderProducts();
-
-  document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("details__back-button")) {
-      //window.location.href = window.location.pathname;
-      renderProducts();
-    }
-  });
-  document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("products__view")) {
-      //redirect(event);
-      const parentId = parseInt(event.target.parentNode.dataset.id);
-      //console.log(parentId)
-      viewProduct(parentId);
-    }
-  });
+  const id = parseInt(new URLSearchParams(window.location.search).get("id"));
+  if (id) {
+    viewProduct(id);
+    document.addEventListener("click", (event) => {
+      if (event.target.classList.contains("details__back-button")) {
+        window.location.href = window.location.pathname;
+      }
+    });
+  } else {
+    renderProducts();
+    document.addEventListener("click", (event) => {
+      if (event.target.classList.contains("products__view")) {
+        redirect(event);
+        const parentId = parseInt(event.target.parentNode.dataset.id);
+        viewProduct(parentId);
+      }
+    });
+  }
 });
-
