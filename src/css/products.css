@@ -26,7 +26,7 @@ main {
   grid-template-rows: 140px;
   align-items: center;
   width: 80%;
-  animation: fadeIn 1.5s ease-in;
+  animation: fadeIn 0.3s ease-in;
 }
 
 

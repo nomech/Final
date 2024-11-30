@@ -6,7 +6,6 @@ const domElemets = {
   profileName: document.querySelector(".header__profile-name"),
   headerList: document.querySelector(".header__list"),
   dropdownList: document.querySelector(".header__dropdown-list"),
-
 };
 
 const { headerDropdown, profileIcon, headerList, dropdownList } = domElemets;
@@ -23,6 +22,16 @@ const getLoggedInUser = () => {
 const getUsers = () => {
   const users = localStorage.getItem("users");
   return users;
+};
+
+const getCartAmount = () => {
+  const cart = JSON.parse(localStorage.getItem("cart"));
+  const cartAmount = cart.length;
+  const cartAmountElement = document.querySelector(".header__profile-counter");
+  if (cartAmount > 0) {
+    cartAmountElement.classList.add("header__profile-counter--show");
+    cartAmountElement.innerText = cartAmount;
+  }
 };
 
 const logOut = (e) => {
@@ -55,10 +64,16 @@ const createNavLinks = () => {
     const navLink = document.createElement("a");
     navLink.innerText = category.name;
     navLink.href = `${origin}/pages${category.link}`;
+    console.log(window.location.hostname);
+    if (window.location.hostname === "127.0.0.1") {
+      navLink.href = `${origin}/src/pages${category.link}`;
+    }
     navLink.classList.add("header__list-item");
     domElemets.headerListItem = document.querySelectorAll(".header__list-item");
     headerList.append(navLink);
   });
+
+  getCartAmount();
 };
 
 const createDropdownItem = () => {

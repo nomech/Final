@@ -49,12 +49,25 @@ const viewProduct = (event) => {
     detailsList.append(specItem);
   }
 
+  const getCartAmount = () => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartAmount = cart.length;
+    const cartAmountElement = document.querySelector(".header__profile-counter");
+    console.log(cartAmountElement);
+    if (cartAmount > 0) {
+      cartAmountElement.classList.add("header__profile-counter--show");
+      cartAmountElement.innerText = cartAmount;
+    }
+  };
+
   const orderButton = document.createElement("button");
   orderButton.classList.add("details__order", "button", "button--order");
   orderButton.innerText = "Order";
 
+
   const detailsSpecs = document.querySelector(".details__specs");
   detailsSpecs.append(orderButton);
+  orderButton.addEventListener("click", getCartAmount);
 };
 
 const createSortingOptions = () => {

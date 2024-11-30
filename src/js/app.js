@@ -57,9 +57,15 @@ const createPreview = () => {
     previewTitle.innerText = category.name;
     previewTitle.classList.add("preview__title");
     previewGroup.append(previewImage, previewTitle);
+
     previewGroup.addEventListener("click", () => {
-      window.location.href = `${origin}/pages${category.link}`;
+      if (window.location.hostname === "127.0.0.1") {
+        window.location.href = `${origin}/src/pages${category.link}`;
+      } else {
+        window.location.href = `${origin}/pages${category.link}`;
+      }
     });
+    
   });
 };
 createPreview();
