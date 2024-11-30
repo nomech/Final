@@ -1,0 +1,12 @@
+.orders,
+.orders__table {
+  width: 100%;
+}
+
+.orders__cell{
+    text-align: center;
+}
+
+.orders__image {
+  width: 30px;
+}

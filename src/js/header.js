@@ -26,11 +26,14 @@ const getUsers = () => {
 
 const getCartAmount = () => {
   const cart = JSON.parse(localStorage.getItem("cart"));
-  const cartAmount = cart.length;
-  const cartAmountElement = document.querySelector(".header__profile-counter");
-  if (cartAmount > 0) {
-    cartAmountElement.classList.add("header__profile-counter--show");
-    cartAmountElement.innerText = cartAmount;
+  if (cart) {
+    const cartAmount = cart.length;
+    const cartAmountElement = document.querySelector(
+      ".header__profile-counter"
+    );
+
+      cartAmountElement.classList.add("header__profile-counter--show");
+      cartAmountElement.innerText = cartAmount;
   }
 };
 
@@ -92,7 +95,10 @@ const createDropdownItem = () => {
     const listLink = document.createElement("a");
     listLink.classList.add("header__dropdown-link");
     listLink.innerText = item.name;
-    listLink.href = item.link;
+    listLink.href = `${origin}/pages${item.link}`;
+    if (window.location.hostname === "127.0.0.1") {
+      listLink.href = `${origin}/src/pages${item.link}`;
+    }
     listLink.dataset.id = item.id;
     listItem.append(listLink);
     dropdownList.append(listItem);

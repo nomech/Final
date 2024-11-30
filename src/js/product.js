@@ -17,7 +17,6 @@ const viewProduct = (event) => {
     (category) => category.id == id
   );
 
-  console.log
   const products = document.querySelector(".products");
   products.classList.toggle("products--show");
 
@@ -52,7 +51,9 @@ const viewProduct = (event) => {
   const getCartAmount = () => {
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartAmount = cart.length;
-    const cartAmountElement = document.querySelector(".header__profile-counter");
+    const cartAmountElement = document.querySelector(
+      ".header__profile-counter"
+    );
     console.log(cartAmountElement);
     if (cartAmount > 0) {
       cartAmountElement.classList.add("header__profile-counter--show");
@@ -62,12 +63,14 @@ const viewProduct = (event) => {
 
   const orderButton = document.createElement("button");
   orderButton.classList.add("details__order", "button", "button--order");
-  orderButton.innerText = "Order";
+  orderButton.innerText = "asdada";
 
+  orderButton.addEventListener("click", () => {
+    getCartAmount();
+  });
 
   const detailsSpecs = document.querySelector(".details__specs");
   detailsSpecs.append(orderButton);
-  orderButton.addEventListener("click", getCartAmount);
 };
 
 const createSortingOptions = () => {

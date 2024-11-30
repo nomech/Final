@@ -22,6 +22,21 @@ const {
   detailsSpecs,
 } = cachedElements;
 
+
+
+
+const updateAmount = (event) => {
+  const amount = document.querySelector(".details__amount");
+  console.log(amount);
+  if (event.target.classList.contains("details__plus")) {
+    amount.value = parseInt(amount.value) + 1;
+  } else if (event.target.classList.contains("details__minus")) {
+    if (amount.value > 1) {
+      amount.value = parseInt(amount.value) - 1;
+    }
+  }
+};
+
 const page = window.location.pathname.split("/").pop().split(".")[0];
 const categgoryId = data.productCategories.find(
   (category) => category.value.toLowerCase() === page
@@ -30,24 +45,40 @@ const categgoryId = data.productCategories.find(
 const products = data.products.filter(
   (product) => product.categoryId === categgoryId
 );
-console.log("products", products);
 
 const redirect = (event) => {
   const parentId = event.target.parentNode.dataset.id;
   window.location.href = window.location.pathname + "?id=" + parentId;
 };
 
-const addProduct = (event) => {
-  const parentId = parseInt(new URLSearchParams(window.location.search).get("id"));
-  const product = products.find((category) => category.id === parentId);
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+const getCartAmount = () => {
+  const cart = JSON.parse(localStorage.getItem("cart"));
+  console.log(cart);
+  if (cart) {
+    const cartAmount = cart.length;
+    const cartAmountElement = document.querySelector(
+      ".header__profile-counter"
+    );
 
+    cartAmountElement.classList.add("header__profile-counter--show");
+    cartAmountElement.innerText = cartAmount;
+  }
+};
+
+const addProduct = () => {
+  const parentId = parseInt(
+    new URLSearchParams(window.location.search).get("id")
+  );
+  const product = products.find((category) => category.id === parentId);
+  product.amount = parseInt(document.querySelector(".details__amount").value);
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
+  getCartAmount();
 };
 
 const viewProduct = (id) => {
-  //productSection.innerText = "";
+  //productSection.innerText = "";o
   const product = products.find((category) => category.id === id);
   console.log(id);
   productSection.classList.toggle("products--show");
@@ -75,12 +106,32 @@ const viewProduct = (id) => {
     detailsList.append(specItem);
   }
 
+  const amountGroup = document.createElement("div");
+  amountGroup.classList.add("details__amount-group");
+
+  const amount = document.createElement("input");
+  amount.classList.add("details__amount");
+  amount.type = "number";
+  amount.value = 1;
+
+  const minusButton = document.createElement("button");
+  minusButton.classList.add("details__minus", "button", "button--minus");
+  minusButton.innerText = "-";
+
+  const plusButton = document.createElement("button");
+  plusButton.classList.add("details__plus", "button", "button--plus");
+  plusButton.innerText = "+";
+
+  amountGroup.append(minusButton, amount, plusButton);
+
   const orderButton = document.createElement("button");
   orderButton.classList.add("details__order", "button", "button--order");
   orderButton.innerText = "Order";
   orderButton.addEventListener("click", addProduct);
-  detailsSpecs.append(orderButton);
+  detailsSpecs.append(amountGroup, orderButton);
 };
+
+
 
 const renderProducts = () => {
   products.forEach((item) => {
@@ -137,4 +188,9 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  document.addEventListener("click", (event) => {
+    updateAmount(event);
+  });
 });
+
+
