@@ -35,12 +35,14 @@
         </nav>
     </header>
     <main>
+        <section class="filters">
+            <label for="sort">Sort</label>
+            <select name="sort" id="sort" class="filters__sort">
+            </select>
+        </section>
+
         <section class="products products--show">
-            <div class="filters">
-                <label for="sort">Sort</label>
-                <select name="sort" id="sort" class="filters__sort">
-                </select>
-            </div>
+
         </section>
         <section class="details">
             <button class="details__back-button button button--back">Back</button>
@@ -60,7 +62,7 @@
                 </div>
             </div>
             </div>
-        </section> 
+        </section>
     </main>
 
     <script type="module" src="../js/header.js"></script>

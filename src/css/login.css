@@ -62,6 +62,10 @@ legend {
   transition: background-color 0.3s ease;
 }
 
+button:active {
+  background-color: #d4af37;
+}
+
 .login-form__button-icon {
   width: 14px;
   height: 14px;

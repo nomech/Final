@@ -28,7 +28,7 @@ const getCartAmount = () => {
     main.innerHTML = "";
     const noOrders = document.createElement("p");
     noOrders.classList.add("orders__none");
-    noOrders.innerText = "No orders yet!";
+    noOrders.innerText = "There is nothing in your cart yet";
     main.append(noOrders);
   }
 };
@@ -95,7 +95,7 @@ const createOrderNowButton = () => {
   const summary = document.querySelector(".summary");
   const orderButton = document.createElement("button");
   orderButton.classList.add("orders__order", "button", "button--order");
-  orderButton.innerText = "Order now";
+  orderButton.innerText = "Submit Order";
   orderButton.addEventListener("click", orderNow);
 
   summary.append(orderButton);
@@ -116,7 +116,7 @@ const orderNow = () => {
 
   const complete = document.createElement("p");
   completeSection.classList.add("order__complete");
-  completeSection.innerText = "Order complete!";
+  completeSection.innerText = "Order submitted!";
 
   completeSection.append(complete);
   main.append(completeSection);

@@ -38,12 +38,14 @@ const getCartAmount = () => {
 };
 
 const redirect = (link) => {
-  
-  if (window.location.hostname === "127.0.0.1") {
-    window.location.href = `${origin}/src/pages${link}`;
-  } else {
-    window.location.href = `${origin}/pages${link}`;
-  }
+  window.location.href = getPageUrl(link);
+};
+
+const getPageUrl = (link) => {
+  const origin = window.location.origin;
+  const basePath =
+    window.location.hostname === "127.0.0.1" ? "/src/pages" : "/pages";
+  return `${origin}${basePath}${link}`;
 };
 
 const logOut = (e) => {
@@ -71,21 +73,13 @@ document.addEventListener("click", (e) => {
 });
 
 const createNavLinks = () => {
-  const origin = window.location.origin;
   data.productCategories.forEach((category) => {
     const navLink = document.createElement("a");
     navLink.innerText = category.name;
-    navLink.href = `${origin}/pages${category.link}`;
-
-    if (window.location.hostname === "127.0.0.1") {
-      navLink.href = `${origin}/src/pages${category.link}`;
-    }
-
+    navLink.href = getPageUrl(category.link);
     navLink.classList.add("header__list-item");
-    domElemets["headerListItem"] = navLink;
     headerList.append(navLink);
   });
-
   getCartAmount();
 };
 
@@ -93,7 +87,10 @@ const createDropdownItem = () => {
   data.userActions.forEach((item) => {
     const listItem = document.createElement("li");
     listItem.dataset.id = item.link.toLowerCase();
-    listItem.classList.add("header__dropdown-item",`header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`);
+    listItem.classList.add(
+      "header__dropdown-item",
+      `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`
+    );
     listItem.innerHTML = item.icon;
 
     domElemets["headerDropdownItem" + item.name.replace(" ", "")] = listItem;
@@ -101,7 +98,6 @@ const createDropdownItem = () => {
     const listLink = document.createElement("p");
     listLink.classList.add("header__dropdown-link");
     listLink.innerText = item.name;
-
 
     listItem.append(listLink);
     dropdownList.append(listItem);

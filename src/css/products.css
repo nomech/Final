@@ -2,6 +2,20 @@ main {
   padding: 220px 0;
 }
 
+.filters {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  width: 80%;
+}
+.filters__sort {
+  background-color: var(--seconday-bg-color);
+  color: var(--text-color);
+  padding: 1rem;
+  width: 10rem;
+}
+
 .products {
   visibility: hidden;
   display: flex;
@@ -136,7 +150,8 @@ main {
   width: 64px;
 }
 
-.button--minus, .button--plus{
+.button--minus,
+.button--plus {
   padding: 1rem;
 }
 

@@ -131,6 +131,7 @@ createProductItems(getProductObject());
 
 const filterSort = document.querySelector(".filters__sort");
 filterSort.addEventListener("change", (e) => {
+
   const spec = e.target.value;
   sortAscending(spec);
 });
@@ -139,7 +140,7 @@ const sortAscending = (spec) => {
   const product = getProductObject();
 
   product.items = product.items.sort((a, b) => {
-    console.log();
+
     if (spec === "name") {
       return a[spec].localeCompare(b[spec]);
     } else if (spec === "price") {

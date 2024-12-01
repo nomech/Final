@@ -12,12 +12,23 @@
   height: 4rem;
 }
 
-.orders__cell{
-    text-align: center;
+.orders__cell {
+  text-align: center;
 }
 
 .orders__image {
   width: 30px;
 }
 
+.summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 6rem;
+  width: 100%;
+  align-items: center;
+}
 
+.orders__order {
+  grid-column-start: span 2;
+}
