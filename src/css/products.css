@@ -1,6 +1,5 @@
-
 main {
- padding: 220px 0;
+  padding: 220px 0;
 }
 
 .products {
@@ -11,7 +10,6 @@ main {
   justify-content: center;
   align-items: center;
   gap: 2rem;
- 
 }
 
 .products--show {
@@ -28,8 +26,6 @@ main {
   width: 80%;
   animation: fadeIn 0.3s ease-in;
 }
-
-
 
 .products__image {
   width: 240px;
@@ -76,7 +72,8 @@ main {
   visibility: visible;
 }
 
-.details__title, .details__back-button {
+.details__title,
+.details__back-button {
   margin-left: 70px;
 }
 
@@ -127,6 +124,21 @@ main {
   background-color: var(--text-color);
 }
 
+.details__amount {
+  padding: 1rem;
+  background-color: unset;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--text-color);
+  text-align: center;
+  font-size: 16px;
+  width: 64px;
+}
+
+.button--minus, .button--plus{
+  padding: 1rem;
+}
 
 @keyframes fadeIn {
   from {
@@ -135,4 +147,4 @@ main {
   to {
     opacity: 1;
   }
-} 
+}

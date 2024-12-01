@@ -80,6 +80,10 @@ header {
   background-color: #ffffff;
 }
 
+.header__dropdown-item *{
+  pointer-events: none;
+}
+
 .header__dropdown-list {
   list-style: none;
   padding: 0;

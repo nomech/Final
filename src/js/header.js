@@ -32,8 +32,17 @@ const getCartAmount = () => {
       ".header__profile-counter"
     );
 
-      cartAmountElement.classList.add("header__profile-counter--show");
-      cartAmountElement.innerText = cartAmount;
+    cartAmountElement.classList.add("header__profile-counter--show");
+    cartAmountElement.innerText = cartAmount;
+  }
+};
+
+const redirect = (link) => {
+  
+  if (window.location.hostname === "127.0.0.1") {
+    window.location.href = `${origin}/src/pages${link}`;
+  } else {
+    window.location.href = `${origin}/pages${link}`;
   }
 };
 
@@ -47,7 +56,7 @@ const logOut = (e) => {
 
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.removeItem("loggedInUser");
-  const id = e.targer.dataset.id;
+  const id = e.target.dataset.id;
   window.location.href = data.userActions[id].link;
 };
 
@@ -67,12 +76,13 @@ const createNavLinks = () => {
     const navLink = document.createElement("a");
     navLink.innerText = category.name;
     navLink.href = `${origin}/pages${category.link}`;
-    console.log(window.location.hostname);
+
     if (window.location.hostname === "127.0.0.1") {
       navLink.href = `${origin}/src/pages${category.link}`;
     }
+
     navLink.classList.add("header__list-item");
-    domElemets.headerListItem = document.querySelectorAll(".header__list-item");
+    domElemets["headerListItem"] = navLink;
     headerList.append(navLink);
   });
 
@@ -82,33 +92,33 @@ const createNavLinks = () => {
 const createDropdownItem = () => {
   data.userActions.forEach((item) => {
     const listItem = document.createElement("li");
-    listItem.classList.add(
-      "header__dropdown-item",
-      `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`
-    );
+    listItem.dataset.id = item.link.toLowerCase();
+    listItem.classList.add("header__dropdown-item",`header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`);
     listItem.innerHTML = item.icon;
 
-    domElemets[
-      "headerDropdownItem" + item.name.replace(" ", "")
-    ] = `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`;
+    domElemets["headerDropdownItem" + item.name.replace(" ", "")] = listItem;
 
-    const listLink = document.createElement("a");
+    const listLink = document.createElement("p");
     listLink.classList.add("header__dropdown-link");
     listLink.innerText = item.name;
-    listLink.href = `${origin}/pages${item.link}`;
-    if (window.location.hostname === "127.0.0.1") {
-      listLink.href = `${origin}/src/pages${item.link}`;
-    }
-    listLink.dataset.id = item.id;
+
+
     listItem.append(listLink);
     dropdownList.append(listItem);
   });
 };
-
-createNavLinks();
-createDropdownItem();
-
-const logOutButton = document.querySelector(".header__dropdown-item--logout");
 const currentUser = JSON.parse(getLoggedInUser());
-profileIcon.addEventListener("click", toggleDropdown);
-logOutButton.addEventListener("click", (e) => logOut());
+window.addEventListener("DOMContentLoaded", (event) => {
+  createNavLinks();
+  createDropdownItem();
+  const logOutButton = document.querySelector(".header__dropdown-item--logout");
+
+  profileIcon.addEventListener("click", toggleDropdown);
+
+  logOutButton.addEventListener("click", (e) => logOut(e));
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("header__dropdown-item")) {
+      redirect(e.target.dataset.id);
+    }
+  });
+});

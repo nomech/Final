@@ -587,7 +587,7 @@ export const data = {
       },
     },
     {
-      id: 27,
+      id: 7,
       categoryId: 4,
       name: "Rainforest Canopy Estate",
       price: 22000000,

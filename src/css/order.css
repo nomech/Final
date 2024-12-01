@@ -1,6 +1,15 @@
 .orders,
 .orders__table {
   width: 100%;
+  border-collapse: collapse;
+}
+
+.orders__row:nth-child(odd) {
+  background-color: var(--seconday-bg-color);
+}
+
+.orders__row {
+  height: 4rem;
 }
 
 .orders__cell{
@@ -10,3 +19,5 @@
 .orders__image {
   width: 30px;
 }
+
+
