@@ -104,6 +104,9 @@ const createOrderNowButton = () => {
 const orderNow = () => {
   localStorage.removeItem("cart");
 
+  const cartCounter = document.querySelector(".header__dropdown-counter")
+  cartCounter.innerText = `(0)`;
+
   const main = document.querySelector(".main");
   const orders = document.querySelector(".orders");
   orders.remove();

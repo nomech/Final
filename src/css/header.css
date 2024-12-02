@@ -93,9 +93,15 @@ header {
   background-color: var(--seconday-bg-color);
 }
 
-.header__dropdown-link {
+.header__dropdown-link, .header__dropdown-counter {
   color: var(--secondary-text-color);
   text-decoration: none;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.header__dropdown-counter{
+  justify-self: flex-end;
 }
 
 .header__profile-icon {

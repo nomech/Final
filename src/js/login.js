@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+let loginAttepmted = false;
 const loginUser = (e) => {
   e.preventDefault();
 
@@ -27,24 +28,34 @@ const loginUser = (e) => {
       }
     }
   }
-  console.log(users);
-  console.log(users.length);
-  console.log(users.length > 0);
 
-
+  let userAuthenticated = false;
   if (users.length > 0) {
     users.forEach((user) => {
-      console.log(user.email);
-      console.log(user.password);
       if (user.email === email && user.password === password) {
         user.loggedIn = true;
+        userAuthenticated = true;
         storeData(users);
-      } else {
-        console.error("Invalid username or password");
       }
     });
   }
-  redirectUser();
+
+ 
+
+  if (userAuthenticated) {
+    redirectUser();
+  } else if (!loginAttepmted) {
+    console.log(loginAttepmted);
+    loginAttepmted = true;
+    
+    const buttonContainer = document.querySelector(
+      ".login-form__button-container"
+    );
+    const error = document.createElement("p");
+    error.textContent = "Invalid username or password";
+    error.classList.add("error");
+    buttonContainer.before(error);
+  }
 };
 
 const getData = () => {
@@ -58,7 +69,6 @@ const storeData = (data) => {
 
 const checkLoggedInUser = () => {
   let loginStatus = false;
-  const userCount = getData().length;
   const findLoggedInUser = getData().find((user) => user.loggedIn);
   if (findLoggedInUser) {
     const loggedInUser = {
@@ -69,10 +79,8 @@ const checkLoggedInUser = () => {
     };
     localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
     loginStatus = findLoggedInUser.loggedIn;
-  } 
-  /* else if (userCount <= 0) {
-    window.location.href = "./register.html";
-  } */
+  }
+
   return loginStatus;
 };
 
@@ -81,8 +89,5 @@ const redirectUser = () => {
     window.location.href = "../index.html";
   }
 };
-
-//redirectUser();
-
 
 //TOD: Add alert message for invalid username or password

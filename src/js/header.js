@@ -24,17 +24,14 @@ const getUsers = () => {
   return users;
 };
 
-const getCartAmount = () => {
+const updateCartAmount = () => {
   const cart = JSON.parse(localStorage.getItem("cart"));
+  let cartAmount = 0;
   if (cart) {
-    const cartAmount = cart.length;
-    const cartAmountElement = document.querySelector(
-      ".header__profile-counter"
-    );
-
-    cartAmountElement.classList.add("header__profile-counter--show");
-    cartAmountElement.innerText = cartAmount;
+    cartAmount = cart.length;
   }
+
+  return cartAmount;
 };
 
 const redirect = (link) => {
@@ -80,7 +77,6 @@ const createNavLinks = () => {
     navLink.classList.add("header__list-item");
     headerList.append(navLink);
   });
-  getCartAmount();
 };
 
 const createDropdownItem = () => {
@@ -97,7 +93,14 @@ const createDropdownItem = () => {
 
     const listLink = document.createElement("p");
     listLink.classList.add("header__dropdown-link");
-    listLink.innerText = item.name;
+    if (item.name === "Cart") {
+      const cartCounter = document.createElement("p");
+      cartCounter.classList.add("header__dropdown-counter");
+      cartCounter.innerText = `(${updateCartAmount()})`;
+      listItem.append(cartCounter); 
+    }
+      listLink.innerText = `${item.name}`;
+    
 
     listItem.append(listLink);
     dropdownList.append(listItem);

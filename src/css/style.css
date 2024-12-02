@@ -130,6 +130,20 @@ transform: scale(0.98);
 .button:hover {
   background-color: var(--text-color);
 }
+.button--disabled {
+  background: #333;
+  transition: none;
+  animation:none;
+}
+
+.button--disabled:hover {
+  background: #333;
+
+}
+
+.button--disabled:active {
+  transform: none;
+}
 
 @keyframes fadeIn {
   from {
