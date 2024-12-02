@@ -80,7 +80,6 @@ main {
   align-items: center;
   flex-grow: 1;
   gap: 3rem;
-  padding: 220px 0;
 }
 
 .welcome,

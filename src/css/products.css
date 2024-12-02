@@ -1,3 +1,6 @@
+main {
+  padding: 220px 0;
+}
 .filters {
   display: flex;
   justify-content: flex-start;
@@ -16,7 +19,6 @@
   visibility: hidden;
   display: flex;
   width: 100%;
-  min-height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -25,6 +27,7 @@
 
 .products--show {
   visibility: visible;
+  min-height: 100vh;
 }
 
 .products__item {
@@ -77,6 +80,7 @@
   align-items: flex-start;
   padding: 0 4rem;
   gap: 1rem;
+  animation: fadeIn 0.3s ease-in;
 }
 
 .details--show {
