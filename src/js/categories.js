@@ -1,4 +1,5 @@
 import { data } from "./data.js";
+import { convertToCurrency, getPageId, updateCartAmount } from "./utils.js";
 
 const cachedElements = {
   productSection: document.querySelector(".products"),
@@ -10,6 +11,7 @@ const cachedElements = {
   detailsList: document.querySelector(".details__list"),
   detailsSpecs: document.querySelector(".details__specs"),
   cartAmountElement: document.querySelector(".header__profile-counter"),
+  filterSection: document.querySelector(".filters"),
   filterSort: document.querySelector(".filters__sort"),
 };
 
@@ -22,7 +24,7 @@ const {
   detailsText,
   detailsList,
   detailsSpecs,
-  cartAmountElement,
+  filterSection,
   filterSort,
 } = cachedElements;
 
@@ -55,15 +57,6 @@ window.addEventListener("DOMContentLoaded", () => {
   createSortingOptions();
 });
 
-const getPageId = () => {
-  return parseInt(new URLSearchParams(window.location.search).get("id"));
-};
-
-const formatCurrency = (amount) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(
-    amount
-  );
-
 const updateAmount = (event) => {
   const detailsPlus = event.target.classList.contains("details__plus");
   const detailsMinus = event.target.classList.contains("details__minus");
@@ -74,11 +67,13 @@ const updateAmount = (event) => {
   } else if (detailsMinus && amount.value > 1) {
     amount.value = parseInt(amount.value) - 1;
   }
-
 };
+
 const getCurrentCategory = () => {
   const page = window.location.pathname.split("/").pop().split(".")[0];
-  return data.productCategories.find((category) => category.value.toLowerCase() === page).id;
+  return data.productCategories.find(
+    (category) => category.value.toLowerCase() === page
+  ).id;
 };
 
 const categoryId = getCurrentCategory();
@@ -86,31 +81,9 @@ const products = data.products.filter(
   (product) => product.categoryId === categoryId
 );
 
-console.log(products);
-
 const redirect = (event) => {
   const parentId = event.target.parentNode.dataset.id;
   window.location.href = window.location.pathname + "?id=" + parentId;
-};
-
-/* const updateCartAmount = () => {
-  const cart = JSON.parse(localStorage.getItem("cart"));
-
-  if (cart) {
-    const cartAmount = cart.length;
-    cachedElements[cartAmountElement] = cartAmountElement.classList;
-    cartAmountElement.innerText = cartAmount;
-  }
-}; */
-
-const updateCartAmount = () => {
-  const cart = JSON.parse(localStorage.getItem("cart"));
-  let cartAmount = 0;
-  if (cart) {
-    cartAmount = cart.length;
-  }
-
-  return cartAmount;
 };
 
 const createSortingOptions = () => {
@@ -165,28 +138,36 @@ const addProductToCart = () => {
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
+
   const orderButton = cachedElements["orderButton"];
   orderButton.disabled = true;
   orderButton.classList.remove("button--order");
   orderButton.classList.add("button--disabled");
   orderButton.innerText = "Added to cart!";
+
   const amountGroup = cachedElements["amountGroup"];
   amountGroup.remove();
 
-  const cartCounter = document.querySelector(".header__dropdown-counter")
+  const cartCounter = document.querySelector(".header__dropdown-counter");
   cartCounter.innerText = `(${updateCartAmount()})`;
 };
 
 const viewProduct = (id) => {
-  const product = products.find((category) => category.id === id);
+  filterSection.remove();
 
+  const product = products.find((category) => category.id === id);
   productSection.classList.toggle("products--show");
   details.classList.toggle("details--show");
 
   detailsTitle.innerText = product.name;
   detailsImage.alt = `Image of the ${product.name}`;
   detailsImage.src = product.image;
-  detailsPrice.innerText = formatCurrency(product.price);
+  detailsPrice.innerText = convertToCurrency(
+    "en-US",
+    "currency",
+    "USD",
+    product.price
+  );
   detailsText.innerText = product.description;
 
   for (let spec in product.spec) {
@@ -252,7 +233,12 @@ const renderProducts = (products) => {
 
     const productPrice = document.createElement("p");
     productPrice.classList.add("products__price");
-    productPrice.innerText = formatCurrency(item.price);
+    productPrice.innerText = convertToCurrency(
+      "en-US",
+      "currency",
+      "USD",
+      item.price
+    );
     cachedElements["productPrice"] = productPrice;
 
     const productName = document.createElement("h2");
@@ -264,7 +250,7 @@ const renderProducts = (products) => {
     viewButton.classList.add("products__view", "button", "button--view");
     viewButton.innerText = "View";
     cachedElements["viewButton"] = viewButton;
-    
+
     textGroup.append(productName, productPrice);
     product.append(productImage, textGroup, viewButton);
     productSection.append(product);

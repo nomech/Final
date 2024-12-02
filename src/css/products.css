@@ -8,12 +8,15 @@ main {
   gap: 1rem;
   width: 80%;
 }
+
 .filters__sort {
   background-color: var(--seconday-bg-color);
   color: var(--text-color);
   padding: 1rem;
   width: 10rem;
 }
+
+
 
 .products {
   visibility: hidden;

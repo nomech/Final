@@ -1,4 +1,5 @@
 import { data } from "./data.js";
+import { updateCartAmount, getLoggedInUser  , getUsers } from "./utils.js";
 
 const domElemets = {
   headerDropdown: document.querySelector(".header__dropdown"),
@@ -9,30 +10,6 @@ const domElemets = {
 };
 
 const { headerDropdown, profileIcon, headerList, dropdownList } = domElemets;
-
-const getLoggedInUser = () => {
-  const loggedInUser = localStorage.getItem("loggedInUser");
-  if (loggedInUser === null) {
-    window.location.href = "./pages/login.html";
-  } else {
-    return loggedInUser;
-  }
-};
-
-const getUsers = () => {
-  const users = localStorage.getItem("users");
-  return users;
-};
-
-const updateCartAmount = () => {
-  const cart = JSON.parse(localStorage.getItem("cart"));
-  let cartAmount = 0;
-  if (cart) {
-    cartAmount = cart.length;
-  }
-
-  return cartAmount;
-};
 
 const redirect = (link) => {
   window.location.href = getPageUrl(link);
@@ -97,17 +74,18 @@ const createDropdownItem = () => {
       const cartCounter = document.createElement("p");
       cartCounter.classList.add("header__dropdown-counter");
       cartCounter.innerText = `(${updateCartAmount()})`;
-      listItem.append(cartCounter); 
+      listItem.append(cartCounter);
     }
-      listLink.innerText = `${item.name}`;
-    
+    listLink.innerText = `${item.name}`;
 
     listItem.append(listLink);
     dropdownList.append(listItem);
   });
 };
+
 const currentUser = JSON.parse(getLoggedInUser());
-window.addEventListener("DOMContentLoaded", (event) => {
+
+window.addEventListener("DOMContentLoaded", () => {
   createNavLinks();
   createDropdownItem();
   const logOutButton = document.querySelector(".header__dropdown-item--logout");
