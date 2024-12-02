@@ -70,6 +70,7 @@ body {
   height: 100vh;
   background: #030303;
   color: #ffffff;
+  
 }
 
 main {
@@ -79,6 +80,7 @@ main {
   align-items: center;
   flex-grow: 1;
   gap: 3rem;
+  padding: 220px 0;
 }
 
 .welcome,
@@ -107,7 +109,7 @@ main {
 
 .welcome__sign,
 .welcome__text {
-  font-weight: 200w;
+  font-weight: 200;
 }
 
 .button {
