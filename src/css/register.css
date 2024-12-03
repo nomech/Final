@@ -1,16 +1,3 @@
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
 
 fieldset {
   padding: 48px;
@@ -69,7 +56,7 @@ legend {
 }
 
 .register-form__text a {
-  color: #d4af37;
+  color: var(--primary-color);
   transition: color 0.3s ease;
   text-transform: none;
   letter-spacing: 0;

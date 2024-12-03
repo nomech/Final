@@ -1,0 +1,75 @@
+.preview {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--seconday-bg-color);
+}
+
+.preview__text {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInColor 4s ease-in-out;
+  color: #d4af37;
+}
+
+.preview__options {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.preview__group {
+  position: relative;
+  cursor: pointer;
+}
+
+.preview__group::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-bg-color);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.preview__image {
+  width: 400px;
+  height: 230px;
+}
+
+.preview__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: color 0.3s ease;
+  z-index: 2;
+  font-size: 1.4rem;
+  filter: brightness(1.2);
+}
+
+.preview__group:hover .preview__title {
+  color: var(--primary-color);
+}
+
+
+
+@keyframes fadeInColor {
+  from {
+    opacity: 0;
+    color: var(--text-color);
+  }
+  to {
+    opacity: 1;
+    color: var(--primary-color);
+  }
+}

@@ -1,5 +1,5 @@
 import { data } from "./data.js";
-console.log(data);
+import { getLoggedInUser } from "./utils.js";
 
 const domElemets = {
   headerDropdown: document.querySelector(".header__dropdown"),
@@ -21,24 +21,19 @@ const {
   previewOptions,
 } = domElemets;
 
-const getLoggedInUser = () => {
-  const loggedInUser = localStorage.getItem("loggedInUser");
-  if (loggedInUser === null) {
-    window.location.href = "./pages/login.html";
-  } else {
-    return loggedInUser;
-  }
-};
+window.addEventListener("DOMContentLoaded", () => {
+  const currentUser = JSON.parse(getLoggedInUser());
+  welcomeSign.innerText = `Welcome, ${currentUser.first_name}`;
+  welcomeText.innerText = `Indulge in Excellence, Redefined`;
+  previewText.innerText = `Choose your indulgence`;
+  createPreview();
 
-document.addEventListener("click", (e) => {
-  if (!profileIcon.contains(e.target)) {
-    headerDropdown.classList.remove("header__dropdown--show");
-  }
+  document.addEventListener("click", (e) => {
+    if (!profileIcon.contains(e.target)) {
+      headerDropdown.classList.remove("header__dropdown--show");
+    }
+  });
 });
-const currentUser = JSON.parse(getLoggedInUser());
-welcomeSign.innerText = `Welcome, ${currentUser.first_name}`;
-welcomeText.innerText = `Indulge in Excellence, Redefined`;
-previewText.innerText = `Choose your indulgence`;
 
 const createPreview = () => {
   const origin = window.location.origin;
@@ -49,7 +44,7 @@ const createPreview = () => {
 
     const previewImage = document.createElement("img");
     previewImage.src = category.preview;
-    previewImage.alt = category.category;
+    previewImage.alt = `${category.name} preview image`;
     previewImage.classList.add("preview__image");
     domElemets.previewImage = document.querySelector(".preview__image");
 
@@ -65,7 +60,5 @@ const createPreview = () => {
         window.location.href = `${origin}/pages${category.link}`;
       }
     });
-    
   });
 };
-createPreview();

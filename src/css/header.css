@@ -7,14 +7,14 @@
   background: #141414;
   border-bottom: 2px solid var(--primary-bg-color);
   position: fixed;
+  z-index: 10;
 }
 
 .header__nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  z-index: 100;
+  width: 100%; 
 }
 
 .header__logo-link {

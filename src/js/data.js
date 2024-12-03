@@ -545,7 +545,7 @@ export const data = {
       },
     },
     {
-      id: 24,
+      id: 25,
       categoryId: 4,
       name: "Ocean Cliff Residence",
       price: 25000000,
@@ -569,7 +569,7 @@ export const data = {
       },
     },
     {
-      id: 25,
+      id: 26,
       categoryId: 4,
       name: "Arctic Glass Retreat",
       price: 18000000,
@@ -593,7 +593,7 @@ export const data = {
       },
     },
     {
-      id: 26,
+      id: 27,
       categoryId: 4,
       name: "Desert Mirage Sanctuary",
       price: 30000000,
@@ -617,7 +617,7 @@ export const data = {
       },
     },
     {
-      id: 7,
+      id: 28,
       categoryId: 4,
       name: "Rainforest Canopy Estate",
       price: 22000000,

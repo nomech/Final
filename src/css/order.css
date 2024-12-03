@@ -20,6 +20,10 @@
   width: 30px;
 }
 
+.orders__order {
+  grid-column-start: span 2;
+}
+
 .summary {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -27,8 +31,4 @@
   gap: 6rem;
   width: 100%;
   align-items: center;
-}
-
-.orders__order {
-  grid-column-start: span 2;
 }

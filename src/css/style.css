@@ -70,7 +70,6 @@ body {
   height: 100vh;
   background: #030303;
   color: #ffffff;
-  
 }
 
 main {
@@ -82,69 +81,7 @@ main {
   gap: 3rem;
 }
 
-.welcome,
-.contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  gap: 3rem;
-}
 
-.welcome__sign {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: fadeIn 3s ease-in-out;
-}
-
-.welcome__text,
-.preview__text {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: fadeInColor 4s ease-in-out;
-  color: #d4af37;
-}
-
-.welcome__sign,
-.welcome__text {
-  font-weight: 200;
-}
-
-.button {
-  padding: 1rem 2rem;
-  background: var(--primary-color);
-  color: var(--secondary-text-color);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-  transition: background 0.3s ease;
-  animation: fadeIn 3s ease-in-out;
-  cursor: pointer;
-}
-
-.button:active {
-transform: scale(0.98);
-}
-
-.button:hover {
-  background-color: var(--text-color);
-}
-.button--disabled {
-  background: #333;
-  transition: none;
-  animation:none;
-}
-
-.button--disabled:hover {
-  background: #333;
-
-}
-
-.button--disabled:active {
-  transform: none;
-}
 
 @keyframes fadeIn {
   from {
@@ -164,60 +101,4 @@ transform: scale(0.98);
     opacity: 1;
     color: var(--primary-color);
   }
-}
-
-.preview {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
-  height: 100vh;
-  width: 100%;
-  background-color: var(--seconday-bg-color);
-}
-
-.preview__options {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  gap: 1rem;
-  align-items: center;
-}
-
-.preview__image {
-  width: 400px;
-  height: 230px;
-}
-
-.preview__group {
-  position: relative;
-  cursor: pointer;
-}
-
-.preview__group::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--primary-bg-color);
-  opacity: 0.6;
-  z-index: 1;
-}
-
-.preview__group:hover .preview__title {
-  color: var(--primary-color);
-}
-
-.preview__title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: color 0.3s ease;
-  z-index: 2;
-  font-size: 1.4rem;
-  filter: brightness(1.2);
 }
