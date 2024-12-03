@@ -1,18 +1,40 @@
-const form = document.querySelector(".register-form");
+import { getData, storeData } from "./utils.js";
+
+const cachedElements = {
+  form: document.querySelector(".register-form"),
+  email: document.querySelector(".register-form__email"),
+};
+
+const { form, email } = cachedElements;
 
 window.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", registerUser);
+
+  document.addEventListener("input", (event) => {
+    if (event.target.classList.contains("register-form__email")) {
+      checkEmail(event);
+    }
+  });
 });
 
-const registerUser = (e) => {
-  e.preventDefault();
-  const userList = getData();
+const checkEmail = (event) => {
+  const registeredUsers = getData("users");
+  const inputValue = event.target.value.toLowerCase().trim();
+  const test = registeredUsers.some((user) => inputValue === user.email);
+  if(test) {
+    email.setCustomValidity("This email is already registered");
+  }
+};
+
+const registerUser = (event) => {
+  event.preventDefault();
+  const userList = getData("users");
   const user = { id: Date.now(), loggedIn: false };
 
   let password;
   let confirmPassword;
 
-  for (element of e.target.elements) {
+  for (let element of event.target.elements) {
     if (element.name === "password") {
       password = element.value;
     }
@@ -21,9 +43,8 @@ const registerUser = (e) => {
     }
 
     if (element.name && element.tagName.toLowerCase() === "input") {
-      console.log(element.name)
       if (element.name === "email") {
-        user[element.name] = element.value.toLowerCase();;
+        user[element.name] = element.value.toLowerCase().trim();
       } else {
         user[element.name] = element.value;
       }
@@ -33,21 +54,10 @@ const registerUser = (e) => {
   if (user.password === user.confirm_password) {
     userList.push(user);
     storeData(userList);
-    window.location.href="./login.html"
+    window.location.href = "./login.html";
   } else {
     console.error(
-      `You need to enter the same password in both "Passowrd" and "Confirm Password"`
+      `You need to enter the same password in both "Password" and "Confirm Password"`
     );
   }
 };
-
-const storeData = (data) => {
-  localStorage.setItem("users", JSON.stringify(data));
-};
-
-const getData = () => {
-  const data = JSON.parse(localStorage.getItem("users")) || [];
-  return data;
-};
-
-//TODO: Add a function to check if the user already exists

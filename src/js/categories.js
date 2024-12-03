@@ -28,6 +28,7 @@ const {
   filterSort,
 } = cachedElements;
 
+
 window.addEventListener("DOMContentLoaded", () => {
   const pageId = getPageId();
 
@@ -77,16 +78,14 @@ const getCurrentCategory = () => {
 };
 
 const categoryId = getCurrentCategory();
-const products = data.products.filter(
-  (product) => product.categoryId === categoryId
-);
+const products = data.products.filter((product) => product.categoryId === categoryId);
 
 const redirect = (event) => {
   const parentId = event.target.parentNode.dataset.id;
   window.location.href = window.location.pathname + "?id=" + parentId;
 };
 
-const createSortingOptions = () => {
+const createSortingOptions = (s) => {
   const page = window.location.pathname.split("/").pop().split(".")[0];
   const sortingOptions = data.productCategories.find(
     (category) => category.value.toLowerCase() === page
@@ -107,14 +106,13 @@ const createSortingOptions = () => {
 
 const sortAscending = (spec) => {
   let sortedProducts;
-
+  const productsToSort = [...products];
   if (spec === "price") {
-    console.log(products);
-    sortedProducts = products.sort((a, b) => b.price - a.price);
+    sortedProducts = productsToSort.sort((a, b) => b.price - a.price);
   } else if (spec === "name") {
-    sortedProducts = products.sort((a, b) => a.name.localeCompare(b.name));
+    sortedProducts = productsToSort.sort((a, b) => a.name.localeCompare(b.name));
   } else {
-    sortedProducts = products.sort((a, b) => b.spec[spec] - a.spec[spec]);
+    sortedProducts = productsToSort.sort((a, b) => b.spec[spec] - a.spec[spec]);
   }
   renderProducts(sortedProducts);
 };

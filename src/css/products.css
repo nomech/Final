@@ -35,7 +35,7 @@ main {
 
 .products__item {
   display: grid;
-  opacity: 1; /* Start at 0 */
+  opacity: 1;
   grid-template-columns: 1fr 2fr 1fr;
   background-color: var(--seconday-bg-color);
   grid-template-rows: 140px;

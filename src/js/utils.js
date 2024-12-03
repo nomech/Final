@@ -1,7 +1,16 @@
 export const convertToCurrency = (cc, style, type, amount) => {
-  return new Intl.NumberFormat("cc", { style: style, currency: type }).format(
+  return new Intl.NumberFormat(cc, { style: style, currency: type }).format(
     amount
   );
+};
+
+ export const getData = (key) => {
+  const data = JSON.parse(localStorage.getItem(key)) || [];
+  return data;
+};
+
+export const storeData = (data) => {
+  localStorage.setItem("users", JSON.stringify(data));
 };
 
 export const getLoggedInUser = () => {
@@ -11,11 +20,6 @@ export const getLoggedInUser = () => {
   } else {
     return loggedInUser;
   }
-};
-
-export const getUsers = () => {
-  const users = localStorage.getItem("users");
-  return users;
 };
 
 export const getPageId = () => {
@@ -31,5 +35,3 @@ export const updateCartAmount = () => {
 
   return cartAmount;
 };
-
-

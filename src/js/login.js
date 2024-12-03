@@ -1,5 +1,12 @@
-const form = document.querySelector(".login-form");
-const register = document.querySelector(".login-form__button--register");
+import { getData, storeData } from "./utils.js";
+
+const cachedElelements = {
+  form: document.querySelector(".login-form"),
+  register: document.querySelector(".login-form__button--register"),
+  buttonContainer: document.querySelector(".login-form__button-container"),
+};
+
+const { form, register, buttonContainer } = cachedElelements;
 
 window.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", loginUser);
@@ -9,20 +16,20 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-let loginAttepmted = false;
+let loginAttempted = false;
+
 const loginUser = (e) => {
   e.preventDefault();
 
-  const users = getData();
+  const users = getData("users");
   let email;
   let password;
 
-  for (element of e.target.elements) {
+  for (let element of e.target.elements) {
     if (element.name && element.tagName.toLowerCase() === "input") {
       if (element.name === "email") {
         email = element.value;
       }
-
       if (element.name === "password") {
         password = element.value;
       }
@@ -30,27 +37,23 @@ const loginUser = (e) => {
   }
 
   let userAuthenticated = false;
+
   if (users.length > 0) {
-    users.forEach((user) => {
+    users.some((user) => {
       if (user.email === email && user.password === password) {
         user.loggedIn = true;
         userAuthenticated = true;
         storeData(users);
+        return true;
       }
     });
   }
 
- 
-
   if (userAuthenticated) {
     redirectUser();
-  } else if (!loginAttepmted) {
-    console.log(loginAttepmted);
-    loginAttepmted = true;
-    
-    const buttonContainer = document.querySelector(
-      ".login-form__button-container"
-    );
+  } else if (!loginAttempted) {
+    loginAttempted = true;
+
     const error = document.createElement("p");
     error.textContent = "Invalid username or password";
     error.classList.add("error");
@@ -58,18 +61,10 @@ const loginUser = (e) => {
   }
 };
 
-const getData = () => {
-  const data = JSON.parse(localStorage.getItem("users")) || [];
-  return data;
-};
-
-const storeData = (data) => {
-  localStorage.setItem("users", JSON.stringify(data));
-};
-
 const checkLoggedInUser = () => {
   let loginStatus = false;
-  const findLoggedInUser = getData().find((user) => user.loggedIn);
+  const findLoggedInUser = getData("users").find((user) => user.loggedIn);
+  console.log(findLoggedInUser);
   if (findLoggedInUser) {
     const loggedInUser = {
       id: findLoggedInUser.id,
@@ -89,5 +84,3 @@ const redirectUser = () => {
     window.location.href = "../index.html";
   }
 };
-
-//TOD: Add alert message for invalid username or password

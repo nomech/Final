@@ -1,5 +1,5 @@
 import { data } from "./data.js";
-import { updateCartAmount, getLoggedInUser  , getUsers } from "./utils.js";
+import { updateCartAmount, getLoggedInUser, getData } from "./utils.js";
 
 const domElemets = {
   headerDropdown: document.querySelector(".header__dropdown"),
@@ -10,6 +10,23 @@ const domElemets = {
 };
 
 const { headerDropdown, profileIcon, headerList, dropdownList } = domElemets;
+
+const currentUser = JSON.parse(getLoggedInUser());
+
+window.addEventListener("DOMContentLoaded", () => {
+  createNavLinks();
+  createDropdownItem();
+
+  const logOutButton = domElemets["LogOut"];
+  profileIcon.addEventListener("click", toggleDropdown);
+  logOutButton.addEventListener("click", (e) => logOut(e));
+
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("header__dropdown-item")) {
+      redirect(e.target.dataset.id);
+    }
+  });
+});
 
 const redirect = (link) => {
   window.location.href = getPageUrl(link);
@@ -22,8 +39,8 @@ const getPageUrl = (link) => {
   return `${origin}${basePath}${link}`;
 };
 
-const logOut = (e) => {
-  const users = JSON.parse(getUsers());
+const logOut = () => {
+  const users = getData("users");
   users.forEach((user) => {
     if (currentUser.id === user.id) {
       user.loggedIn = false;
@@ -32,19 +49,11 @@ const logOut = (e) => {
 
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.removeItem("loggedInUser");
-  const id = e.target.dataset.id;
-  window.location.href = data.userActions[id].link;
 };
 
 const toggleDropdown = () => {
   headerDropdown.classList.toggle("header__dropdown--show");
 };
-
-document.addEventListener("click", (e) => {
-  if (!profileIcon.contains(e.target)) {
-    headerDropdown.classList.remove("header__dropdown--show");
-  }
-});
 
 const createNavLinks = () => {
   data.productCategories.forEach((category) => {
@@ -59,14 +68,14 @@ const createNavLinks = () => {
 const createDropdownItem = () => {
   data.userActions.forEach((item) => {
     const listItem = document.createElement("li");
-    listItem.dataset.id = item.link.toLowerCase();
+    listItem.dataset.id = item.link;
     listItem.classList.add(
       "header__dropdown-item",
       `header__dropdown-item--${item.name.replace(" ", "").toLowerCase()}`
     );
     listItem.innerHTML = item.icon;
 
-    domElemets["headerDropdownItem" + item.name.replace(" ", "")] = listItem;
+    domElemets[item.name.replace(" ", "")] = listItem;
 
     const listLink = document.createElement("p");
     listLink.classList.add("header__dropdown-link");
@@ -82,20 +91,3 @@ const createDropdownItem = () => {
     dropdownList.append(listItem);
   });
 };
-
-const currentUser = JSON.parse(getLoggedInUser());
-
-window.addEventListener("DOMContentLoaded", () => {
-  createNavLinks();
-  createDropdownItem();
-  const logOutButton = document.querySelector(".header__dropdown-item--logout");
-
-  profileIcon.addEventListener("click", toggleDropdown);
-
-  logOutButton.addEventListener("click", (e) => logOut(e));
-  document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("header__dropdown-item")) {
-      redirect(e.target.dataset.id);
-    }
-  });
-});
