@@ -53,7 +53,7 @@ legend {
   gap: 8px;
   flex-grow: 1;
   width: 50%;
-  margin-top: 32px;
+  margin-top: 16px;
   padding: 12px 24px;
   background-color: #d4af37;
   border: none;
@@ -81,4 +81,10 @@ button:active {
 
 .login-form__button:hover {
   background-color: #ffffff;
+}
+
+.login-form__messages{
+  height: 32px;
+  margin: 16px 0;
+  color: #a02323;
 }

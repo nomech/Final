@@ -4,7 +4,7 @@ export const data = {
       id: 1,
       value: "yachts",
       name: "Yachts",
-      preview: "./assets/images/yacht-preview.webp",
+      preview: "./assets/images/preview/yacht-preview.webp",
       link: "/yachts.html",
       sortingOptions: [
         "name",
@@ -24,7 +24,7 @@ export const data = {
       id: 2,
       value: "jets",
       name: "Private Jets",
-      preview: "./assets/images/jet-preview.webp",
+      preview: "./assets/images/preview/jet-preview.webp",
       link: "/jets.html",
       sortingOptions: [
         "name",
@@ -35,14 +35,14 @@ export const data = {
         "crew",
         "cabinLength",
         "manufacturer",
-        "year"
+        "year",
       ],
     },
     {
       id: 3,
       value: "cars",
       name: "Luxury Cars",
-      preview: "./assets/images/car-preview.webp",
+      preview: "./assets/images/preview/car-preview.webp",
       link: "/cars.html",
       sortingOptions: [
         "name",
@@ -59,7 +59,7 @@ export const data = {
       id: 4,
       value: "villas",
       name: "Luxury Villas",
-      preview: "./assets/images/home-preview.webp",
+      preview: "./assets/images/preview/home-preview.webp",
       link: "/villas.html",
       sortingOptions: [
         "name",
@@ -79,7 +79,7 @@ export const data = {
       categoryId: 1,
       name: "Queen of the Sea",
       price: 2500000,
-      image: "../assets/images/queenOfTheSea-front.webp",
+      image: "../assets/images/yachts/queenOfTheSea-front.webp",
       description:
         "The Queen of the Sea is a 150-foot luxury yacht designed for ultimate comfort and elegance. Perfect for family vacations or romantic getaways, it boasts a spacious deck with a hot tub, a fully stocked bar, and an alfresco dining area. The interior features a grand salon with panoramic windows, a formal dining room, and a master suite with a king-size bed and en-suite bathroom. Additional amenities include a fully equipped gourmet kitchen, a fitness center, and a private cinema room with a collection of over 500 movies. The yacht is staffed with a professional crew dedicated to providing five-star service. Available for charter in the Mediterranean and the Caribbean.",
       spec: {
@@ -98,7 +98,7 @@ export const data = {
       categoryId: 1,
       name: "Voyager 2",
       price: 2000000,
-      image: "../assets/images/voyger2-front.webp",
+      image: "../assets/images/yachts/voyger2-front.webp",
       description:
         "The Voyager 2 is a state-of-the-art 180-foot superyacht equipped with the latest maritime technology. Its sleek exterior is matched by luxurious interiors featuring Italian marble and custom woodwork. Accommodations include six staterooms with en-suite bathrooms, a spacious salon with a grand piano, and a sky lounge with 360-degree views. The expansive deck area offers a swimming pool, a helipad, and multiple lounging areas. The yacht also includes a beach club, a sauna, and a collection of water toys such as jet skis and paddleboards. Ideal for long voyages, the Voyager 2 promises an unforgettable experience on the open seas.",
       spec: {
@@ -117,7 +117,7 @@ export const data = {
       categoryId: 1,
       name: "Ocean Dream",
       price: 3000000,
-      image: "../assets/images/oceanDream-back.webp ",
+      image: "../assets/images/yachts/oceanDream-back.webp ",
       description:
         "The Ocean Dream is the epitome of luxury on water, a 200-foot megayacht that combines cutting-edge design with opulent amenities. It features a private spa with massage rooms, a sun deck with a retractable roof, and a glass-bottom observation lounge that offers mesmerizing views of marine life. The interior is adorned with bespoke furnishings, hand-painted murals, and a collection of contemporary art. The yacht accommodates up to 14 guests in seven lavish staterooms, each with panoramic ocean views. Additional highlights include a wine cellar, a gourmet kitchen staffed by a Michelin-starred chef, and advanced stabilization systems for a smooth voyage.",
       spec: {
@@ -136,7 +136,7 @@ export const data = {
       categoryId: 1,
       name: "Azure Horizon",
       price: 4500000,
-      image: "../assets/images/azure-front.webp",
+      image: "../assets/images/yachts/azure-front.webp",
       description:
         "The Azure Horizon is a cutting-edge 220-foot expedition yacht designed for both luxury and exploration. Featuring an ice-class hull and advanced stabilization systems, this yacht is capable of navigating the most challenging maritime environments while providing unparalleled comfort. The yacht includes a fully equipped research laboratory, a submersible dock, and state-of-the-art communication systems. Its interior boasts a modern minimalist design with floor-to-ceiling windows, offering panoramic views of the surrounding seascape. The Azure Horizon is perfect for those who seek adventure without compromising on luxury.",
       spec: {
@@ -155,7 +155,7 @@ export const data = {
       categoryId: 1,
       name: "Nautical Pearl",
       price: 5000000,
-      image: "../assets/images/npearl-front.webp",
+      image: "../assets/images/yachts/npearl-front.webp",
       description:
         "The Nautical Pearl is a revolutionary eco-friendly superyacht that combines luxury with sustainable technology. Powered by hybrid electric-hydrogen propulsion systems, this 190-foot vessel represents the future of maritime travel. Its innovative design includes solar panels, wind turbines, and advanced energy storage capabilities. The interior features sustainable materials, including recycled ocean plastics and responsibly sourced wood. The yacht offers multiple entertainment zones, including an underwater observation lounge, a vertical garden, and a zero-emission beach club. With its commitment to luxury and environmental consciousness, the Nautical Pearl sets a new standard in maritime engineering.",
       spec: {
@@ -174,7 +174,7 @@ export const data = {
       categoryId: 1,
       name: "Celestial Voyager",
       price: 6000000,
-      image: "../assets/images/celestial-front.webp",
+      image: "../assets/images/yachts/celestial-front.webp",
       description:
         "The Celestial Voyager is a technological marvel in maritime engineering, designed for those who demand the ultimate in exploration and luxury. This 250-foot expedition yacht features advanced stabilization systems, a complete medical facility, and cutting-edge communication technologies. The yacht includes a fully equipped helicopter hangar, underwater drone launch systems, and a state-of-the-art marine research laboratory. Its interior combines futuristic design with ultimate comfort, featuring adaptive climate zones, holographic entertainment systems, and a virtual reality simulation room for immersive experiences.",
       spec: {
@@ -193,7 +193,7 @@ export const data = {
       categoryId: 1,
       name: "Solar Winds",
       price: 7500000,
-      image: "../assets/images/solar-front.webp",
+      image: "../assets/images/yachts/solar-front.webp",
       description:
         "The Solar Winds is a revolutionary zero-emission superyacht that represents the future of sustainable maritime luxury. Entirely powered by advanced solar and hydrogen technologies, this 210-foot vessel features integrated solar panels across its superstructure and innovative hydrogen fuel cell propulsion. The yacht includes multiple eco-friendly innovations, such as a marine life conservation lab, an onboard vertical farm, and water purification systems. Its interior is crafted from recycled and sustainable materials, offering a luxurious experience that doesn't compromise environmental responsibility.",
       spec: {
@@ -212,7 +212,7 @@ export const data = {
       categoryId: 2,
       name: "Gulfstream G650",
       price: 65000000,
-      image: "../assets/images/g650-front.webp",
+      image: "../assets/images/jets/g650-front.webp",
       description:
         "The Gulfstream G650 is a top-of-the-line private jet known for its speed, range, and luxurious cabin experience. With the ability to fly at near-supersonic speeds and reach destinations across the globe without refueling, it's the pinnacle of private aviation. The cabin comfortably seats up to 18 passengers and features large panoramic windows, handcrafted leather seats, and a state-of-the-art entertainment system. Amenities include a full-service galley, a private stateroom with a queen-size bed, and advanced noise-reduction technology for a peaceful flight.",
       spec: {
@@ -231,7 +231,7 @@ export const data = {
       categoryId: 2,
       name: "Bombardier Global 7500",
       price: 73000000,
-      image: "../assets/images/global-front.webp",
+      image: "../assets/images/jets/global-front.webp",
       description:
         "The Bombardier Global 7500 offers exceptional long-range capabilities and the largest cabin in its class. It features four distinct living spaces, including a club suite, a conference area, an entertainment lounge, and a private master suite with a full-size bed and en-suite bathroom. The jet is equipped with a full-service kitchen, allowing for gourmet meal preparation during flight. Advanced wing design and engines make for a smooth and efficient journey, capable of connecting any two cities worldwide non-stop.",
       spec: {
@@ -250,7 +250,7 @@ export const data = {
       categoryId: 2,
       name: "Cessna Citation Longitude",
       price: 26000000,
-      image: "../assets/images/cessna-front.webp",
+      image: "../assets/images/jets/cessna-front.webp",
       description:
         "The Cessna Citation Longitude is a super-midsize jet that offers a perfect blend of performance, comfort, and efficiency. Its stand-up cabin is the quietest in its class and features fully berthable seats, a modern galley, and an advanced entertainment system. The aircraft is equipped with the latest navigation and communication technology, ensuring a safe and efficient flight. Ideal for both business and leisure travel, it can connect cities like Los Angeles to New York non-stop.",
       spec: {
@@ -269,7 +269,7 @@ export const data = {
       categoryId: 2,
       name: "Dassault Falcon 8X",
       price: 58000000,
-      image: "../assets/images/dassult-front.webp",
+      image: "../assets/images/jets/dassult-front.webp",
       description:
         "The Dassault Falcon 8X is the ultimate long-range business jet, offering unparalleled range and comfort. With the ability to connect cities like Los Angeles to Singapore non-stop, it represents the pinnacle of intercontinental travel. The jet features three living areas that can be customized to suit individual preferences, including a full galley, a spacious lounge, and a private stateroom. Advanced noise-reduction technology and a smooth ride make it the preferred choice for discerning executives and global travelers.",
       spec: {
@@ -288,7 +288,7 @@ export const data = {
       categoryId: 2,
       name: "Embraer Lineage 1000E",
       price: 53000000,
-      image: "../assets/images/embraer-front.webp",
+      image: "../assets/images/jets/embraer-front.webp",
       description:
         "The Embraer Lineage 1000E transforms commercial aircraft technology into the ultimate private jet experience. Based on the successful E190 commercial platform, this jet offers the largest cabin in its class, with five distinct living spaces that can be fully customized. Features include a master bedroom with a full-size shower, a private office, an entertainment lounge, and a conference area. Its advanced avionics and efficient engines provide an exceptional blend of performance, range, and comfort.",
       spec: {
@@ -307,7 +307,7 @@ export const data = {
       categoryId: 2,
       name: "Honda Aerospace HA-420 HondaJet Elite II",
       price: 6500000,
-      image: "../assets/images/honda-front.webp",
+      image: "../assets/images/jets/honda-front.webp",
       description:
         "The Honda HA-420 HondaJet Elite II represents a breakthrough in light jet technology, offering unprecedented efficiency and comfort. Its revolutionary over-the-wing engine mount design reduces drag and increases fuel efficiency, while the composite fuselage provides exceptional strength and lightweight performance. The jet features a fully customizable cabin with advanced noise reduction, high-speed internet, and a sophisticated entertainment system. Its range and performance make it ideal for short to medium-range business and leisure travel.",
       spec: {
@@ -326,7 +326,7 @@ export const data = {
       categoryId: 2,
       name: "Pilatus PC-24",
       price: 9000000,
-      image: "../assets/images/pilatus-front.webp",
+      image: "../assets/images/jets/pilatus-front.webp",
       description:
         "The Pilatus PC-24 is a revolutionary super versatile jet that combines the comfort of a business jet with the capability of a utility aircraft. Capable of landing on unprepared runways and gravel strips, this jet offers unprecedented flexibility for adventurous travelers. Its spacious cabin can be quickly reconfigured for various missions, from executive transport to medical evacuation. The jet features advanced avionics, a sliding cargo door, and exceptional short-field performance, making it the most versatile aircraft in its class.",
       spec: {
@@ -345,7 +345,7 @@ export const data = {
       categoryId: 3,
       name: "Rolls-Royce Phantom",
       price: 450000,
-      image: "../assets/images/rr-front.webp",
+      image: "../assets/images/cars/rr-front.webp",
       description:
         "The Rolls-Royce Phantom is the pinnacle of luxury automobiles, offering an unparalleled driving experience. Handcrafted to perfection, it features a 6.75-liter V12 engine that delivers effortless power. The interior is adorned with the finest leather, lambswool floor mats, and bespoke wood veneers. Passengers can enjoy the starlight headliner, which recreates a night sky with thousands of fiber-optic lights. Advanced technology includes a state-of-the-art infotainment system and active suspension for a smooth ride.",
       spec: {
@@ -364,7 +364,7 @@ export const data = {
       categoryId: 3,
       name: "Bugatti Chiron",
       price: 3000000,
-      image: "../assets/images/bugatti-front.webp",
+      image: "../assets/images/cars/bugatti-front.webp",
       description:
         "The Bugatti Chiron is a masterpiece of engineering and design, representing the ultimate in automotive performance. Powered by an 8.0-liter quad-turbocharged W16 engine, it produces an astonishing 1,500 horsepower. The Chiron's aerodynamic design enables it to reach speeds over 260 mph. The interior is a blend of luxury and high-tech features, including premium leather seats, a customizable digital cockpit, and advanced driver-assistance systems. Each Chiron is handcrafted, making it a unique piece of automotive art.",
       spec: {
@@ -383,7 +383,7 @@ export const data = {
       categoryId: 3,
       name: "Lamborghini Aventador",
       price: 400000,
-      image: "../assets/images/aventador-front.webp",
+      image: "../assets/images/cars/aventador-front.webp",
       description:
         "The Lamborghini Aventador is an iconic supercar that combines aggressive styling with cutting-edge performance. Its 6.5-liter V12 engine delivers 730 horsepower, propelling the car from 0 to 60 mph in just 2.9 seconds. The exterior features scissor doors, sharp lines, and a carbon-fiber monocoque chassis. Inside, the Aventador offers sports seats, a touchscreen infotainment system, and customizable driving modes. It's a true driver's car that offers an exhilarating experience both on the road and the track.",
       spec: {
@@ -402,7 +402,7 @@ export const data = {
       categoryId: 3,
       name: "Mercedes-Maybach Exelero",
       price: 8000000,
-      image: "../assets/images/mercedes-front.webp",
+      image: "../assets/images/cars/mercedes-front.webp",
       description:
         "The Mercedes-Maybach Exelero is an ultra-rare, bespoke supercar that redefines automotive luxury and performance. Commissioned as a one-off vehicle, this extraordinary machine combines cutting-edge engineering with unparalleled craftsmanship. Powered by a twin-turbo V12 engine, the Exelero delivers mind-bending performance while offering an interior that rivals the most luxurious private jets. Custom-built materials, including hand-stitched leather and carbon fiber, create an automotive masterpiece that is as much a work of art as it is a mode of transportation.",
       spec: {
@@ -421,7 +421,7 @@ export const data = {
       categoryId: 3,
       name: "Koenigsegg Jesko Absolut",
       price: 3500000,
-      image: "../assets/images/koenigsegg-front.webp",
+      image: "../assets/images/cars/koenigsegg-front.webp",
       description:
         "The Koenigsegg Jesko Absolut represents the ultimate expression of automotive engineering and speed. Designed to be the fastest production car in the world, this hypercar pushes the boundaries of what's possible in automotive design. Its revolutionary 5.0-liter twin-turbo V8 engine produces an incredible 1,600 horsepower, coupled with advanced aerodynamics that minimize drag. The interior is a masterpiece of carbon fiber and cutting-edge technology, featuring a unique transmission system that allows for lightning-fast gear changes.",
       spec: {
@@ -440,7 +440,7 @@ export const data = {
       categoryId: 3,
       name: "Pagani Huayra Roadster BC",
       price: 3800000,
-      image: "../assets/images/pagani-front.webp",
+      image: "../assets/images/cars/pagani-front.webp",
       description:
         "The Pagani Huayra Roadster BC is a masterpiece of automotive engineering and artistry, limited to only 40 units worldwide. Constructed with advanced carbon fiber technology, this hypercar represents the pinnacle of performance and design. Its 6.0-liter twin-turbo V12 engine, developed exclusively by Mercedes-AMG, delivers mind-bending performance while being a work of art in itself. The car features active aerodynamics, a removable carbon fiber roof, and an interior that blends modern technology with handcrafted Italian craftsmanship.",
       spec: {
@@ -459,7 +459,7 @@ export const data = {
       categoryId: 3,
       name: "McLaren Speedtail",
       price: 2200000,
-      image: "../assets/images/mclaren-front.webp",
+      image: "../assets/images/cars/mclaren-front.webp",
       description:
         "The McLaren Speedtail is the ultimate expression of automotive innovation, a 'Hyper-GT' that pushes the boundaries of speed and design. Limited to just 106 units, this extraordinary vehicle is designed to be the fastest McLaren ever created. Its carbon fiber body is sculpted for absolute aerodynamic efficiency, with a central driving position reminiscent of the legendary McLaren F1. The powertrain combines a twin-turbo V8 with hybrid technology, delivering unprecedented performance while showcasing McLaren's commitment to cutting-edge automotive engineering.",
       spec: {
@@ -478,7 +478,7 @@ export const data = {
       categoryId: 4,
       name: "Villa Serenity",
       price: 15000000,
-      image: "../assets/images/serenity-outside.webp",
+      image: "../assets/images/villas/serenity-outside.webp",
       description:
         "Villa Serenity is a stunning beachfront property located on a private island in the Maldives. Spanning over 10,000 square feet, it features 8 bedrooms, each with en-suite bathrooms and ocean views. The villa boasts a private infinity pool that seamlessly blends into the horizon, a fully equipped spa with sauna and massage rooms, and a state-of-the-art fitness center. The open-concept living areas are adorned with fine art and designer furnishings. Outdoor amenities include a private dock, a helipad, and lush tropical gardens. Staffed with a private chef, butler, and housekeeping team, Villa Serenity offers an unparalleled luxury living experience.",
       spec: {
@@ -502,7 +502,7 @@ export const data = {
       categoryId: 4,
       name: "Mountain Retreat",
       price: 10000000,
-      image: "../assets/images/mountain-outside.webp",
+      image: "../assets/images/villas/mountain-outside.webp",
       description:
         "The Mountain Retreat is a luxurious villa nestled in the Swiss Alps, offering breathtaking views of snow-capped peaks and pristine valleys. This 8,000-square-foot property features 6 bedrooms with en-suite bathrooms, a grand living room with a fireplace, and a gourmet kitchen equipped with top-of-the-line appliances. The villa includes a private cinema, a wine cellar, and a wellness center with an indoor pool, sauna, and hot tub. The ski-in/ski-out facility provides direct access to world-class ski slopes. Additional amenities include a heated driveway, a smart home system, and a private elevator connecting all floors.",
       spec: {
@@ -526,7 +526,7 @@ export const data = {
       categoryId: 4,
       name: "Urban Penthouse",
       price: 20000000,
-      image: "../assets/images/penthouse-outside.webp",
+      image: "../assets/images/villas/penthouse-outside.webp",
       description:
         "Located in the heart of New York City, the Urban Penthouse offers unparalleled views of the skyline and Central Park. This 12,000-square-foot penthouse occupies the top three floors of an iconic skyscraper. It features 5 bedrooms, each with walk-in closets and luxurious bathrooms. The master suite includes a private terrace and a spa-like bathroom with a soaking tub and steam shower. The penthouse boasts a rooftop garden with a retractable glass roof, a private gym, and a home office. The gourmet kitchen is fitted with custom cabinetry and professional-grade appliances. A private elevator provides secure access directly to the residence.",
       spec: {
@@ -549,7 +549,7 @@ export const data = {
       categoryId: 4,
       name: "Ocean Cliff Residence",
       price: 25000000,
-      image: "../assets/images/oceanCliff-front.webp",
+      image: "../assets/images/villas/oceanCliff-front.webp",
       description:
         "The Ocean Cliff Residence is an architectural marvel perched on the rugged coastline of Big Sur, California. This extraordinary property seamlessly integrates with its natural surroundings, featuring floor-to-ceiling glass walls that provide uninterrupted panoramic views of the Pacific Ocean. Designed by a renowned architect, the villa is a masterpiece of sustainable luxury, incorporating solar technology, rainwater harvesting, and locally sourced materials. The property includes a cantilevered infinity pool that appears to merge with the ocean, multiple outdoor terraces, and a private art gallery.",
       spec: {
@@ -573,7 +573,7 @@ export const data = {
       categoryId: 4,
       name: "Arctic Glass Retreat",
       price: 18000000,
-      image: "../assets/images/arctic.webp",
+      image: "../assets/images/villas/arctic.webp",
       description:
         "The Arctic Glass Retreat is a groundbreaking eco-luxury residence located in the pristine wilderness of Iceland. Designed to provide an immersive experience with the surrounding landscape, this unique villa features a revolutionary all-glass exterior that offers 360-degree views of the Northern Lights, volcanic landscapes, and surrounding glaciers. The interior is a marvel of sustainable design, with geothermal heating, advanced insulation, and minimal environmental impact. The property includes multiple observation decks, a heated indoor-outdoor pool, and advanced astronomical viewing equipment.",
       spec: {
@@ -597,7 +597,7 @@ export const data = {
       categoryId: 4,
       name: "Desert Mirage Sanctuary",
       price: 30000000,
-      image: "../assets/images/mirrage-front.webp",
+      image: "../assets/images/villas/mirrage-front.webp",
       description:
         "The Desert Mirage Sanctuary is an architectural marvel nestled in the heart of the Arabian Desert, blending cutting-edge design with sustainable technology. This extraordinary residence appears to emerge from the desert landscape, with its fluid lines and reflective surfaces creating an illusion of blending with the surrounding environment. The villa features advanced climate control systems, solar energy integration, and water recycling technologies that make it completely self-sustainable. Multiple outdoor terraces, an underground cool chamber, and a series of reflecting pools create a unique living experience that celebrates the harsh beauty of the desert.",
       spec: {
@@ -621,7 +621,7 @@ export const data = {
       categoryId: 4,
       name: "Rainforest Canopy Estate",
       price: 22000000,
-      image: "../assets/images/rain-front.webp",
+      image: "../assets/images/villas/rain-front.webp",
       description:
         "The Rainforest Canopy Estate is a groundbreaking eco-luxury residence located in the heart of the Amazon Rainforest. Designed to minimize environmental impact while providing an unparalleled living experience, this villa is constructed on multiple levels that blend seamlessly with the surrounding forest canopy. Featuring advanced sustainable technologies, including biomimetic design principles, the estate includes a comprehensive wildlife conservation area, research facilities, and educational spaces. The living spaces are connected by suspended walkways, offering breathtaking views of the surrounding ecosystem.",
       spec: {

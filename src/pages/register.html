@@ -32,7 +32,14 @@
                     <label class="register-form__label" for="last_name">Last Name</label>
                     <input class="register-form__input register-form__lastname" type="text" name="last_name"
                         id="last_name" required>
-                    <label class="register-form__label" for="email">Email</label>
+                    <label class="register-form__label register-form__label--email" for="email">
+                        Email
+                        <img src="../assets/icons/circle-check-solid.svg" alt="Checkmark"
+                            class="register-form__validity register-form__validity--valid">
+                        <img src="../assets/icons/circle-xmark-solid.svg" alt="Error"
+                            class="register-form__validity register-form__validity--error">
+
+                    </label>
                     <input class="register-form__input register-form__email" type="email" name="email" id="email"
                         required>
                     <label class="register-form__label" for="password">Password</label>
@@ -44,6 +51,7 @@
 
                     <button class="register-form__button" type="submit">Register</button>
                     <p class="register-form__text">Already have an account? Sign in <a href="./login.html">here</a></p>
+
                 </form>
             </fieldset>
         </main>

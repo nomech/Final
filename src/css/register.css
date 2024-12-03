@@ -24,8 +24,6 @@ fieldset {
 .register-form {
   display: flex;
   flex-direction: column;
-
-
   width: 270px;
 }
 
@@ -79,4 +77,20 @@ legend {
 
 .register-form__text a:hover{
   color: #ffffff;
+}
+
+.register-form__label--email {
+  position: relative;
+}
+.register-form__validity{
+  display: none;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: -35px;
+  top: 20px;
+}
+
+.register-form__validity--show{
+  display: block;
 }

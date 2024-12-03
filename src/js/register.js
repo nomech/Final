@@ -2,10 +2,11 @@ import { getData, storeData } from "./utils.js";
 
 const cachedElements = {
   form: document.querySelector(".register-form"),
-  email: document.querySelector(".register-form__email"),
+  valid: document.querySelector(".register-form__validity--valid"),
+  error: document.querySelector(".register-form__validity--error"),
 };
 
-const { form, email } = cachedElements;
+const { form, valid, error } = cachedElements;
 
 window.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", registerUser);
@@ -20,16 +21,23 @@ window.addEventListener("DOMContentLoaded", () => {
 const checkEmail = (event) => {
   const registeredUsers = getData("users");
   const inputValue = event.target.value.toLowerCase().trim();
-  const test = registeredUsers.some((user) => inputValue === user.email);
-  if(test) {
-    email.setCustomValidity("This email is already registered");
+  const emailCheck = registeredUsers.some((user) => inputValue === user.email);
+  if (emailCheck) {
+    valid.classList.remove("register-form__validity--show");
+    error.classList.add("register-form__validity--show");
+  } else if (!emailCheck) {
+    error.classList.remove("register-form__validity--show");
+    valid.classList.add("register-form__validity--show");
   }
 };
 
 const registerUser = (event) => {
   event.preventDefault();
   const userList = getData("users");
-  const user = { id: Date.now(), loggedIn: false };
+  const user = {
+    id: Date.now(),
+    loggedIn: false,
+  };
 
   let password;
   let confirmPassword;
