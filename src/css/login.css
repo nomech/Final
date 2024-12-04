@@ -13,12 +13,11 @@ main {
 }
 
 fieldset {
-  padding: 48px;
-  /*  border-radius: 24px; */
+  padding: var(--xlarge);
   border: none;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
     rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  background-color: #141414;
+  background-color: var(--secondary-bg-color);
 }
 
 .login-form {
@@ -29,13 +28,13 @@ fieldset {
 }
 
 .login-form__label {
-  margin-top: 16px;
+  margin-top: var(--small);
   font-size: 14px;
 }
 
 .login-form__input {
   width: 100%;
-  padding: 6px;
+  padding: var(--xmall);
   border: 0;
   outline: 0;
   width: 100%;
@@ -50,32 +49,28 @@ legend {
 .login-form__button {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: var(--xsmall);
   flex-grow: 1;
   width: 50%;
-  margin-top: 16px;
-  padding: 12px 24px;
-  background-color: #d4af37;
+  margin-top: var(--small);
+  padding: var(--small) var(--medium);
+  background-color: var(--primary-color);
   border: none;
-  color: #000000;
+  color: var(--secondary-text-color);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button:active {
-  background-color: #d4af37;
-}
-
 .login-form__button-icon {
-  width: 14px;
-  height: 14px;
+  width: var(--small);
+  height: var(--small);
 }
 
 .login-form__button-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: var(--small);
   width: 100%;
 }
 
@@ -83,8 +78,8 @@ button:active {
   background-color: #ffffff;
 }
 
-.login-form__messages{
-  height: 32px;
-  margin: 16px 0;
+.login-form__messages {
+  height: var(--large);
+  margin: var(--small) 0;
   color: #a02323;
 }

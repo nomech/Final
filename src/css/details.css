@@ -1,15 +1,14 @@
 .details {
-    visibility: hidden;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 4rem;
-    gap: 1rem;
+    padding: 0 calc(var(--large) * 2);
+    gap: var(--small);
     animation: fadeIn 0.3s ease-in;
   }
   
   .details--show {
-    visibility: visible;
+    display: flex;;
   }
   
   .details__title,
@@ -31,7 +30,7 @@
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    gap: var(--small);
     width: 100%;
   }
   
@@ -41,20 +40,33 @@
   }
   
   .details__specs {
-    background-color: var(--seconday-bg-color);
+    background-color: var(--secondary-bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
-    gap: 2rem;
+    padding: var(--large);
+    gap: var(--large);
   }
   
   .details__information {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: var(--large);
   }
+
+  .details__amount {
+    padding: var(--small);
+    background-color: unset;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    font-size: var(--small);
+    width: calc(var(--large) * 2);
+  }
+  
   
   @keyframes fadeIn {
     from {

@@ -3,24 +3,24 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  gap: calc(var(--large) * 2);
   height: 100vh;
   width: 100%;
-  background-color: var(--seconday-bg-color);
+  background-color: var(--secondary-bg-color);
 }
 
 .preview__text {
   text-transform: uppercase;
   letter-spacing: 2px;
   animation: fadeInColor 4s ease-in-out;
-  color: #d4af37;
+  color: var(--primary-color);
 }
 
 .preview__options {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: var(--small);
   align-items: center;
 }
 
@@ -42,8 +42,8 @@
 }
 
 .preview__image {
-  width: 400px;
-  height: 230px;
+  width: calc((var(--medium) + var(--small)) * 10);
+  height: calc(var(--medium) * 10);
 }
 
 .preview__title {
@@ -53,15 +53,13 @@
   transform: translate(-50%, -50%);
   transition: color 0.3s ease;
   z-index: 2;
-  font-size: 1.4rem;
+  font-size: 22px;
   filter: brightness(1.2);
 }
 
 .preview__group:hover .preview__title {
   color: var(--primary-color);
 }
-
-
 
 @keyframes fadeInColor {
   from {

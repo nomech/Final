@@ -41,6 +41,23 @@
   font-style: normal;
 }
 
+:root {
+  --primary-color: #d4af37;
+  --secondary-color: #ffffff;
+  --primary-bg-color: #030303;
+  --secondary-bg-color: #141414;
+  --text-color: #ffffff;
+  --secondary-text-color: #030303;
+
+  --disabled-button: #333;
+
+  --xsmall: 0.5rem;
+  --small: 1rem;
+  --medium: 1.5rem;
+  --large: 2rem;
+  --xlarge: 3rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -50,14 +67,6 @@
   letter-spacing: 2px;
   outline: none;
   border: none;
-}
-
-:root {
-  --primary-color: #d4af37;
-  --primary-bg-color: #030303;
-  --seconday-bg-color: #141414;
-  --text-color: #ffffff;
-  --secondary-text-color: #030303;
 }
 
 html {
@@ -78,7 +87,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  gap: 3rem;
+  gap: var(--xlarge);
 }
 
 

@@ -5,7 +5,7 @@
 }
 
 .orders__row:nth-child(odd) {
-  background-color: var(--seconday-bg-color);
+  background-color: var(--secondary-bg-color);
 }
 
 .orders__row {
@@ -16,10 +16,6 @@
   text-align: center;
 }
 
-.orders__image {
-  width: 30px;
-}
-
 .orders__order {
   grid-column-start: span 2;
 }
@@ -28,7 +24,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-  gap: 6rem;
+  gap: calc(var(--xlarge) * 2);
   width: 100%;
   align-items: center;
 }

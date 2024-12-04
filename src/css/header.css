@@ -3,8 +3,8 @@
   align-items: center;
   height: 100px;
   width: 100%;
-  padding: 1rem 2rem;
-  background: #141414;
+  padding: var(--small) var(--large);
+  background: var(--secondary-bg-color);
   border-bottom: 2px solid var(--primary-bg-color);
   position: fixed;
   z-index: 10;
@@ -19,7 +19,7 @@
 
 .header__logo-link {
   color: var(--primary-color);
-  font-size: 1.5rem;
+  font-size: var(--medium);
   font-weight: 300;
   letter-spacing: 3px;
   text-decoration: none;
@@ -30,19 +30,18 @@
   flex-direction: column;
   align-items: center;
   width: 200px;
-  gap: 8px;
 }
 
 .header__profile * {
   transition: all 0.2s ease;
 }
 .header__profile-icon {
-  height: 48px;
-  width: 48px;
+  height: var(--xlarge);
+  width: var(--xlarge);;
   fill: var(--text-color);
   border: 2px solid var(--text-color);
-  border-radius: 36px;
-  padding: 8px;
+  border-radius: var(--large);
+  padding: var(--xsmall);
 }
 
 .header__profile-icon:hover {
@@ -51,7 +50,7 @@
 }
 
 .header__dropdown {
-  visibility: hidden;
+  display: hidden;
   opacity: 0;
   bottom: -105px;
   position: absolute;
@@ -62,16 +61,16 @@
 }
 
 .header__dropdown--show {
-  visibility: visible;
+  display: block;
   opacity: 1;
 }
 
 .header__dropdown-item {
   display: grid;
-  grid-template-columns: 16px 1fr;
+  grid-template-columns: var(--small) 1fr;
   align-items: center;
   background-color: var(--primary-color);
-  padding: 12px;
+  padding: var(--small);
   text-align: center;
   cursor: pointer;
 }
@@ -83,7 +82,7 @@
 }
 
 .header__dropdown-item:hover {
-  background-color: #ffffff;
+  background-color: var(--secondary-color);
 }
 
 .header__dropdown-item * {
@@ -115,7 +114,7 @@
   background-color: var(--seconday-bg-color);
   border: none;
   color: var(--text-color);
-  font-size: 16px;
+  font-size: var(--small);
   user-select: none;
 }
 
@@ -128,7 +127,7 @@
 .header__list-item {
   display: flex;
   justify-content: center;
-  padding: 1rem;
+  padding: var(--small);
   text-decoration: underline 4px var(--secondary-bg-color);
   color: var(--text-color);
   cursor: pointer;
@@ -144,20 +143,6 @@
 }
 
 .header__dropdown-icon {
-  width: 14px;
-  height: 14px;
-}
-
-.header__profile-counter {
-  visibility: hidden;
-  position: absolute;
-  right: 48px;
-  background-color: red;
-  border-radius: 12px;
-  padding: 0 4px;
-  top: -6px;
-}
-
-.header__profile-counter--show {
-  visibility: visible;
+  width: var(--small);
+  height: var(--small);
 }

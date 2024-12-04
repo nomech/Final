@@ -1,14 +1,14 @@
 .footer {
   display: flex;
   justify-content: center;
-  background-color: #141414;
+  background-color: var(--secondary-bg-color  );
   width: 100%;
 }
 
 .footer__list {
   display: grid;
   grid-template-columns: 200px 200px;
-  gap: 12px;
+  gap: var(--small);
   width: 100%;
   list-style: none;
   font-size: 12px;

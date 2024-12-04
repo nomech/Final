@@ -1,26 +1,26 @@
 .welcome {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    gap: 3rem;
-  }
-  
-  .welcome__sign {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: fadeIn 3s ease-in-out;
-  }
-  
-  .welcome__text{
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: fadeInColor 4s ease-in-out;
-    color: #d4af37;
-  }
-  
-  .welcome__sign,
-  .welcome__text {
-    font-weight: 200;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  gap: var(--xlarge);
+}
+
+.welcome__sign {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.welcome__text {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInColor 4s ease-in-out;
+  color: var(--primary-color);
+}
+
+.welcome__sign,
+.welcome__text {
+  font-weight: 200;
+}
