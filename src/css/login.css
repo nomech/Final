@@ -34,7 +34,7 @@ fieldset {
 
 .login-form__input {
   width: 100%;
-  padding: var(--xmall);
+  padding: var(--xsmall);
   border: 0;
   outline: 0;
   width: 100%;
@@ -43,7 +43,7 @@ fieldset {
 
 .login-form__label,
 legend {
-  letter-spacing: 2px;
+  letter-spacing: 2px;  
 }
 
 .login-form__button {

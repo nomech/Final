@@ -43,7 +43,7 @@ legend {
 }
 
 .register-form__button:hover {
-  background-color: var(--seconday-color);
+  background-color: var(--secondary-color);
 }
 
 .register-form__text {
@@ -57,7 +57,7 @@ legend {
 .register-form__text a {
   color: var(--primary-color);
   transition: color 0.3s ease;
-  text-transform: none;
+  text-transform: none; 
   letter-spacing: 0;
 }
 

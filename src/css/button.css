@@ -16,8 +16,9 @@
 }
 
 .button:hover {
-  background-color: var(--text-color);
+  background-color: var(--secondary-color);
 }
+
 .button--disabled {
   background: var(--disabled-button);
   transition: none;
