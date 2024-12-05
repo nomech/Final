@@ -1,5 +1,5 @@
 .button {
-  padding: 1rem 2rem;
+  padding: var(--small) var(--large);
   background: var(--primary-color);
   color: var(--secondary-text-color);
   text-decoration: none;
@@ -44,13 +44,13 @@
 .button--view {
   animation: none;
   height: 70px;
-  margin: 1rem;
+  margin: var(--small);
 }
 
 .button--back {
   animation: none;
   height: 40px;
-  margin: 0.5rem;
+  margin: var(--xsmall);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,5 +62,5 @@
 
 .button--minus,
 .button--plus {
-  padding: 1rem;
+  padding: var(--small);
 }

@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="../css/products.css">
     <link rel="stylesheet" href="../css/details.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <title>noMech Yacths</title>
+
+    <title>noMech Cars</title>
 
 </head>
 
@@ -39,13 +40,12 @@
     </header>
     <main>
         <section class="filters">
+            <button class="filters__home button button--back">Home</button>
             <label for="sort">Sort</label>
             <select name="sort" id="sort" class="filters__sort">
             </select>
         </section>
-
         <section class="products products--show">
-
         </section>
         <section class="details">
             <button class="details__back-button button button--back">Back</button>
@@ -61,13 +61,17 @@
                     </div>
                     <div class="details__specs">
                         <ul class="details__list"></ul>
+                        <div class="details__amount-group">
+                            <img src="../assets/icons/circle-minus-solid.svg" alt="Minus button" class="details__minus">
+                            <input type="number" class="details__amount" value="1">
+                            <img src="../assets/icons/circle-plus-solid.svg" alt="Plus button" class="details__plus">
+                        </div>
                     </div>
                 </div>
             </div>
             </div>
         </section>
     </main>
-
     <script type="module" src="../js/header.js"></script>
     <script type="module" src="../js/product.js"></script>
 </body>

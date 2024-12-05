@@ -1,3 +1,14 @@
+main {
+ padding: calc(var(--medium) * 5) calc(var(--large) * 2)
+}
+
+.order-button--back{
+  align-self: flex-start;
+}
+.orders{
+  display: block;
+}
+
 .orders,
 .orders__table {
   width: 100%;
@@ -27,4 +38,14 @@
   gap: calc(var(--xlarge) * 2);
   width: 100%;
   align-items: center;
+}
+
+
+
+.orders--hide, .summary--hide, .empty--hide {
+  display: none;
+}
+
+.empty--show{
+  display: block;
 }

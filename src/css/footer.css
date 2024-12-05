@@ -1,8 +1,9 @@
 .footer {
   display: flex;
   justify-content: center;
-  background-color: var(--secondary-bg-color  );
+  background-color: var(--secondary-bg-color);
   width: 100%;
+  padding: var(--small) var(--xlarge);
 }
 
 .footer__list {
@@ -12,4 +13,14 @@
   width: 100%;
   list-style: none;
   font-size: 12px;
+}
+
+.footer__link {
+  color: var(--primary-text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer__link:hover {
+  color: var(--primary-color);
 }

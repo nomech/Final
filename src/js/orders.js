@@ -1,126 +1,139 @@
-  window.document.addEventListener("DOMContentLoaded", () => {
-    getCartAmount();
-    createTableCells();
-  });
+const cachedElements = {
+  cartCounter: document.querySelector(".header__dropdown-counter"),
+  empty: document.querySelector(".empty"),
+  orderSection: document.querySelector(".orders"),
+  ordersBody: document.querySelector(".orders__body"),
+  summary: document.querySelector(".summary"),
+  main: document.querySelector(".main"),
+};
 
-  const convertToCurrency = (amount) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-  };
+const { cartCounter, empty, orderSection, summary, ordersBody } = cachedElements;
 
-  const getCartAmount = () => {
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    if (cart) {
-      const orders = cart.map((order) => {
-        return {
-          id: order.id,
-          product: order.name,
-          price: order.price,
-          amount: order.amount,
-          total: order.price * order.amount,
-        };
-      });
-      return orders;
-    } else {
-      const main = document.querySelector(".main");
-      main.innerHTML = "";
-      const noOrders = document.createElement("p");
-      noOrders.classList.add("orders__none");
-      noOrders.innerText = "There is nothing in your cart yet";
-      main.append(noOrders);
+window.document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("click", (event) => { 
+    if(event.target.classList.contains("button--back")) {
+      window.history.back();
     }
-  };
+  })
 
-  const orders = getCartAmount();
-  const ordersBody = document.querySelector(".orders__body");
+  getCartAmount();
+  createTableCells();
+});
 
-  const createTableCells = () => {
-    if (orders) {
-      orders.forEach((order) => {
-        const row = document.createElement("tr");
-        row.classList.add("orders__row");
-        row.dataset.id = order.id;
+const convertToCurrency = (amount) => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(amount);
+};
 
-        const product = document.createElement("td");
-        product.classList.add("orders__cell");
-        product.innerText = order.product;
+const getCartAmount = () => {
+  const cart = JSON.parse(localStorage.getItem("cart"));
+  if (cart) {
+    empty.classList.add("empty--hide");
+    const orders = cart.map((order) => {
+      return {
+        id: order.id,
+        product: order.name,
+        price: order.price,
+        amount: order.amount,
+        total: order.price * order.amount,
+      };
+    });
+    return orders;
+  } else {
+    summary.classList.add("summary--hide");
+    orderSection.classList.add("orders--hide");
+  }
+};
 
-        const amount = document.createElement("td");
-        amount.classList.add("orders__cell");
-        amount.innerText = order.amount;
+const orders = getCartAmount();
 
-        //deacrese the amount
-        const decreaseAmount = document.createElement("button");
-        decreaseAmount.classList.add(
-          "orders__decrease",
-          "button",
-          "button--minus"
-        );
-        decreaseAmount.innerText = "-";
+const createTableCells = () => {
+  if (orders) {
+    orders.forEach((order) => {
+      const row = document.createElement("tr");
+      row.classList.add("orders__row");
+      row.dataset.id = order.id;
 
-        const price = document.createElement("td");
-        price.classList.add("orders__cell");
-        price.innerText = convertToCurrency(order.price);
+      const product = document.createElement("td");
+      product.classList.add("orders__cell");
+      product.innerText = order.product;
 
-        const total = document.createElement("td");
-        total.classList.add("orders__cell");
-        total.innerText = convertToCurrency(order.total);
+      const amount = document.createElement("td");
+      amount.classList.add("orders__cell");
+      amount.innerText = order.amount;
 
-        ordersBody.append(row);
-        row.append(product, amount, price, total);
-      });
-      createSummary();
-    }
-  };
-  const sumerize = (ordersArr) => {
-    return ordersArr.reduce((acc, current) => {
-      return acc + current.total;
-    }, 0);
-  };
+      //deacrese the amount
+      const decreaseAmount = document.createElement("button");
+      decreaseAmount.classList.add(
+        "orders__decrease",
+        "button",
+        "button--minus"
+      );
+      decreaseAmount.innerText = "-";
 
-  const createSummary = () => {
-    const totalAmount = sumerize(orders);
-    const summary = document.querySelector(".summary");
-    const total = document.createElement("p");
-    total.classList.add("summary__total");
-    total.innerText = `Total: ${convertToCurrency(totalAmount)}`;
+      const price = document.createElement("td");
+      price.classList.add("orders__cell");
+      price.innerText = convertToCurrency(order.price);
 
-    summary.append(total);
-    createOrderNowButton();
-  };
+      const total = document.createElement("td");
+      total.classList.add("orders__cell");
+      total.innerText = convertToCurrency(order.total);
 
-  const createOrderNowButton = () => {
-    const summary = document.querySelector(".summary");
-    const orderButton = document.createElement("button");
-    orderButton.classList.add("orders__order", "button", "button--order");
-    orderButton.innerText = "Submit Order";
-    orderButton.addEventListener("click", orderNow);
+      ordersBody.append(row);
+      row.append(product, amount, price, total);
+    });
+    createSummary();
+  }
+};
+const sumerize = (ordersArr) => {
+  return ordersArr.reduce((acc, current) => {
+    return acc + current.total;
+  }, 0);
+};
 
-    summary.append(orderButton);
-  };
+const createSummary = () => {
+  const totalAmount = sumerize(orders);
+  summary.classList.remove("summary--hide");
+  const total = document.createElement("p");
+  total.classList.add("summary__total");
+  total.innerText = `Total: ${convertToCurrency(totalAmount)}`;
 
-  const orderNow = () => {
-    localStorage.removeItem("cart");
+  summary.append(total);
+  createOrderNowButton();
+};
 
-    const cartCounter = document.querySelector(".header__dropdown-counter")
-    cartCounter.innerText = `(0)`;
+const createOrderNowButton = () => {
+  const summary = document.querySelector(".summary");
+  const orderButton = document.createElement("button");
+  orderButton.classList.add("orders__order", "button", "button--order");
+  orderButton.innerText = "Submit Order";
+  orderButton.addEventListener("click", orderNow);
 
-    const main = document.querySelector(".main");
-    const orders = document.querySelector(".orders");
-    orders.remove();
+  summary.append(orderButton);
+};
 
-    const summary = document.querySelector(".summary");
-    summary.remove();
+const orderNow = () => {
+  localStorage.removeItem("cart");
 
-    const completeSection = document.createElement("section");
-    completeSection.classList.add("order-complete");
+  const cartCounter = document.querySelector(".header__dropdown-counter");
+  cartCounter.innerText = `(0)`;
 
-    const complete = document.createElement("p");
-    completeSection.classList.add("order__complete");
-    completeSection.innerText = "Order submitted!";
+  const main = document.querySelector(".main");
+  const orders = document.querySelector(".orders");
+  orders.remove();
 
-    completeSection.append(complete);
-    main.append(completeSection);
-  };
+  const summary = document.querySelector(".summary");
+  summary.remove();
+
+  const completeSection = document.createElement("section");
+  completeSection.classList.add("order-complete");
+
+  const complete = document.createElement("p");
+  completeSection.classList.add("order__complete");
+  completeSection.innerText = "Order submitted!";
+
+  completeSection.append(complete);
+  main.append(completeSection);
+};

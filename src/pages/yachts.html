@@ -40,7 +40,8 @@
     </header>
     <main>
         <section class="filters">
-            <label for="sort">Sort</label>
+            <button class="filters__home button button--back">Home</button>
+            <label for="sort">Sort by:</label>
             <select name="sort" id="sort" class="filters__sort">
             </select>
         </section>
@@ -60,6 +61,11 @@
                     </div>
                     <div class="details__specs">
                         <ul class="details__list"></ul>
+                        <div class="details__amount-group">
+                            <img src="../assets/icons/circle-minus-solid.svg" alt="Minus button" class="details__minus">
+                            <input type="number" class="details__amount" value="1">
+                            <img src="../assets/icons/circle-plus-solid.svg" alt="Plus button" class="details__plus">
+                        </div>
                     </div>
                 </div>
             </div>

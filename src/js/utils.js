@@ -1,3 +1,5 @@
+import { data } from "./data.js";
+
 export const convertToCurrency = (cc, style, type, amount) => {
   return new Intl.NumberFormat(cc, { style: style, currency: type }).format(
     amount
@@ -34,4 +36,11 @@ export const updateCartAmount = () => {
   }
 
   return cartAmount;
+};
+
+export const getCurrentCategory = () => {
+  const page = window.location.pathname.split("/").pop().split(".")[0];
+  return data.productCategories.find(
+    (category) => category.value.toLowerCase() === page
+  ).id;
 };

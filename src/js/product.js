@@ -1,5 +1,5 @@
 import { data } from "./data.js";
-import { convertToCurrency, getPageId, updateCartAmount } from "./utils.js";
+import { convertToCurrency, getPageId, updateCartAmount, getCurrentCategory } from "./utils.js";
 
 const cachedElements = {
   productSection: document.querySelector(".products"),
@@ -13,6 +13,10 @@ const cachedElements = {
   cartAmountElement: document.querySelector(".header__profile-counter"),
   filterSection: document.querySelector(".filters"),
   filterSort: document.querySelector(".filters__sort"),
+  amount: document.querySelector(".details__amount"),
+  plussButton: document.querySelector(".details__plus"),
+  minusButton: document.querySelector(".details__minus"),
+  home: document.querySelector(".filter__home"),
 };
 
 const {
@@ -26,8 +30,9 @@ const {
   detailsSpecs,
   filterSection,
   filterSort,
+  amount,
+  home
 } = cachedElements;
-
 
 window.addEventListener("DOMContentLoaded", () => {
   const pageId = getPageId();
@@ -44,13 +49,16 @@ window.addEventListener("DOMContentLoaded", () => {
     renderProducts(products);
 
     document.addEventListener("click", (event) => {
-      if (event.target.classList.contains("products__view")) {
+      const classList = event.target.classList;
+      if (classList.contains("products__view")) {
         redirect(event);
         const parentId = parseInt(event.target.parentNode.dataset.id);
         viewProduct(parentId);
-      }
-    });
-  }
+      } else if(classList.contains("filters__home")) {
+        window.location.href ="../index.html"
+    };
+  });
+}
 
   document.addEventListener("click", (event) => {
     updateAmount(event);
@@ -61,7 +69,6 @@ window.addEventListener("DOMContentLoaded", () => {
 const updateAmount = (event) => {
   const detailsPlus = event.target.classList.contains("details__plus");
   const detailsMinus = event.target.classList.contains("details__minus");
-  const amount = cachedElements["detailsAmount"];
 
   if (detailsPlus) {
     amount.value = parseInt(amount.value) + 1;
@@ -70,15 +77,11 @@ const updateAmount = (event) => {
   }
 };
 
-const getCurrentCategory = () => {
-  const page = window.location.pathname.split("/").pop().split(".")[0];
-  return data.productCategories.find(
-    (category) => category.value.toLowerCase() === page
-  ).id;
-};
 
 const categoryId = getCurrentCategory();
-const products = data.products.filter((product) => product.categoryId === categoryId);
+const products = data.products.filter(
+  (product) => product.categoryId === categoryId
+);
 
 const redirect = (event) => {
   const parentId = event.target.parentNode.dataset.id;
@@ -110,7 +113,9 @@ const sortAscending = (spec) => {
   if (spec === "price") {
     sortedProducts = productsToSort.sort((a, b) => b.price - a.price);
   } else if (spec === "name") {
-    sortedProducts = productsToSort.sort((a, b) => a.name.localeCompare(b.name));
+    sortedProducts = productsToSort.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
   } else {
     sortedProducts = productsToSort.sort((a, b) => b.spec[spec] - a.spec[spec]);
   }
@@ -123,8 +128,7 @@ const addProductToCart = () => {
   );
 
   const product = products.find((category) => category.id === parentId);
-  const detailsAmount = cachedElements["detailsAmount"];
-  product.amount = parseInt(detailsAmount.value);
+  product.amount = parseInt(amount.value);
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const existingProduct = cart.find((item) => item.id === product.id);
@@ -143,8 +147,12 @@ const addProductToCart = () => {
   orderButton.classList.add("button--disabled");
   orderButton.innerText = "Added to cart!";
 
-  const amountGroup = cachedElements["amountGroup"];
-  amountGroup.remove();
+  setTimeout(() => {
+    orderButton.disabled = false;
+    orderButton.classList.remove("button--disabled");
+    orderButton.classList.add("button--order");
+    orderButton.innerText = "Add to cart";
+  }, 1000);
 
   const cartCounter = document.querySelector(".header__dropdown-counter");
   cartCounter.innerText = `(${updateCartAmount()})`;
@@ -180,35 +188,13 @@ const viewProduct = (id) => {
     detailsList.append(specItem);
   }
 
-  const amountGroup = document.createElement("div");
-  amountGroup.classList.add("details__amount-group");
-  cachedElements["amountGroup"] = amountGroup;
-
-  const detailsAmount = document.createElement("input");
-  detailsAmount.classList.add("details__amount");
-  detailsAmount.type = "number";
-  detailsAmount.value = 1;
-  cachedElements["detailsAmount"] = detailsAmount;
-
-  const minusButton = document.createElement("button");
-  minusButton.classList.add("details__minus", "button", "button--minus");
-  minusButton.innerText = "-";
-  cachedElements["minusButton"] = minusButton;
-
-  const plusButton = document.createElement("button");
-  plusButton.classList.add("details__plus", "button", "button--plus");
-  plusButton.innerText = "+";
-  cachedElements["plusButton"] = plusButton;
-
-  amountGroup.append(minusButton, detailsAmount, plusButton);
-
   const orderButton = document.createElement("button");
   orderButton.classList.add("details__order", "button", "button--order");
   cachedElements["orderButton"] = orderButton;
 
   orderButton.innerText = "Add to cart";
   orderButton.addEventListener("click", addProductToCart);
-  detailsSpecs.append(amountGroup, orderButton);
+  detailsSpecs.append(orderButton);
 };
 
 const renderProducts = (products) => {

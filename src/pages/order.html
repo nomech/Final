@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/button.css">
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/products.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/order.css">
     <script type="module" src="../js/data.js" defer></script>
@@ -39,6 +38,7 @@
         </nav>
     </header>
     <main class="main">
+        <button class="order-button--back button button--back">Back to previous</button>
         <section class="orders">
             <table class="orders__table">
                 <thead class="orders__table-header">
@@ -54,8 +54,11 @@
                 </tbody>
             </table>
         </section>
-        <section class="summary">
+        <section class="summary summary--hide">
             <h2>Summary</h2>
+        </section>
+        <section class="empty">
+            <p class="empty__text">There is nothing in your cart yet</p>
         </section>
     </main>
 </body>

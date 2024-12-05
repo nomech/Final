@@ -6,3 +6,10 @@
     height: 90vh;
     gap: var(--xlarge);
   }
+
+  .contact__message {
+    width: 600px;
+    height: 230px;
+    resize: none;
+  }
+

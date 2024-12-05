@@ -54,6 +54,21 @@
     flex-direction: column;
     gap: var(--large);
   }
+  .details__amount-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .details__plus, .details__minus {
+    width: var(--large);
+    height: var(--large);
+    cursor: pointer;
+  }
+
+  .details__plus:active, .details__minus:active {
+    transform: scale(0.95);
+  }
 
   .details__amount {
     padding: var(--small);
