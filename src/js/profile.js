@@ -1,4 +1,9 @@
-import { getLoggedInUser, getData, storeData, checkLoggedInUser } from "./utils.js";
+import {
+  getLoggedInUser,
+  getData,
+  storeData,
+  checkLoggedInUser,
+} from "./utils.js";
 
 let loggedInUser = JSON.parse(getLoggedInUser());
 const inputName = document.querySelectorAll(".profile-form__input");
@@ -15,6 +20,8 @@ document.addEventListener("click", (event) => {
     editForm();
   } else if (classList.contains("profile__save-button")) {
     saveForm();
+  } else if (classList.contains("profile-form__button--password")) {
+    changePassword();
   }
 });
 
@@ -37,23 +44,21 @@ const editForm = () => {
 };
 
 const lockForm = () => {
-
   for (let element of inputName) {
     element.classList.add("profile-form__input--readonly");
     element.setAttribute("readonly", true);
   }
- 
+
   saveButton.classList.add("button--disabled");
   saveButton.innerHTML = "Saved!";
   setTimeout(() => {
     editButton.classList.remove("profile-form__button--hide");
-    saveButton.classList.add("profile-form__button--hide")
+    saveButton.classList.add("profile-form__button--hide");
     saveButton.classList.remove("button--disabled");
-    
+
     saveButton.innerHTML = "Save";
   }, 1000);
- 
-}
+};
 
 const saveForm = () => {
   const users = getData("users");
@@ -66,16 +71,26 @@ const saveForm = () => {
 
   updatedUser = { ...currentUser, ...updatedUser };
 
-  const updatedUsers = users.map((user) =>
-    user.id === loggedInUser.id ? updatedUser : user
-  );
-  storeData(updatedUsers);
+  const updatedUsers = users.map((user) => {
+    if (user.id === loggedInUser.id) {
+      return updatedUser;
+    } else {
+      return user;
+    }
+  });
 
+  //check if password and password confirm match
+  if (updatedUser.password !== updatedUser.confirm_password) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  console.log(updatedUsers)
+  storeData(updatedUsers);
   checkLoggedInUser();
   loggedInUser = JSON.parse(getLoggedInUser());
   addUserDataToForm();
   lockForm();
 };
-
 
 //todo: add event listener to the save button
