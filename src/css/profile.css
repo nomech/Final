@@ -1,24 +1,22 @@
 fieldset {
+  display: flex;
+  flex-direction: column;
   padding: var(--large);
-  padding-right: var(--small);
   border: none;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
     rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   background-color: #ffffff13;
-  display: flex;
-  flex-direction: column;
+  width: 375px;
 }
 
 .profile-form {
   display: flex;
-  width: 100%;
   flex-direction: column;
 }
 
 .profile-form__label {
   margin-top: var(--small);
   font-size: 14px;
-  grid-column: 1;
 }
 
 .profile-form__label,
@@ -35,6 +33,14 @@ legend {
   color: var(--secondary-text-color);
 }
 
+.profile-form__label-confirm, .profile-form__confirm-password {
+  visibility: visible;
+}
+
+.profile-form__label-confirm--hide, .profile-form__confirm-password--hide{
+  visibility: hidden;
+}
+
 .profile-form__input--readonly {
   background-color: unset;
   color: var(--text-color);
@@ -48,7 +54,9 @@ legend {
 .profile-form__button:hover {
   background-color: var(--secondary-color);
 }
-.profile__save-button, .profile__edit-button, .profile-form__button--password{
+.profile__save-button,
+.profile__edit-button,
+.profile-form__button--password {
   animation: none;
 }
 .profile-form__text {
@@ -87,8 +95,8 @@ legend {
 }
 
 .profile__button-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
   gap: var(--small);
   padding: var(--small) 0;
 }
@@ -97,8 +105,9 @@ legend {
   width: var(--small);
   height: var(--small);
   cursor: pointer;
+  pointer-events: none;
 }
 
-.profile-form__button--hide{
+.profile-form__button--hide {
   display: none;
 }

@@ -9,6 +9,12 @@ let loggedInUser = JSON.parse(getLoggedInUser());
 const inputName = document.querySelectorAll(".profile-form__input");
 const editButton = document.querySelector(".profile__edit-button");
 const saveButton = document.querySelector(".profile__save-button");
+const confirmPasswordLabel = document.querySelector(
+  ".profile-form__label--password"
+);
+const confirmPasswordInput = document.querySelector(
+  ".profile-form__confirm-password"
+);
 
 window.addEventListener("DOMContentLoaded", () => {
   addUserDataToForm();
@@ -20,8 +26,6 @@ document.addEventListener("click", (event) => {
     editForm();
   } else if (classList.contains("profile__save-button")) {
     saveForm();
-  } else if (classList.contains("profile-form__button--password")) {
-    changePassword();
   }
 });
 
@@ -41,6 +45,9 @@ const editForm = () => {
   }
   editButton.classList.add("profile-form__button--hide");
   saveButton.classList.remove("profile-form__button--hide");
+  console.log(confirmPasswordLabel.classList);
+  confirmPasswordLabel.classList.remove("profile-form__label-confirm--hide");
+  confirmPasswordInput.classList.remove("profile-form__confirm-password--hide");
 };
 
 const lockForm = () => {
@@ -50,6 +57,8 @@ const lockForm = () => {
   }
 
   saveButton.classList.add("button--disabled");
+  confirmPasswordLabel.classList.add("profile-form__label-confirm--hide");
+  confirmPasswordInput.classList.add("profile-form__confirm-password--hide");
   saveButton.innerHTML = "Saved!";
   setTimeout(() => {
     editButton.classList.remove("profile-form__button--hide");
@@ -66,7 +75,13 @@ const saveForm = () => {
   let updatedUser = {};
 
   for (let element of inputName) {
-    updatedUser[element.name] = element.value;
+    if (element.name === "password" || element.name === "confirm_password") {
+      if (element.value.length > 0) {
+        updatedUser[element.name] = element.value;
+      }
+    } else {
+      updatedUser[element.name] = element.value;
+    }
   }
 
   updatedUser = { ...currentUser, ...updatedUser };
@@ -79,18 +94,13 @@ const saveForm = () => {
     }
   });
 
-  //check if password and password confirm match
   if (updatedUser.password !== updatedUser.confirm_password) {
-    alert("Passwords do not match");
     return;
   }
 
-  console.log(updatedUsers)
   storeData(updatedUsers);
   checkLoggedInUser();
   loggedInUser = JSON.parse(getLoggedInUser());
   addUserDataToForm();
   lockForm();
 };
-
-//todo: add event listener to the save button

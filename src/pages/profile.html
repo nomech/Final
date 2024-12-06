@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <title>Document</title>
+    <title>Profile</title>
 </head>
 
 <body>
@@ -39,49 +39,39 @@
             <fieldset>
                 <legend>profile</legend>
                 <form class="profile-form">
-                    <div class="profile-form__profile-group">
 
-                        <label class="profile-form__label" for="first_name">First Name</label
-                            class="profile-form__label">
-                        <input class="profile-form__input profile-form__input--readonly  profile-form__firstname"
-                            type="text" name="first_name" id="first_name" required readonly>
+                    <label class="profile-form__label" for="first_name">First Name</label class="profile-form__label">
+                    <input class="profile-form__input profile-form__input--readonly  profile-form__firstname"
+                        type="text" name="first_name" id="first_name" required readonly>
 
+                    <label class="profile-form__label" for="last_name">Last Name</label>
+                    <input class="profile-form__input profile-form__input--readonly profile-form__lastname" type="text"
+                        name="last_name" id="last_name" required readonly>
 
+                    <label class="profile-form__label profile-form__label--email" for="email">
+                        Email
+                        <img src="../assets/icons/circle-check-solid.svg" alt="Checkmark"
+                            class="profile-form__validity profile-form__validity--valid">
+                        <img src="../assets/icons/circle-xmark-solid.svg" alt="Error"
+                            class="profile-form__validity profile-form__validity--error">
 
-                        <label class="profile-form__label" for="last_name">Last Name</label>
-                        <input class="profile-form__input profile-form__input--readonly profile-form__lastname"
-                            type="text" name="last_name" id="last_name" required readonly>
+                    </label>
+                    <input class="profile-form__input profile-form__input--readonly  profile-form__email" type="email"
+                        name="email" id="email" required readonly>
 
+                    <label class="profile-form__label" for="first_name">Address</label class="profile-form__label">
+                    <input class="profile-form__input profile-form__input--readonly  profile-form__address" type="text"
+                        name="address" id="address" readonly>
 
+                    <label class="profile-form__label" for="password">Password</label>
+                    <input class="profile-form__input profile-form__input--readonly profile-form__password"
+                        type="password" name="password" id="password" required readonly>
 
-                        <label class="profile-form__label profile-form__label--email" for="email">
-                            Email
-                            <img src="../assets/icons/circle-check-solid.svg" alt="Checkmark"
-                                class="profile-form__validity profile-form__validity--valid">
-                            <img src="../assets/icons/circle-xmark-solid.svg" alt="Error"
-                                class="profile-form__validity profile-form__validity--error">
-
-                        </label>
-                        <input class="profile-form__input profile-form__input--readonly  profile-form__email"
-                            type="email" name="email" id="email" required readonly>
-
-
-
-                        <label class="profile-form__label" for="first_name">Address</label class="profile-form__label">
-                        <input class="profile-form__input profile-form__input--readonly  profile-form__address"
-                            type="text" name="address" id="address" readonly>
-
-                        <!-- Hidden password  and confirm passowrd field -->
-                        <div class="profile-form__password-group profile-form__password-group--hide">
-                            <label class="profile-form__label" for="password">Password</label>
-                            <input class="profile-form__input profile-form__input--readonly profile-form__password"
-                                type="password" name="password" id="password" required readonly>
-
-                            <label class="profile-form__label" for="confirm_password">Confirm Password</label>
-                            <input
-                                class="profile-form__input profile-form__input--readonly profile-form__confirm-password"
-                                type="password" name="confirm_password" id="confirm_password" required readonly>
-                        </div>
+                    <label class="profile-form__label profile-form__label--password profile-form__label-confirm--hide"
+                        for="confirm_password">Confirm Password</label>
+                    <input
+                        class="profile-form__input profile-form__input--readonly profile-form__confirm-password profile-form__confirm-password--hide"
+                        type="password" name="confirm_password" id="confirm_password" required readonly>
 
                 </form>
                 </div>
@@ -94,11 +84,6 @@
                         <img src="../assets/icons/floppy-disk-solid.svg" alt="edit icon" class="profile__edit-icon">
                         Save
                     </button>
-                    <button class="profile-form__button profile-form__button--password button" type="submit">
-                        <img src="../assets/icons/edit.svg" alt="edit icon" class="profile__edit-icon">
-                        Change password
-                    </button>
-
                 </div>
             </fieldset>
         </main>

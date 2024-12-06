@@ -54,7 +54,6 @@ const createPreview = () => {
     previewImage.src = category.preview;
     previewImage.alt = `${category.name} preview image`;
     previewImage.classList.add("preview__image");
-    domElemets.previewImage = document.querySelector(".preview__image");
 
     const previewTitle = document.createElement("h2");
     previewTitle.innerText = category.name;
