@@ -669,4 +669,25 @@ export const data = {
       link: "/login.html",
     },
   ],
+  specUnitLookup:{
+    1: {
+      length: "ft",
+      maxSpeed: "knots",
+      range: "nautical miles",
+    },
+    2: {
+      range: "nautical miles",
+      speed: "Mach",
+    },
+    3: {
+      horsepower: "hp",
+      torque: "lb-ft",
+      topSpeed: "mph",
+    },
+    4: {
+      livingArea: "sqft",
+      landArea: "acres",
+    },
+  }
+  
 };

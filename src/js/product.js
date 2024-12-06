@@ -1,5 +1,10 @@
 import { data } from "./data.js";
-import { convertToCurrency, getPageId, updateCartAmount, getCurrentCategory } from "./utils.js";
+import {
+  convertToCurrency,
+  getPageId,
+  updateCartAmount,
+  getCurrentCategory,
+} from "./utils.js";
 
 const cachedElements = {
   productSection: document.querySelector(".products"),
@@ -30,9 +35,15 @@ const {
   detailsSpecs,
   filterSection,
   filterSort,
-  amount,
-  home
+  amount, 
 } = cachedElements;
+
+const categoryId = getCurrentCategory();
+const products = data.products.filter(
+  (product) => product.categoryId === categoryId
+);
+
+const units = data.specUnitLookup[categoryId];
 
 window.addEventListener("DOMContentLoaded", () => {
   const pageId = getPageId();
@@ -54,11 +65,11 @@ window.addEventListener("DOMContentLoaded", () => {
         redirect(event);
         const parentId = parseInt(event.target.parentNode.dataset.id);
         viewProduct(parentId);
-      } else if(classList.contains("filters__home")) {
-        window.location.href ="../index.html"
-    };
-  });
-}
+      } else if (classList.contains("filters__home")) {
+        window.location.href = "../index.html";
+      }
+    });
+  }
 
   document.addEventListener("click", (event) => {
     updateAmount(event);
@@ -76,12 +87,6 @@ const updateAmount = (event) => {
     amount.value = parseInt(amount.value) - 1;
   }
 };
-
-
-const categoryId = getCurrentCategory();
-const products = data.products.filter(
-  (product) => product.categoryId === categoryId
-);
 
 const redirect = (event) => {
   const parentId = event.target.parentNode.dataset.id;
@@ -182,7 +187,8 @@ const viewProduct = (id) => {
     specTitle.innerText = spec;
 
     const specValue = document.createElement("p");
-    specValue.innerText = product.spec[spec];
+    const specUnit = units[spec] ? units[spec] : "";
+    specValue.innerText = `${product.spec[spec]} ${specUnit}`;
 
     specItem.append(specTitle, specValue);
     detailsList.append(specItem);

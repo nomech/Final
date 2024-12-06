@@ -10,6 +10,8 @@ const domElemets = {
   preview: document.querySelector(".preview"),
   previewText: document.querySelector(".preview__text"),
   previewOptions: document.querySelector(".preview__options"),
+  contactButton: document.querySelector(".contact__button"),
+  contactMessage: document.querySelector(".contact__message"),
 };
 
 const {
@@ -19,6 +21,8 @@ const {
   welcomeText,
   previewText,
   previewOptions,
+  contactButton,
+  contactMessage,
 } = domElemets;
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -28,9 +32,13 @@ window.addEventListener("DOMContentLoaded", () => {
   previewText.innerText = `Choose your indulgence`;
   createPreview();
 
-  document.addEventListener("click", (e) => {
-    if (!profileIcon.contains(e.target)) {
+  document.addEventListener("click", (event) => {
+    if (!profileIcon.contains(event.target)) {
       headerDropdown.classList.remove("header__dropdown--show");
+    }
+
+    if (event.target.classList.contains("contact__button")) {
+      sendMessage(currentUser);
     }
   });
 });
@@ -61,4 +69,35 @@ const createPreview = () => {
       }
     });
   });
+};
+
+const sendMessage = (user) => {
+  if (contactMessage.value.length > 0) {
+    const newMessage = contactMessage.value;
+    const email = user.email;
+    const messages = localStorage.getItem("message");
+    const time = new Date().toLocaleString();
+    if (messages) {
+      const parsedMessages = JSON.parse(messages);
+      localStorage.setItem(
+        "message",
+        JSON.stringify([...parsedMessages, { time, email, newMessage }])
+      );
+    } else {
+      localStorage.setItem(
+        "message",
+        JSON.stringify([{ time, email, newMessage }])
+      );
+    }
+    contactMessage.value = "";
+    contactButton.innerText = "Message Sent!";
+    contactButton.disabled = true;
+    contactButton.classList.add("button--disabled");
+
+    setTimeout(() => {
+      contactButton.innerText = "Send Message";
+      contactButton.disabled = false;
+      contactButton.classList.remove("button--disabled");
+    }, 1500);
+  }
 };

@@ -1,4 +1,4 @@
-import { getData, storeData } from "./utils.js";
+import { getData, storeData, checkLoggedInUser } from "./utils.js";
 
 const cachedElelements = {
   form: document.querySelector(".login-form"),
@@ -12,22 +12,19 @@ let loginAttempted = false;
 
 window.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", loginUser);
-  register.addEventListener("click", (e) => {
-    e.preventDefault();
+  register.addEventListener("click", (event) => {
+    event.preventDefault();
     window.location.href = "./register.html";
   });
 });
 
-
-
-const loginUser = (e) => {
-  e.preventDefault();
-
+const loginUser = (event) => {
+  event.preventDefault();
   const users = getData("users");
   let email;
   let password;
 
-  for (let element of e.target.elements) {
+  for (let element of event.target.elements) {
     if (element.name && element.tagName.toLowerCase() === "input") {
       if (element.name === "email") {
         email = element.value;
@@ -63,23 +60,6 @@ const loginUser = (e) => {
   }
 };
 
-const checkLoggedInUser = () => {
-  let loginStatus = false;
-  const findLoggedInUser = getData("users").find((user) => user.loggedIn);
-  
-  if (findLoggedInUser) {
-    const loggedInUser = {
-      id: findLoggedInUser.id,
-      first_name: findLoggedInUser.first_name,
-      last_name: findLoggedInUser.last_name,
-      email: findLoggedInUser.email,
-    };
-    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-    loginStatus = findLoggedInUser.loggedIn;
-  }
-
-  return loginStatus;
-};
 
 const redirectUser = () => {
   if (checkLoggedInUser()) {

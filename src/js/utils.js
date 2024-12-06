@@ -15,6 +15,25 @@ export const storeData = (data) => {
   localStorage.setItem("users", JSON.stringify(data));
 };
 
+export const checkLoggedInUser = () => {
+  let loginStatus = false;
+  const findLoggedInUser = getData("users").find((user) => user.loggedIn);
+  
+  if (findLoggedInUser) {
+    const loggedInUser = {
+      id: findLoggedInUser.id,
+      first_name: findLoggedInUser.first_name,
+      last_name: findLoggedInUser.last_name,
+      email: findLoggedInUser.email,
+      address: findLoggedInUser.address,
+    };
+    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+    loginStatus = findLoggedInUser.loggedIn;
+  }
+
+  return loginStatus;
+};
+
 export const getLoggedInUser = () => {
   const loggedInUser = localStorage.getItem("loggedInUser");
   if (loggedInUser === null) {
@@ -22,6 +41,10 @@ export const getLoggedInUser = () => {
   } else {
     return loggedInUser;
   }
+};
+
+export const updateLoggedInUser = (user) => {
+  localStorage.setItem("loggedInUser", JSON.stringify(user));
 };
 
 export const getPageId = () => {

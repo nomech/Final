@@ -5,11 +5,15 @@
     align-items: center;
     height: 90vh;
     gap: var(--xlarge);
+    padding: var(--xlarge);
   }
 
   .contact__message {
     width: 600px;
     height: 230px;
     resize: none;
+    text-transform: none;
+    letter-spacing: unset;
+    padding: var(--medium);
   }
 
