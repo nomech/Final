@@ -6,7 +6,7 @@ export const convertToCurrency = (cc, style, type, amount) => {
   );
 };
 
- export const getData = (key) => {
+export const getData = (key) => {
   const data = JSON.parse(localStorage.getItem(key)) || [];
   return data;
 };
@@ -18,7 +18,7 @@ export const storeData = (data) => {
 export const checkLoggedInUser = () => {
   let loginStatus = false;
   const findLoggedInUser = getData("users").find((user) => user.loggedIn);
-  
+
   if (findLoggedInUser) {
     const loggedInUser = {
       id: findLoggedInUser.id,
@@ -28,7 +28,7 @@ export const checkLoggedInUser = () => {
       address: findLoggedInUser.address,
     };
     localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-    loginStatus = findLoggedInUser.loggedIn;
+    return findLoggedInUser.loggedIn;
   }
 
   return loginStatus;

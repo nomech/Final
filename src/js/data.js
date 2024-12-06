@@ -9,10 +9,8 @@ export const data = {
       sortingOptions: [
         "name",
         "price",
-        "length",
         "cabins",
         "length",
-        "cabins",
         "guests",
         "crew",
         "maxSpeed",
