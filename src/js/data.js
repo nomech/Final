@@ -79,7 +79,7 @@ export const data = {
       categoryId: 1,
       name: "Queen of the Sea",
       price: 2500000,
-      image: "/src/assets/images/yachts/queenOfTheSea-front.webp",
+      image: "../assets/images/yachts/queenOfTheSea-front.webp",
       description:
         "The Queen of the Sea is a 150-foot luxury yacht designed for ultimate comfort and elegance. Perfect for family vacations or romantic getaways, it boasts a spacious deck with a hot tub, a fully stocked bar, and an alfresco dining area. The interior features a grand salon with panoramic windows, a formal dining room, and a master suite with a king-size bed and en-suite bathroom. Additional amenities include a fully equipped gourmet kitchen, a fitness center, and a private cinema room with a collection of over 500 movies. The yacht is staffed with a professional crew dedicated to providing five-star service. Available for charter in the Mediterranean and the Caribbean.",
       spec: {
@@ -98,7 +98,7 @@ export const data = {
       categoryId: 1,
       name: "Voyager 2",
       price: 2000000,
-      image: "/src/assets/images/yachts/voyger2-front.webp",
+      image: "../assets/images/yachts/voyger2-front.webp",
       description:
         "The Voyager 2 is a state-of-the-art 180-foot superyacht equipped with the latest maritime technology. Its sleek exterior is matched by luxurious interiors featuring Italian marble and custom woodwork. Accommodations include six staterooms with en-suite bathrooms, a spacious salon with a grand piano, and a sky lounge with 360-degree views. The expansive deck area offers a swimming pool, a helipad, and multiple lounging areas. The yacht also includes a beach club, a sauna, and a collection of water toys such as jet skis and paddleboards. Ideal for long voyages, the Voyager 2 promises an unforgettable experience on the open seas.",
       spec: {
@@ -117,7 +117,7 @@ export const data = {
       categoryId: 1,
       name: "Ocean Dream",
       price: 3000000,
-      image: "/src/assets/images/yachts/oceanDream-back.webp ",
+      image: "../assets/images/yachts/oceanDream-back.webp ",
       description:
         "The Ocean Dream is the epitome of luxury on water, a 200-foot megayacht that combines cutting-edge design with opulent amenities. It features a private spa with massage rooms, a sun deck with a retractable roof, and a glass-bottom observation lounge that offers mesmerizing views of marine life. The interior is adorned with bespoke furnishings, hand-painted murals, and a collection of contemporary art. The yacht accommodates up to 14 guests in seven lavish staterooms, each with panoramic ocean views. Additional highlights include a wine cellar, a gourmet kitchen staffed by a Michelin-starred chef, and advanced stabilization systems for a smooth voyage.",
       spec: {
@@ -136,7 +136,7 @@ export const data = {
       categoryId: 1,
       name: "Azure Horizon",
       price: 4500000,
-      image: "/src/assets/images/yachts/azure-front.webp",
+      image: "../assets/images/yachts/azure-front.webp",
       description:
         "The Azure Horizon is a cutting-edge 220-foot expedition yacht designed for both luxury and exploration. Featuring an ice-class hull and advanced stabilization systems, this yacht is capable of navigating the most challenging maritime environments while providing unparalleled comfort. The yacht includes a fully equipped research laboratory, a submersible dock, and state-of-the-art communication systems. Its interior boasts a modern minimalist design with floor-to-ceiling windows, offering panoramic views of the surrounding seascape. The Azure Horizon is perfect for those who seek adventure without compromising on luxury.",
       spec: {
@@ -155,7 +155,7 @@ export const data = {
       categoryId: 1,
       name: "Nautical Pearl",
       price: 5000000,
-      image: "/src/assets/images/yachts/npearl-front.webp",
+      image: "../assets/images/yachts/npearl-front.webp",
       description:
         "The Nautical Pearl is a revolutionary eco-friendly superyacht that combines luxury with sustainable technology. Powered by hybrid electric-hydrogen propulsion systems, this 190-foot vessel represents the future of maritime travel. Its innovative design includes solar panels, wind turbines, and advanced energy storage capabilities. The interior features sustainable materials, including recycled ocean plastics and responsibly sourced wood. The yacht offers multiple entertainment zones, including an underwater observation lounge, a vertical garden, and a zero-emission beach club. With its commitment to luxury and environmental consciousness, the Nautical Pearl sets a new standard in maritime engineering.",
       spec: {
@@ -174,7 +174,7 @@ export const data = {
       categoryId: 1,
       name: "Celestial Voyager",
       price: 6000000,
-      image: "/src/assets/images/yachts/celestial-front.webp",
+      image: "../assets/images/yachts/celestial-front.webp",
       description:
         "The Celestial Voyager is a technological marvel in maritime engineering, designed for those who demand the ultimate in exploration and luxury. This 250-foot expedition yacht features advanced stabilization systems, a complete medical facility, and cutting-edge communication technologies. The yacht includes a fully equipped helicopter hangar, underwater drone launch systems, and a state-of-the-art marine research laboratory. Its interior combines futuristic design with ultimate comfort, featuring adaptive climate zones, holographic entertainment systems, and a virtual reality simulation room for immersive experiences.",
       spec: {
@@ -193,7 +193,7 @@ export const data = {
       categoryId: 1,
       name: "Solar Winds",
       price: 7500000,
-      image: "/src/assets/images/yachts/solar-front.webp",
+      image: "../assets/images/yachts/solar-front.webp",
       description:
         "The Solar Winds is a revolutionary zero-emission superyacht that represents the future of sustainable maritime luxury. Entirely powered by advanced solar and hydrogen technologies, this 210-foot vessel features integrated solar panels across its superstructure and innovative hydrogen fuel cell propulsion. The yacht includes multiple eco-friendly innovations, such as a marine life conservation lab, an onboard vertical farm, and water purification systems. Its interior is crafted from recycled and sustainable materials, offering a luxurious experience that doesn't compromise environmental responsibility.",
       spec: {
@@ -669,7 +669,7 @@ export const data = {
       link: "/login.html",
     },
   ],
-  specUnitLookup: {
+  specUnitLookup:{
     1: {
       length: "ft",
       maxSpeed: "knots",
@@ -688,5 +688,6 @@ export const data = {
       livingArea: "sqft",
       landArea: "acres",
     },
-  },
+  }
+  
 };
