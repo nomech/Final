@@ -110,7 +110,7 @@ const createTableCells = () => {
       amount.classList.add("orders__cell", "orders__cell--amount");
 
       const increaseAmount = document.createElement("button");
-      increaseAmount.classList.add("orders__increase");
+      increaseAmount.classList.add("orders__button","orders__increase");
 
       const increaseAmountIcon = document.createElement("img");
       increaseAmountIcon.src = "../assets/icons/circle-plus-solid.svg";
@@ -127,7 +127,7 @@ const createTableCells = () => {
       amountInput.min = 1;
 
       const decreaseAmount = document.createElement("button");
-      decreaseAmount.classList.add("orders__decrease");
+      decreaseAmount.classList.add("orders__button","orders__decrease");
       const decreaseAmountIcon = document.createElement("img");
       decreaseAmountIcon.src = "../assets/icons/circle-minus-solid.svg";
 
@@ -227,15 +227,27 @@ const removeItem = (event) => {
   const row = event.target.parentNode;
   const id = parseInt(event.target.parentNode.dataset.id);
   let cart = JSON.parse(localStorage.getItem("cart"));
-  let cartLength = cart.length;
-  const test = cart.findIndex((item) => item.id === id);
-  cart.splice(test, 1);
+
+  const cartItem = cart.findIndex((item) => item.id === id);
+  cart.splice(cartItem, 1);
   localStorage.setItem("cart", JSON.stringify(cart));
   row.remove();
-  cartLength--;
+  
   const cartCounter = document.querySelector(".header__dropdown-counter");
   cartCounter.innerText = `(${updateCartAmount()})`;
-  if (cartLength === 0) {
+
+  orders = getCartAmount();
+  const totalAmount = sumerize(orders);
+  const summary = document.querySelector(".summary__total");
+
+  summary.innerText = `Total: ${convertToCurrency(
+    "en-US",
+    "currency",
+    "USD",
+    totalAmount
+  )}`;
+
+  if (cart.length === 0) {
     localStorage.removeItem("cart");
     empty.classList.remove("empty--hide");
     summary.classList.add("summary--hide");

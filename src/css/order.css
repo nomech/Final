@@ -57,11 +57,14 @@ main {
   display: block;
 }
 
-.orders__decrease,
-.orders__increase {
+.orders__button {
   width: var(--small);
   background-color: transparent;
   cursor: pointer;
+}
+
+.orders__button:active {
+  transform: scale(0.9);
 }
 
 .orders__decrease img,
@@ -75,4 +78,13 @@ main {
   width: var(--small);
   background-color: transparent;
   color: var(--text-color);
+}
+
+.orders__cell--remove {
+  cursor: pointer;
+}
+
+.orders__cell--remove:hover {
+  color: var(--secondary-text-color);
+  background-color: var(--primary-color);
 }
