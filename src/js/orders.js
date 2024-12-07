@@ -73,9 +73,8 @@ const updateAmount = (value, id) => {
   localStorage.setItem("cart", JSON.stringify(cart));
 
   //update total price
-  const total = document.querySelector(
-    `tr[data-id="${id}"] .orders__cell:last-child`
-  );
+  //https://stackoverflow.com/questions/59944807/how-can-i-select-an-element-basing-on-its-dataset-and-using-template-strings
+  const total = document.querySelector(`tr[data-id="${id}"] .orders__cell--total`);
 
   total.innerText = convertToCurrency(
     "en-US",
@@ -148,7 +147,7 @@ const createTableCells = () => {
       );
 
       const total = document.createElement("td");
-      total.classList.add("orders__cell");
+      total.classList.add("orders__cell", "orders__cell--total");
       total.innerText = convertToCurrency(
         "en-US",
         "currency",
