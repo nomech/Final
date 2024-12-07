@@ -1,11 +1,11 @@
 main {
- padding: calc(var(--medium) * 5) calc(var(--large) * 2)
+  padding: calc(var(--medium) * 5) calc(var(--large) * 2);
 }
 
-.order-button--back{
+.order-button--back {
   align-self: flex-start;
 }
-.orders{
+.orders {
   display: block;
 }
 
@@ -26,6 +26,13 @@ main {
 .orders__cell {
   text-align: center;
 }
+.orders__cell--amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  gap: var(--xsmall);
+}
 
 .orders__order {
   grid-column-start: span 2;
@@ -40,12 +47,32 @@ main {
   align-items: center;
 }
 
-
-
-.orders--hide, .summary--hide, .empty--hide {
+.orders--hide,
+.summary--hide,
+.empty--hide {
   display: none;
 }
 
-.empty--show{
+.empty--show {
   display: block;
+}
+
+.orders__decrease,
+.orders__increase {
+  width: var(--small);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.orders__decrease img,
+.orders__increase img {
+  pointer-events: none;
+}
+
+.orders__input {
+  display: flex;
+  justify-items: center;
+  width: var(--small);
+  background-color: transparent;
+  color: var(--text-color);
 }

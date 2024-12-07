@@ -1,5 +1,6 @@
+import { updateCartAmount, convertToCurrency } from "./utils.js";
+
 const cachedElements = {
-  cartCounter: document.querySelector(".header__dropdown-counter"),
   empty: document.querySelector(".empty"),
   orderSection: document.querySelector(".orders"),
   ordersBody: document.querySelector(".orders__body"),
@@ -7,25 +8,19 @@ const cachedElements = {
   main: document.querySelector(".main"),
 };
 
-const { cartCounter, empty, orderSection, summary, ordersBody } = cachedElements;
+const { cartCounter, empty, orderSection, summary, ordersBody } =
+  cachedElements;
 
 window.document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener("click", (event) => { 
-    if(event.target.classList.contains("button--back")) {
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("button--back")) {
       window.history.back();
     }
-  })
+  });
 
   getCartAmount();
   createTableCells();
 });
-
-const convertToCurrency = (amount) => {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(amount);
-};
 
 const getCartAmount = () => {
   const cart = JSON.parse(localStorage.getItem("cart"));
@@ -42,12 +37,64 @@ const getCartAmount = () => {
     });
     return orders;
   } else {
+    console.log("No items in cart");
+    empty.classList.remove("empty--hide");
     summary.classList.add("summary--hide");
     orderSection.classList.add("orders--hide");
   }
 };
 
-const orders = getCartAmount();
+let orders = getCartAmount();
+
+const incrementAmount = (event) => {
+  event.target.previousElementSibling.value++;
+  const id = parseInt(event.target.parentNode.parentNode.dataset.id);
+  const value = parseInt(event.target.previousElementSibling.value);
+  updateAmount(value, id);
+};
+
+const decrementAmount = (event) => {
+  if (event.target.nextElementSibling.value > 1) {
+    event.target.nextElementSibling.value--;
+    const id = parseInt(event.target.parentNode.parentNode.dataset.id);
+    const value = parseInt(event.target.nextElementSibling.value);
+    updateAmount(value, id);
+  }
+};
+
+const updateAmount = (value, id) => {
+  const item = orders.find((order) => order.id === id);
+  item.amount = value;
+
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  const cartItem = cart.find((item) => item.id === id);
+  cartItem.amount = item.amount;
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  //update total price
+  const total = document.querySelector(
+    `tr[data-id="${id}"] .orders__cell:last-child`
+  );
+
+  total.innerText = convertToCurrency(
+    "en-US",
+    "currency",
+    "USD",
+    item.price * item.amount
+  );
+
+  orders = getCartAmount();
+  const totalAmount = sumerize(orders);
+  const summary = document.querySelector(".summary__total");
+
+  summary.innerText = `Total: ${convertToCurrency(
+    "en-US",
+    "currency",
+    "USD",
+    totalAmount
+  )}`;
+};
 
 const createTableCells = () => {
   if (orders) {
@@ -61,32 +108,66 @@ const createTableCells = () => {
       product.innerText = order.product;
 
       const amount = document.createElement("td");
-      amount.classList.add("orders__cell");
-      amount.innerText = order.amount;
+      amount.classList.add("orders__cell", "orders__cell--amount");
 
-      //deacrese the amount
+      const increaseAmount = document.createElement("button");
+      increaseAmount.classList.add("orders__increase");
+
+      const increaseAmountIcon = document.createElement("img");
+      increaseAmountIcon.src = "../assets/icons/circle-plus-solid.svg";
+      increaseAmount.append(increaseAmountIcon);
+
+      increaseAmount.addEventListener("click", (event) => {
+        incrementAmount(event);
+      });
+
+      const amountInput = document.createElement("input");
+      amountInput.classList.add("orders__input");
+      amountInput.type = "number";
+      amountInput.value = order.amount;
+      amountInput.min = 1;
+
       const decreaseAmount = document.createElement("button");
-      decreaseAmount.classList.add(
-        "orders__decrease",
-        "button",
-        "button--minus"
-      );
-      decreaseAmount.innerText = "-";
+      decreaseAmount.classList.add("orders__decrease");
+      const decreaseAmountIcon = document.createElement("img");
+      decreaseAmountIcon.src = "../assets/icons/circle-minus-solid.svg";
+
+      decreaseAmount.append(decreaseAmountIcon);
+      decreaseAmount.addEventListener("click", (event) => {
+        decrementAmount(event);
+      });
+      amount.append(decreaseAmount, amountInput, increaseAmount);
 
       const price = document.createElement("td");
       price.classList.add("orders__cell");
-      price.innerText = convertToCurrency(order.price);
+      price.innerText = convertToCurrency(
+        "en-US",
+        "currency",
+        "USD",
+        order.price
+      );
 
       const total = document.createElement("td");
       total.classList.add("orders__cell");
-      total.innerText = convertToCurrency(order.total);
+      total.innerText = convertToCurrency(
+        "en-US",
+        "currency",
+        "USD",
+        order.total
+      );
+
+      const removeRow = document.createElement("td");
+      removeRow.classList.add("orders__cell", "orders__cell--remove");
+      removeRow.innerText = "Remove";
+      removeRow.addEventListener("click", (event) => removeItem(event));
 
       ordersBody.append(row);
-      row.append(product, amount, price, total);
+      row.append(product, amount, price, total, removeRow);
     });
     createSummary();
   }
 };
+
 const sumerize = (ordersArr) => {
   return ordersArr.reduce((acc, current) => {
     return acc + current.total;
@@ -98,7 +179,12 @@ const createSummary = () => {
   summary.classList.remove("summary--hide");
   const total = document.createElement("p");
   total.classList.add("summary__total");
-  total.innerText = `Total: ${convertToCurrency(totalAmount)}`;
+  total.innerText = `Total: ${convertToCurrency(
+    "en-US",
+    "currency",
+    "USD",
+    totalAmount
+  )}`;
 
   summary.append(total);
   createOrderNowButton();
@@ -136,4 +222,24 @@ const orderNow = () => {
 
   completeSection.append(complete);
   main.append(completeSection);
+};
+
+const removeItem = (event) => {
+  const row = event.target.parentNode;
+  const id = parseInt(event.target.parentNode.dataset.id);
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  let cartLength = cart.length;
+  const test = cart.findIndex((item) => item.id === id);
+  cart.splice(test, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  row.remove();
+  cartLength--;
+  const cartCounter = document.querySelector(".header__dropdown-counter");
+  cartCounter.innerText = `(${updateCartAmount()})`;
+  if (cartLength === 0) {
+    localStorage.removeItem("cart");
+    empty.classList.remove("empty--hide");
+    summary.classList.add("summary--hide");
+    orderSection.classList.add("orders--hide");
+  }
 };

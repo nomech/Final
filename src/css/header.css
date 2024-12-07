@@ -50,12 +50,11 @@
 }
 
 .header__dropdown {
-  display: hidden;
+  display: none;
   opacity: 0;
-  bottom: -105px;
   position: absolute;
   right: 50%;
-  top: 130%;
+  top: 120%;
   transform: translateX(50%);
   border-top: 2px solid var(--text-color);
 }
@@ -110,12 +109,9 @@
   justify-self: flex-end;
 }
 
-.header__profile-name {
-  background-color: var(--seconday-bg-color);
-  border: none;
-  color: var(--text-color);
-  font-size: var(--small);
-  user-select: none;
+.header__profile-title{
+  margin-top: var(--xsmall);
+  font-size: 12px; 
 }
 
 .header__list {
