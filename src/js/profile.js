@@ -40,7 +40,6 @@ const addUserDataToForm = () => {
 const editForm = () => {
   for (let element of inputName) {
     element.classList.remove("profile-form__input--readonly");
-    //https://stackoverflow.com/questions/21609012/disable-readonly-to-text-box-onclicking-the-button
     element.removeAttribute("readonly");
   }
   editButton.classList.add("profile-form__button--hide");
