@@ -28,7 +28,7 @@ NOMECH store is a responsive website selling high class and luxery assets such a
 
 1. Clone the repository
 ```bash
-    git clone https://github.com/nomech/Final.git
+git clone https://github.com/nomech/Final.git
 ```
 2. Navigate to the project directory
 ```bash
