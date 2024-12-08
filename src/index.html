@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="">
+  <meta name="description" content="NOMECH Store - Explore the best products and services in the world.">
+  <meta name="keywords" content="luxury, jets, villas, cars, yachts, world class">
+  <meta name="author" content="NOMECH">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/button.css">
   <link rel="stylesheet" href="./css/header.css">
@@ -24,7 +26,11 @@
     <!-- Navigation menu -->
     <nav class="header__nav">
       <!-- Page logo -->
-      <div class="header__logo"><a href="./index.html" class="header__logo-link">NOMECH</a></div>
+      <h1 class="header__logo">
+        <a href="./index.html" class="header__logo-link">
+          NOMECH
+        </a>
+      </h1>
       <!-- Navigation links generated dynamically based on data object-->
       <div class="header__nav-links">
         <ul class="header__list">
@@ -52,7 +58,7 @@
         <!-- Welcome message-->
       </h2>
       <h3 class="welcome__text">
-         <!-- Welcome message-->
+        <!-- Welcome message-->
       </h3>
       <!-- Explore button -->
       <a href="#preview" class="welcome__explore button button--explore">Explore</a>
@@ -73,9 +79,11 @@
       <!-- Contact text -->
       <p class="contact__text">We are here to help you with any questions you may have. Reach out to us and we will
         respond as soon as we can.</p>
-        <!-- Contact form -->
-      <textarea name="message" id="message" class="contact__message"></textarea>
-      <button class="contact__button button button--contact">Send</button>
+      <!-- Contact form -->
+      <form class="contact__form">
+        <textarea name="message" id="message" class="contact__message"></textarea>
+      </form>
+      <button class="contact__button button button--contact" type="submit">Send</button>
     </section>
 
   </main>

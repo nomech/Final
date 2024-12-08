@@ -4,28 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register for NOMECH to access a world of luxury jets, villas, cars, and yachts.">
+    <meta name="keywords" content="luxury, jets, villas, cars, yachts, world class">
+    <meta name="author" content="NOMECH">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/register.css">
     <link rel="stylesheet" href="../css/button.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <script type="module" src="../js/register.js" defer></script>
-    <title>Document</title>
+    <title>NOMECH - Register</title>
+
 </head>
 
 <body>
+    <!-- Header -->
     <header class="header">
+        <!-- Navigation menu -->
         <nav class="header__nav">
-            <div class="header__logo"><a href="#" class="header__logo-link">NOMECH</a></div>
+            <!-- Page logo -->
+            <h1 class="header__logo">
+                <a href="./index.html" class="header__logo-link">
+                    NOMECH
+                </a>
+            </h1>
         </nav>
     </header>
 
-    <body>
-        <main>
+    <main>
+        <section class="form-section">
+            <!-- Register form -->
             <fieldset>
                 <legend>Register</legend>
                 <form class="register-form">
-                    <label class="register-form__label" for="first_name">First Name</label class="register-form__label">
+                    <label class="register-form__label" for="first_name">First Name</label>
                     <input class="register-form__input register-form__firstname" type="text" name="first_name"
                         id="first_name" required>
                     <label class="register-form__label" for="last_name">Last Name</label>
@@ -33,6 +45,7 @@
                         id="last_name" required>
                     <label class="register-form__label register-form__label--email" for="email">
                         Email
+                        <!-- Checkmark and error icons -->
                         <img src="../assets/icons/circle-check-solid.svg" alt="Checkmark"
                             class="register-form__validity register-form__validity--valid">
                         <img src="../assets/icons/circle-xmark-solid.svg" alt="Error"
@@ -42,8 +55,8 @@
                     <input class="register-form__input register-form__email" type="email" name="email" id="email"
                         required>
                     <label class="register-form__label" for="address">address</label>
-                    <input class="register-form__input register-form__address" type="address" name="address"
-                        id="address" required>
+                    <input class="register-form__input register-form__address" type="text" name="address" id="address"
+                        required>
 
                     <label class="register-form__label" for="password">Password</label>
                     <input class="register-form__input register-form__password" type="password" name="password"
@@ -51,17 +64,25 @@
                     <label class="register-form__label" for="confirm_password">Confirm Password</label>
                     <input class="register-form__input register-form__confirm-password" type="password"
                         name="confirm_password" id="confirm_password" required>
-
+                    <!-- Register button -->
                     <button class="register-form__button" type="submit">Register</button>
                     <p class="register-form__text">Already have an account? Sign in <a href="./login.html">here</a></p>
 
                 </form>
             </fieldset>
-        </main>
-        <footer>
-
-        </footer>
-    </body>
+        </section>
+    </main>
+    <footer class="footer">
+        <!-- Footer links -->
+        <ul class="footer__list">
+            <li class="footer__list-item"><a href="#" class="footer__link">About</a></li>
+            <li class="footer__list-item"><a href="#" class="footer__link">Terms of Service</a></li>
+            <li class="footer__list-item"><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li class="footer__list-item"><a href="#" class="footer__link">Help</a></li>
+            <li class="footer__list-item"><a href="#" class="footer__link">Careers</a></li>
+        </ul>
+    </footer>
 </body>
+
 
 </html>

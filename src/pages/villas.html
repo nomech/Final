@@ -2,77 +2,120 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/button.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/filter.css">
-    <link rel="stylesheet" href="../css/products.css">
-    <link rel="stylesheet" href="../css/details.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="module" src="../js/header.js" defer></script>
-    <script type="module" src="../js/product.js" defer></script>
-    <title>noMech Villas</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NOMECH Store - Explore the best products and services in the world.">
+  <meta name="keywords" content="luxury, jets, villas, cars, yachts, world class">
+  <meta name="author" content="NOMECH">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/button.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/filter.css">
+  <link rel="stylesheet" href="../css/products.css">
+  <link rel="stylesheet" href="../css/details.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <script type="module" src="../js/header.js" defer></script>
+  <script type="module" src="../js/product.js" defer></script>
+  <title>NOMECH - Villas</title>
 </head>
 
 <body>
-    <header class="header">
-        <nav class="header__nav">
-            <div class="header__logo"><a href="../index.html" class="header__logo-link">NOMECH</a></div>
-            <div class="header__nav-links">
-                <ul class="header__list">
-                </ul>
-            </div>
-            <div class="header__profile">
-                <svg class="header__profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path
-                        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-                </svg>
-                <p class="header__profile-title">Account</p>
-                <div class="header__dropdown" tabindex="0">
-                    <ul class="header__dropdown-list">
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section class="filters">
-            <button class="filters__home button button--back">Home</button>
-            <label for="sort">Sort by:</label>
-            <select name="sort" id="sort" class="filters__sort">
-            </select>
-        </section>
-        <section class="products products--show">
-        </section>
-        <section class="details">
-            <button class="details__back-button button button--back">Back</button>
-            <h2 class="details__title"></h2>
-            <div class="details__product">
-                <div class="details__images">
-                    <img src="" alt="" class="details__image">
-                </div>
-                <div class="details__information">
-                    <h2 class="details__price"></h2>
-                    <div class="details__text">
+  <!-- Header -->
+  <header class="header">
+    <!-- Navigation menu -->
+    <nav class="header__nav">
+      <!-- Page logo -->
+      <h1 class="header__logo">
+        <a href="./index.html" class="header__logo-link">
+          NOMECH
+        </a>
+      </h1>
+      <!-- Navigation links generated dynamically based on data object-->
+      <div class="header__nav-links">
+        <ul class="header__list">
+        </ul>
+      </div>
+      <!-- Profile icon and dropdown menu -->
+      <div class="header__profile">
+        <svg class="header__profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+        </svg>
+        <p class="header__profile-title">Account</p>
+        <!-- Dropdown menu links dynamically created based on data object-->
+        <div class="header__dropdown" tabindex="0">
+          <ul class="header__dropdown-list">
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
 
-                    </div>
-                    <div class="details__specs">
-                        <ul class="details__list"></ul>
-                        <div class="details__amount-group">
-                            <img src="../assets/icons/circle-minus-solid.svg" alt="Minus button" class="details__minus">
-                            <input type="number" class="details__amount" value="1">
-                            <img src="../assets/icons/circle-plus-solid.svg" alt="Plus button" class="details__plus">
-                        </div>
-                    </div>
-                </div>
+    <!--  Filters section-->
+    <section class="filters">
+      <!-- Filter button -->
+      <button class="filters__home button button--back" type="button">Home</button>
+      <label for="sort">Sort by:</label>
+      <!-- Sort dropdown-->
+      <select name="sort" id="sort" class="filters__sort">
+        <!-- Sort options generated dynamically based on data object-->
+      </select>
+    </section>
+
+    <!-- Products section -->
+    <section class="products products--show">
+      <!-- Product cards generated dynamically based on data object-->
+    </section>
+
+    <!-- Details section -->
+    <section class="details">
+      <!-- Details back button -->
+      <button class="details__back-button button button--back" type="button">Back</button>
+      <h2 class="details__title">
+        <!-- Details title generated based pn data object and page-->
+      </h2>
+      <!-- Product details -->
+      <div class="details__product">
+        <!-- Product images -->
+        <div class="details__images">
+          <!-- Product images generated dynamically based on data object-->
+          <img src="#" alt="image of product" class="details__image">
+        </div>
+
+        <!-- Product information -->
+        <div class="details__information">
+          <h2 class="details__price"></h2>
+          <div class="details__text">
+            <!-- Product description generated dynamically based on data object-->
+          </div>
+          <!-- Product specs and amount -->
+          <div class="details__specs">
+            <ul class="details__list">
+              <!-- Product specs generated dynamically based on data object-->
+            </ul>
+            <!-- Product amount -->
+            <div class="details__amount-group">
+              <!-- Minus and plus buttons -->
+              <img src="../assets/icons/circle-minus-solid.svg" alt="Minus button" class="details__minus">
+              <input type="number" class="details__amount" value="1">
+              <img src="../assets/icons/circle-plus-solid.svg" alt="Plus button" class="details__plus">
             </div>
-            </div>
-        </section>
-    </main>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <!-- Footer links -->
+    <ul class="footer__list">
+      <li class="footer__list-item"><a href="#" class="footer__link">About</a></li>
+      <li class="footer__list-item"><a href="#" class="footer__link">Terms of Service</a></li>
+      <li class="footer__list-item"><a href="#" class="footer__link">Privacy Policy</a></li>
+      <li class="footer__list-item"><a href="#" class="footer__link">Help</a></li>
+      <li class="footer__list-item"><a href="#" class="footer__link">Careers</a></li>
+    </ul>
+  </footer>
 </body>
 
 </html>

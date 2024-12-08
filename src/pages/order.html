@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="">
+    <meta name="description" content="NOMECH Store - Explore the best products and services in the world.">
+    <meta name="keywords" content="luxury, jets, villas, cars, yachts, world class">
+    <meta name="author" content="NOMECH">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/button.css">
     <link rel="stylesheet" href="../css/header.css">
@@ -13,23 +15,33 @@
     <script type="module" src="../js/data.js" defer></script>
     <script type="module" src="../js/header.js" defer></script>
     <script type="module" src="../js/orders.js" defer></script>
-    <title>noMech Yacths</title>
+    <title>NOMECH - Orders</title>
 </head>
 
 <body>
+    <!-- Header -->
     <header class="header">
+        <!-- Navigation menu -->
         <nav class="header__nav">
-            <div class="header__logo"><a href="../index.html" class="header__logo-link">NOMECH</a></div>
+            <!-- Page logo -->
+            <h1 class="header__logo">
+                <a href="./index.html" class="header__logo-link">
+                    NOMECH
+                </a>
+            </h1>
+            <!-- Navigation links generated dynamically based on data object-->
             <div class="header__nav-links">
                 <ul class="header__list">
                 </ul>
             </div>
+            <!-- Profile icon and dropdown menu -->
             <div class="header__profile">
                 <svg class="header__profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path
                         d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
                 </svg>
                 <p class="header__profile-title">Account</p>
+                <!-- Dropdown menu links dynamically created based on data object-->
                 <div class="header__dropdown" tabindex="0">
                     <ul class="header__dropdown-list">
                     </ul>
@@ -38,26 +50,34 @@
         </nav>
     </header>
     <main class="main">
-        <button class="order-button--back button button--back">Back to previous</button>
+        <!-- Back button -->
+        <button class="order-button--back button button--back" type="button">Back to previous</button>
+        <!-- Order section -->
         <section class="orders">
+            <!-- Order table -->
             <table class="orders__table">
+                <!-- Table header -->
                 <thead class="orders__table-header">
                     <tr>
-                        <th scope="col" class="orders__column">Prodcut</th>
+                        <th scope="col" class="orders__column">Product</th>
                         <th scope="col" class="orders__column">Amount</th>
                         <th scope="col" class="orders__column">Price</th>
                         <th scope="col" class="orders__column">Total</th>
                         <th scope="col" class="orders__column"></th>
                     </tr>
                 </thead>
+                <!-- Table body -->
                 <tbody class="orders__body">
-
+                    <!-- Table row generated based on data in local storafe -->
                 </tbody>
             </table>
         </section>
+        <!-- Summary section -->
         <section class="summary summary--hide">
             <h2>Summary</h2>
+            <!-- Summary table -->
         </section>
+        <!-- Empty cart section -->
         <section class="empty">
             <p class="empty__text">There is nothing in your cart yet</p>
         </section>

@@ -9,23 +9,33 @@
     <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <title>Profile</title>
+    <title>NOMECH - Profile</title>
 </head>
 
 <body>
+    <!-- Header -->
     <header class="header">
+        <!-- Navigation menu -->
         <nav class="header__nav">
-            <div class="header__logo"><a href="../index.html" class="header__logo-link">NOMECH</a></div>
+            <!-- Page logo -->
+            <h1 class="header__logo">
+                <a href="./index.html" class="header__logo-link">
+                    NOMECH
+                </a>
+            </h1>
+            <!-- Navigation links generated dynamically based on data object-->
             <div class="header__nav-links">
                 <ul class="header__list">
                 </ul>
             </div>
+            <!-- Profile icon and dropdown menu -->
             <div class="header__profile">
                 <svg class="header__profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path
                         d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
                 </svg>
                 <p class="header__profile-title">Account</p>
+                <!-- Dropdown menu links dynamically created based on data object-->
                 <div class="header__dropdown" tabindex="0">
                     <ul class="header__dropdown-list">
                     </ul>
@@ -33,62 +43,59 @@
             </div>
         </nav>
     </header>
+    <main>
+        <fieldset>
+            <legend>Profile</legend>
+            <form class="profile-form">
 
-    <body>
-        <main>
-            <fieldset>
-                <legend>profile</legend>
-                <form class="profile-form">
+                <label class="profile-form__label" for="first_name">First Name</label>
+                <input class="profile-form__input profile-form__input--readonly  profile-form__firstname" type="text"
+                    name="first_name" id="first_name" required readonly>
 
-                    <label class="profile-form__label" for="first_name">First Name</label class="profile-form__label">
-                    <input class="profile-form__input profile-form__input--readonly  profile-form__firstname"
-                        type="text" name="first_name" id="first_name" required readonly>
+                <label class="profile-form__label" for="last_name">Last Name</label>
+                <input class="profile-form__input profile-form__input--readonly profile-form__lastname" type="text"
+                    name="last_name" id="last_name" required readonly>
 
-                    <label class="profile-form__label" for="last_name">Last Name</label>
-                    <input class="profile-form__input profile-form__input--readonly profile-form__lastname" type="text"
-                        name="last_name" id="last_name" required readonly>
+                <label class="profile-form__label profile-form__label--email" for="email">
+                    Email
+                    <img src="../assets/icons/circle-check-solid.svg" alt="Checkmark"
+                        class="profile-form__validity profile-form__validity--valid">
+                    <img src="../assets/icons/circle-xmark-solid.svg" alt="Error"
+                        class="profile-form__validity profile-form__validity--error">
 
-                    <label class="profile-form__label profile-form__label--email" for="email">
-                        Email
-                        <img src="../assets/icons/circle-check-solid.svg" alt="Checkmark"
-                            class="profile-form__validity profile-form__validity--valid">
-                        <img src="../assets/icons/circle-xmark-solid.svg" alt="Error"
-                            class="profile-form__validity profile-form__validity--error">
+                </label>
+                <input class="profile-form__input profile-form__input--readonly  profile-form__email" type="email"
+                    name="email" id="email" required readonly>
 
-                    </label>
-                    <input class="profile-form__input profile-form__input--readonly  profile-form__email" type="email"
-                        name="email" id="email" required readonly>
+                <label class="profile-form__label" for="address">Address</label>
+                <input class="profile-form__input profile-form__input--readonly  profile-form__address" type="text"
+                    name="address" id="address" readonly>
 
-                    <label class="profile-form__label" for="first_name">Address</label class="profile-form__label">
-                    <input class="profile-form__input profile-form__input--readonly  profile-form__address" type="text"
-                        name="address" id="address" readonly>
+                <label class="profile-form__label" for="password">Password</label>
+                <input class="profile-form__input profile-form__input--readonly profile-form__password" type="password"
+                    name="password" id="password" required readonly>
 
-                    <label class="profile-form__label" for="password">Password</label>
-                    <input class="profile-form__input profile-form__input--readonly profile-form__password"
-                        type="password" name="password" id="password" required readonly>
+                <label class="profile-form__label profile-form__label--password profile-form__label-confirm--hide"
+                    for="confirm_password">Confirm Password</label>
+                <input
+                    class="profile-form__input profile-form__input--readonly profile-form__confirm-password profile-form__confirm-password--hide"
+                    type="password" name="confirm_password" id="confirm_password" required readonly>
 
-                    <label class="profile-form__label profile-form__label--password profile-form__label-confirm--hide"
-                        for="confirm_password">Confirm Password</label>
-                    <input
-                        class="profile-form__input profile-form__input--readonly profile-form__confirm-password profile-form__confirm-password--hide"
-                        type="password" name="confirm_password" id="confirm_password" required readonly>
-
-                </form>
-                </div>
-                <div class="profile__button-group">
-                    <button class="profile-form__button profile__edit-button button">
-                        <img src="../assets/icons/edit.svg" alt="edit icon" class="profile__edit-icon">
-                        Edit Profile
-                    </button>
-                    <button class="profile-form__button--hide profile__save-button button">
-                        <img src="../assets/icons/floppy-disk-solid.svg" alt="edit icon" class="profile__edit-icon">
-                        Save
-                    </button>
-                </div>
-            </fieldset>
-        </main>
-        <script type="module" src="../js/header.js"></script>
-        <script type="module" src="../js/profile.js"></script>
-    </body>
+            </form>
+            <div class="profile__button-group">
+                <button class="profile-form__button profile__edit-button button" type="button">
+                    <img src="../assets/icons/edit.svg" alt="edit icon" class="profile__edit-icon">
+                    Edit Profile
+                </button>
+                <button class="profile-form__button--hide profile__save-button button" type="button">
+                    <img src="../assets/icons/floppy-disk-solid.svg" alt="edit icon" class="profile__edit-icon">
+                    Save
+                </button>
+            </div>
+        </fieldset>
+    </main>
+    <script type="module" src="../js/header.js"></script>
+    <script type="module" src="../js/profile.js"></script>
+</body>
 
 </html>
