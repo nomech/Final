@@ -9,7 +9,6 @@ const cachedElements = {
 };
 
 const { empty, orderSection, summary, ordersBody } = cachedElements;
-let orders = getCartAmount();
 
 window.document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", (event) => {
@@ -43,6 +42,9 @@ const getCartAmount = () => {
     orderSection.classList.add("orders--hide");
   }
 };
+
+let orders = getCartAmount();
+
 
 const incrementAmount = (event) => {
   event.target.previousElementSibling.value++;

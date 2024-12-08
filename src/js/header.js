@@ -19,11 +19,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const logOutButton = domElemets["LogOut"];
   profileIcon.addEventListener("click", toggleDropdown);
-  logOutButton.addEventListener("click", (event) => logOut(event));
+  logOutButton.addEventListener("click", (event) => logOut());
 
   document.addEventListener("click", (event) => {
     if (event.target.classList.contains("header__dropdown-item")) {
-      window.location.href = getPageUrl(link);
+      window.location.href = getPageUrl(event.target.dataset.id);
     } else if (!profileIcon.contains(event.target)) {
       headerDropdown.classList.remove("header__dropdown--show");
     }
