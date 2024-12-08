@@ -22,11 +22,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const checkEmail = (event) => {
   const registeredUsers = getData("users");
+  
   if (registeredUsers.length > 0) {
     const inputValue = event.target.value.toLowerCase().trim();
-    const emailCheck = registeredUsers.some(
-      (user) => inputValue === user.email
-    );
+    const emailCheck = registeredUsers.some((user) => inputValue === user.email);
+
     if (emailCheck) {
       valid.classList.remove("register-form__validity--show");
       error.classList.add("register-form__validity--show");

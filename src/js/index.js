@@ -15,8 +15,6 @@ const domElemets = {
 };
 
 const {
-  headerDropdown,
-  profileIcon,
   welcomeSign,
   welcomeText,
   previewText,
@@ -26,22 +24,22 @@ const {
 } = domElemets;
 
 window.addEventListener("DOMContentLoaded", () => {
-  const currentUser = JSON.parse(getLoggedInUser());
-  welcomeSign.innerText = `Welcome, ${currentUser.first_name}`;
-  welcomeText.innerText = `Indulge in Excellence, Redefined`;
-  previewText.innerText = `Choose your indulgence`;
+  createWelcome();
   createPreview();
 
   document.addEventListener("click", (event) => {
-    if (!profileIcon.contains(event.target)) {
-      headerDropdown.classList.remove("header__dropdown--show");
-    }
-
     if (event.target.classList.contains("contact__button")) {
       sendMessage(currentUser);
     }
   });
 });
+
+const createWelcome = () => {
+  const currentUser = JSON.parse(getLoggedInUser());
+  welcomeSign.innerText = `Welcome, ${currentUser.first_name}`;
+  welcomeText.innerText = `Indulge in Excellence, Redefined`;
+  previewText.innerText = `Choose your indulgence`;
+};
 
 const createPreview = () => {
   const origin = window.location.origin;

@@ -8,8 +8,7 @@ const cachedElements = {
   main: document.querySelector(".main"),
 };
 
-const { cartCounter, empty, orderSection, summary, ordersBody } =
-  cachedElements;
+const { empty, orderSection, summary, ordersBody } = cachedElements;
 
 window.document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", (event) => {
@@ -24,6 +23,7 @@ window.document.addEventListener("DOMContentLoaded", () => {
 
 const getCartAmount = () => {
   const cart = JSON.parse(localStorage.getItem("cart"));
+
   if (cart) {
     empty.classList.add("empty--hide");
     const orders = cart.map((order) => {
@@ -37,7 +37,6 @@ const getCartAmount = () => {
     });
     return orders;
   } else {
-    console.log("No items in cart");
     empty.classList.remove("empty--hide");
     summary.classList.add("summary--hide");
     orderSection.classList.add("orders--hide");
@@ -45,6 +44,7 @@ const getCartAmount = () => {
 };
 
 let orders = getCartAmount();
+
 
 const incrementAmount = (event) => {
   event.target.previousElementSibling.value++;
@@ -67,6 +67,7 @@ const updateAmount = (value, id) => {
   item.amount = value;
 
   let cart = JSON.parse(localStorage.getItem("cart"));
+
   const cartItem = cart.find((item) => item.id === id);
   cartItem.amount = item.amount;
 
@@ -74,24 +75,13 @@ const updateAmount = (value, id) => {
 
   //update total price
   const total = document.querySelector(`tr[data-id="${id}"] .orders__cell--total`);
-
-  total.innerText = convertToCurrency(
-    "en-US",
-    "currency",
-    "USD",
-    item.price * item.amount
-  );
+  total.innerText = convertToCurrency("en-US", "currency", "USD", item.price * item.amount);
 
   orders = getCartAmount();
   const totalAmount = sumerize(orders);
-  const summary = document.querySelector(".summary__total");
 
-  summary.innerText = `Total: ${convertToCurrency(
-    "en-US",
-    "currency",
-    "USD",
-    totalAmount
-  )}`;
+  const summary = document.querySelector(".summary__total");
+  summary.innerText = `Total: ${convertToCurrency("en-US", "currency", "USD", totalAmount)}`;
 };
 
 const createTableCells = () => {
@@ -138,21 +128,11 @@ const createTableCells = () => {
 
       const price = document.createElement("td");
       price.classList.add("orders__cell");
-      price.innerText = convertToCurrency(
-        "en-US",
-        "currency",
-        "USD",
-        order.price
-      );
+      price.innerText = convertToCurrency("en-US", "currency", "USD", order.price);
 
       const total = document.createElement("td");
       total.classList.add("orders__cell", "orders__cell--total");
-      total.innerText = convertToCurrency(
-        "en-US",
-        "currency",
-        "USD",
-        order.total
-      );
+      total.innerText = convertToCurrency("en-US", "currency", "USD", order.total);
 
       const removeRow = document.createElement("td");
       removeRow.classList.add("orders__cell", "orders__cell--remove");
@@ -175,14 +155,10 @@ const sumerize = (ordersArr) => {
 const createSummary = () => {
   const totalAmount = sumerize(orders);
   summary.classList.remove("summary--hide");
+
   const total = document.createElement("p");
   total.classList.add("summary__total");
-  total.innerText = `Total: ${convertToCurrency(
-    "en-US",
-    "currency",
-    "USD",
-    totalAmount
-  )}`;
+  total.innerText = `Total: ${convertToCurrency("en-US", "currency", "USD", totalAmount)}`;
 
   summary.append(total);
   createOrderNowButton();
@@ -239,12 +215,7 @@ const removeItem = (event) => {
   const totalAmount = sumerize(orders);
   const summary = document.querySelector(".summary__total");
 
-  summary.innerText = `Total: ${convertToCurrency(
-    "en-US",
-    "currency",
-    "USD",
-    totalAmount
-  )}`;
+  summary.innerText = `Total: ${convertToCurrency("en-US", "currency", "USD", totalAmount)}`;
 
   if (cart.length === 0) {
     localStorage.removeItem("cart");

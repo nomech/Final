@@ -19,18 +19,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const logOutButton = domElemets["LogOut"];
   profileIcon.addEventListener("click", toggleDropdown);
-  logOutButton.addEventListener("click", (e) => logOut(e));
+  logOutButton.addEventListener("click", (event) => logOut());
 
-  document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("header__dropdown-item")) {
-      redirect(e.target.dataset.id);
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("header__dropdown-item")) {
+      window.location.href = getPageUrl(event.target.dataset.id);
+    } else if (!profileIcon.contains(event.target)) {
+      headerDropdown.classList.remove("header__dropdown--show");
     }
   });
 });
-
-const redirect = (link) => {
-  window.location.href = getPageUrl(link);
-};
 
 const getPageUrl = (link) => {
   const origin = window.location.origin;
