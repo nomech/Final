@@ -63,7 +63,5 @@ export const updateCartAmount = () => {
 
 export const getCurrentCategory = () => {
   const page = window.location.pathname.split("/").pop().split(".")[0];
-  return data.productCategories.find(
-    (category) => category.value.toLowerCase() === page
-  ).id;
+  return data.productCategories.find((category) => category.value.toLowerCase() === page).id;
 };

@@ -8,6 +8,7 @@ const cachedElelements = {
 };
 
 const { form, register, messages } = cachedElelements;
+let userAuthenticated = false;
 let loginAttempted = false;
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -34,8 +35,6 @@ const loginUser = (event) => {
       }
     }
   }
-
-  let userAuthenticated = false;
 
   if (users.length > 0) {
     users.some((user) => {

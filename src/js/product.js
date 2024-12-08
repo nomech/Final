@@ -169,16 +169,10 @@ const viewProduct = (id) => {
   const product = products.find((category) => category.id === id);
   productSection.classList.toggle("products--show");
   details.classList.toggle("details--show");
-
   detailsTitle.innerText = product.name;
   detailsImage.alt = `Image of the ${product.name}`;
   detailsImage.src = product.image;
-  detailsPrice.innerText = convertToCurrency(
-    "en-US",
-    "currency",
-    "USD",
-    product.price
-  );
+  detailsPrice.innerText = convertToCurrency("en-US", "currency", "USD", product.price);
   detailsText.innerText = product.description;
 
   for (let spec in product.spec) {
@@ -197,7 +191,6 @@ const viewProduct = (id) => {
   const orderButton = document.createElement("button");
   orderButton.classList.add("details__order", "button", "button--order");
   cachedElements["orderButton"] = orderButton;
-
   orderButton.innerText = "Add to cart";
   orderButton.addEventListener("click", addProductToCart);
   detailsSpecs.append(orderButton);
@@ -223,12 +216,7 @@ const renderProducts = (products) => {
 
     const productPrice = document.createElement("p");
     productPrice.classList.add("products__price");
-    productPrice.innerText = convertToCurrency(
-      "en-US",
-      "currency",
-      "USD",
-      item.price
-    );
+    productPrice.innerText = convertToCurrency("en-US", "currency", "USD",item.price);
     cachedElements["productPrice"] = productPrice;
 
     const productName = document.createElement("h2");

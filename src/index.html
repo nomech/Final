@@ -15,24 +15,29 @@
   <title>noMech store</title>
   <script type="module" src="./js/data.js" defer></script>
   <script type="module" src="./js/header.js" defer></script>
-  <script type="module" src="./js/app.js" defer></script>
+  <script type="module" src="./js/index.js" defer></script>
 </head>
 
 <body>
-  <!-- -->
+  <!-- Header -->
   <header class="header">
+    <!-- Navigation menu -->
     <nav class="header__nav">
+      <!-- Page logo -->
       <div class="header__logo"><a href="./index.html" class="header__logo-link">NOMECH</a></div>
+      <!-- Navigation links generated dynamically based on data object-->
       <div class="header__nav-links">
         <ul class="header__list">
         </ul>
       </div>
+      <!-- Profile icon and dropdown menu -->
       <div class="header__profile">
         <svg class="header__profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <path
             d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
         </svg>
         <p class="header__profile-title">Account</p>
+        <!-- Dropdown menu links dynamically created based on data object-->
         <div class="header__dropdown" tabindex="0">
           <ul class="header__dropdown-list">
           </ul>
@@ -41,29 +46,42 @@
     </nav>
   </header>
   <main>
+    <!-- Welcome section -->
     <section class="welcome">
       <h2 class="welcome__sign">
+        <!-- Welcome message-->
       </h2>
-      <h3 class="welcome__text"></h3>
+      <h3 class="welcome__text">
+         <!-- Welcome message-->
+      </h3>
+      <!-- Explore button -->
       <a href="#preview" class="welcome__explore button button--explore">Explore</a>
     </section>
 
+    <!-- Preview section -->
     <section class="preview" id="preview">
+      <!-- Preview title -->
       <p class="preview__text"></p>
+      <!-- Preview items dynamically created based on data object-->
       <div class="preview__options">
-        <!-- Data -->
       </div>
     </section>
+    <!-- Contact section -->
     <section class="contact">
+      <!-- Contact title -->
       <h2 class="contact__title">Let's get in touch</h2>
+      <!-- Contact text -->
       <p class="contact__text">We are here to help you with any questions you may have. Reach out to us and we will
         respond as soon as we can.</p>
+        <!-- Contact form -->
       <textarea name="message" id="message" class="contact__message"></textarea>
       <button class="contact__button button button--contact">Send</button>
     </section>
 
   </main>
+  <!-- Footer -->
   <footer class="footer">
+    <!-- Footer links -->
     <ul class="footer__list">
       <li class="footer__list-item"><a href="#" class="footer__link">About</a></li>
       <li class="footer__list-item"><a href="#" class="footer__link">Terms of Service</a></li>
