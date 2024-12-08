@@ -21,8 +21,8 @@ NOMECH store is a responsive website selling high class and luxery assets such a
 - **[Font Awesome Icons](https://fontawesome.com/)**
 - **https://stackoverflow.com/questions/21609012/disable-readonly-to-text-box-onclicking-the-button**
 - **https://stackoverflow.com/questions/59944807/how-can-i-select-an-element-basing-on-its-dataset-and-using-template-strings**
-- **https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find**
-- **https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex**
+- **[Find()]https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find**
+- **[FindIndex()]https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex**
 
 ## Setup
 
