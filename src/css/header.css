@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%; 
+  width: 100%;
 }
 
 .header__logo-link {
@@ -30,6 +30,10 @@
   flex-direction: column;
   align-items: center;
   width: 200px;
+  cursor: pointer;
+}
+.header__profile-icon:hover + .header__profile-title {
+  color: var(--primary-color);
 }
 
 .header__profile * {
@@ -37,7 +41,7 @@
 }
 .header__profile-icon {
   height: var(--xlarge);
-  width: var(--xlarge);;
+  width: var(--xlarge);
   fill: var(--text-color);
   border: 2px solid var(--text-color);
   border-radius: var(--large);
@@ -109,9 +113,9 @@
   justify-self: flex-end;
 }
 
-.header__profile-title{
+.header__profile-title {
   margin-top: var(--xsmall);
-  font-size: 12px; 
+  font-size: 12px;
 }
 
 .header__list {
