@@ -38,6 +38,15 @@
   grid-column-start: span 2;
 }
 
+.summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: calc(var(--xlarge) * 2);
+  width: 100%;
+  align-items: center;
+}
+
 .orders--hide,
 .summary--hide,
 .empty--hide {
@@ -84,14 +93,7 @@
   display: none;
 }
 
-.summary {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  gap: calc(var(--xlarge) * 2);
-  width: 100%;
-  align-items: center;
-}
+
 
 @media (max-width: 1024px) {
   .main {
