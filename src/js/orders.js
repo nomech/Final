@@ -27,7 +27,6 @@ window.document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 //Function that gets the cart amount
 const getCartAmount = () => {
   //Gets the cart from the local storage
@@ -58,7 +57,6 @@ const getCartAmount = () => {
     orderSection.classList.add("orders--hide");
   }
 };
-
 
 let orders = getCartAmount();
 
@@ -102,8 +100,15 @@ const updateAmount = (value, id) => {
   localStorage.setItem("cart", JSON.stringify(cart));
 
   //update total price
-  const total = document.querySelector(`tr[data-id="${id}"] .orders__cell--total`);
-  total.innerText = convertToCurrency("en-US", "currency", "USD", item.price * item.amount);
+  const total = document.querySelector(
+    `tr[data-id="${id}"] .orders__cell--total`
+  );
+  total.innerText = convertToCurrency(
+    "en-US",
+    "currency",
+    "USD",
+    item.price * item.amount
+  );
 
   //Gets the updated cart amount
   orders = getCartAmount();
@@ -112,7 +117,12 @@ const updateAmount = (value, id) => {
 
   //Updates the total amount
   const summary = document.querySelector(".summary__total");
-  summary.innerText = `Total: ${convertToCurrency("en-US", "currency", "USD", totalAmount)}`;
+  summary.innerText = `Total: ${convertToCurrency(
+    "en-US",
+    "currency",
+    "USD",
+    totalAmount
+  )}`;
 };
 
 //Function that creates the order items
@@ -142,6 +152,7 @@ const createTableCells = () => {
       //Creates the increase button icon
       const increaseAmountIcon = document.createElement("img");
       increaseAmountIcon.src = "../assets/icons/circle-plus-solid.svg";
+      increaseAmountIcon.alt = "Increase amount";
       increaseAmount.append(increaseAmountIcon);
 
       //Event listener for the increase button
@@ -161,8 +172,9 @@ const createTableCells = () => {
       decreaseAmount.classList.add("orders__button", "orders__decrease");
       const decreaseAmountIcon = document.createElement("img");
       decreaseAmountIcon.src = "../assets/icons/circle-minus-solid.svg";
+      decreaseAmountIcon.alt = "Decrease amount";
 
-       //Event listener for the decrease button and appends the elements to the amount cell
+      //Event listener for the decrease button and appends the elements to the amount cell
       decreaseAmount.append(decreaseAmountIcon);
       decreaseAmount.addEventListener("click", (event) => {
         decrementAmount(event);
@@ -174,12 +186,22 @@ const createTableCells = () => {
       //Creates the price cell
       const price = document.createElement("td");
       price.classList.add("orders__cell");
-      price.innerText = convertToCurrency("en-US", "currency", "USD", order.price);
+      price.innerText = convertToCurrency(
+        "en-US",
+        "currency",
+        "USD",
+        order.price
+      );
 
       //Creates the total cell
       const total = document.createElement("td");
       total.classList.add("orders__cell", "orders__cell--total");
-      total.innerText = convertToCurrency("en-US", "currency", "USD", order.total);
+      total.innerText = convertToCurrency(
+        "en-US",
+        "currency",
+        "USD",
+        order.total
+      );
 
       //Creates the remove cell
       const removeRow = document.createElement("td");
@@ -187,9 +209,13 @@ const createTableCells = () => {
       removeRow.innerText = "Remove";
       removeRow.addEventListener("click", (event) => removeItem(event));
 
-         //Creates the remove cell
+      //Creates the remove cell
       const removeRowMobile = document.createElement("td");
-      removeRowMobile.classList.add("orders__cell", "orders__cell--remove", "orders__cell--mobile");
+      removeRowMobile.classList.add(
+        "orders__cell",
+        "orders__cell--remove",
+        "orders__cell--mobile"
+      );
       removeRowMobile.innerText = "X";
       removeRowMobile.addEventListener("click", (event) => removeItem(event));
 
@@ -220,7 +246,12 @@ const createSummary = () => {
   //Creates the total amount element
   const total = document.createElement("p");
   total.classList.add("summary__total");
-  total.innerText = `Total: ${convertToCurrency("en-US", "currency", "USD", totalAmount)}`;
+  total.innerText = `Total: ${convertToCurrency(
+    "en-US",
+    "currency",
+    "USD",
+    totalAmount
+  )}`;
 
   //Appends the total amount to the summary
   summary.append(total);
@@ -298,13 +329,18 @@ const removeItem = (event) => {
   const summaryTotal = document.querySelector(".summary__total");
 
   //Updates the total amount
-  summaryTotal.innerText = `Total: ${convertToCurrency("en-US", "currency", "USD", totalAmount)}`;
+  summaryTotal.innerText = `Total: ${convertToCurrency(
+    "en-US",
+    "currency",
+    "USD",
+    totalAmount
+  )}`;
 
   //Checks if the cart is empty
   if (cart.length === 0) {
     // Removes the cart from the local storage
     localStorage.removeItem("cart");
-    
+
     empty.classList.remove("empty--hide");
     summary.classList.add("summary--hide");
     orderSection.classList.add("orders--hide");

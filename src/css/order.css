@@ -102,6 +102,10 @@
     font-size: 12px;
   }
 
+  .order-button--back{
+    padding: var(--xsmall); 
+  }
+
   .orders__column--total, .orders__cell--total, .orders__cell--remove{
     display: none;
   }

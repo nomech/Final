@@ -27,6 +27,7 @@
 .preview__group {
   position: relative;
   cursor: pointer;
+  width: 400px;
 }
 
 .preview__group::before {
@@ -42,8 +43,7 @@
 }
 
 .preview__image {
-  width: calc((var(--medium) + var(--small)) * 10);
-  height: calc(var(--medium) * 10);
+  width: 100%;
 }
 
 .preview__title {
