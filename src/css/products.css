@@ -66,9 +66,10 @@ main {
   .products {
     flex-flow: row wrap;
   }
-  
+
   .products__item {
     grid-template-columns: 1fr;
-    width: 216px;
+    width: 316px;
+    justify-items: center;
   }
 }
