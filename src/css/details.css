@@ -106,4 +106,7 @@
     .details__back-button {
       margin: unset;
     }
+    .details__order {
+      width: 300px
+    }
   }
