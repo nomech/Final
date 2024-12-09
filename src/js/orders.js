@@ -187,9 +187,15 @@ const createTableCells = () => {
       removeRow.innerText = "Remove";
       removeRow.addEventListener("click", (event) => removeItem(event));
 
+         //Creates the remove cell
+      const removeRowMobile = document.createElement("td");
+      removeRowMobile.classList.add("orders__cell", "orders__cell--remove", "orders__cell--mobile");
+      removeRowMobile.innerText = "X";
+      removeRowMobile.addEventListener("click", (event) => removeItem(event));
+
       //Appends the cells to the row
       ordersBody.append(row);
-      row.append(product, amount, price, total, removeRow);
+      row.append(product, amount, price, total, removeRow, removeRowMobile);
     });
     //Creates the summary
     createSummary();
