@@ -92,3 +92,15 @@
     }
   }
   
+
+  @media (max-width: 1024px) {
+    .details__product {
+      grid-template-columns: 1fr;
+    }
+    .details__title {
+      margin: unset;
+    }
+    .details__back-button {
+      margin: unset;
+    }
+  }
