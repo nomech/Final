@@ -55,7 +55,8 @@ main {
 
 @media (max-width: 995px) {
   .products__image {
-    width: calc(var(--medium) * 9);
+    width: 100%;
+    height: unset;
   }
   .products__text-group {
     font-size: 12px;
