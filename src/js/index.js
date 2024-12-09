@@ -17,14 +17,7 @@ const cachedElelements = {
 };
 
 // Destructured DOM Elements
-const {
-  welcomeSign,
-  welcomeText,
-  previewText,
-  previewOptions,
-  contactButton,
-  contactMessage,
-} = cachedElelements;
+const {welcomeSign, welcomeText, previewText, previewOptions, contactButton, contactMessage } = cachedElelements;
 const currentUser = JSON.parse(getLoggedInUser());
 
 //Ensures that the page is fully loaded before running the script

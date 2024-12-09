@@ -44,55 +44,60 @@
         </nav>
     </header>
     <main>
-        <fieldset>
-            <legend>Profile</legend>
-            <form class="profile-form">
+        <!-- Profile section -->
+        <section class="profile">
+            <fieldset>
+                <legend>Profile</legend>
+                <form class="profile-form">
 
-                <label class="profile-form__label" for="first_name">First Name</label>
-                <input class="profile-form__input profile-form__input--readonly  profile-form__firstname" type="text"
-                    name="first_name" id="first_name" required readonly>
+                    <label class="profile-form__label" for="first_name">First Name</label>
+                    <input class="profile-form__input profile-form__input--readonly  profile-form__firstname"
+                        type="text" name="first_name" id="first_name" required readonly>
 
-                <label class="profile-form__label" for="last_name">Last Name</label>
-                <input class="profile-form__input profile-form__input--readonly profile-form__lastname" type="text"
-                    name="last_name" id="last_name" required readonly>
+                    <label class="profile-form__label" for="last_name">Last Name</label>
+                    <input class="profile-form__input profile-form__input--readonly profile-form__lastname" type="text"
+                        name="last_name" id="last_name" required readonly>
 
-                <label class="profile-form__label profile-form__label--email" for="email">
-                    Email
-                    <img src="../assets/icons/circle-check-solid.svg" alt="Checkmark"
-                        class="profile-form__validity profile-form__validity--valid">
-                    <img src="../assets/icons/circle-xmark-solid.svg" alt="Error"
-                        class="profile-form__validity profile-form__validity--error">
+                    <label class="profile-form__label profile-form__label--email" for="email">
+                        Email
+                        <!-- Checkmark and error icons -->
+                        <img src="../assets/icons/circle-check-solid.svg" alt="Checkmark"
+                            class="profile-form__validity profile-form__validity--valid">
+                        <img src="../assets/icons/circle-xmark-solid.svg" alt="Error"
+                            class="profile-form__validity profile-form__validity--error">
 
-                </label>
-                <input class="profile-form__input profile-form__input--readonly  profile-form__email" type="email"
-                    name="email" id="email" required readonly>
+                    </label>
+                    <input class="profile-form__input profile-form__input--readonly  profile-form__email" type="email"
+                        name="email" id="email" required readonly>
 
-                <label class="profile-form__label" for="address">Address</label>
-                <input class="profile-form__input profile-form__input--readonly  profile-form__address" type="text"
-                    name="address" id="address" readonly>
+                    <label class="profile-form__label" for="address">Address</label>
+                    <input class="profile-form__input profile-form__input--readonly  profile-form__address" type="text"
+                        name="address" id="address" readonly>
 
-                <label class="profile-form__label" for="password">Password</label>
-                <input class="profile-form__input profile-form__input--readonly profile-form__password" type="password"
-                    name="password" id="password" required readonly>
+                    <label class="profile-form__label" for="password">Password</label>
+                    <input class="profile-form__input profile-form__input--readonly profile-form__password"
+                        type="password" name="password" id="password" required readonly>
 
-                <label class="profile-form__label profile-form__label--password profile-form__label-confirm--hide"
-                    for="confirm_password">Confirm Password</label>
-                <input
-                    class="profile-form__input profile-form__input--readonly profile-form__confirm-password profile-form__confirm-password--hide"
-                    type="password" name="confirm_password" id="confirm_password" required readonly>
+                    <label class="profile-form__label profile-form__label--password profile-form__label-confirm--hide"
+                        for="confirm_password">Confirm Password</label>
+                    <input
+                        class="profile-form__input profile-form__input--readonly profile-form__confirm-password profile-form__confirm-password--hide"
+                        type="password" name="confirm_password" id="confirm_password" required readonly>
 
-            </form>
-            <div class="profile__button-group">
-                <button class="profile-form__button profile__edit-button button" type="button">
-                    <img src="../assets/icons/edit.svg" alt="edit icon" class="profile__edit-icon">
-                    Edit Profile
-                </button>
-                <button class="profile-form__button--hide profile__save-button button" type="button">
-                    <img src="../assets/icons/floppy-disk-solid.svg" alt="edit icon" class="profile__edit-icon">
-                    Save
-                </button>
-            </div>
-        </fieldset>
+                </form>
+                <!-- Profile buttons -->
+                <div class="profile__button-group">
+                    <button class="profile-form__button profile__edit-button button" type="button">
+                        <img src="../assets/icons/edit.svg" alt="edit icon" class="profile__edit-icon">
+                        Edit Profile
+                    </button>
+                    <button class="profile-form__button--hide profile__save-button button" type="button">
+                        <img src="../assets/icons/floppy-disk-solid.svg" alt="edit icon" class="profile__edit-icon">
+                        Save
+                    </button>
+                </div>
+            </fieldset>
+        </section>
     </main>
     <script type="module" src="../js/header.js"></script>
     <script type="module" src="../js/profile.js"></script>

@@ -1,4 +1,7 @@
+//Data for the application
+
 export const data = {
+  //Product categories
   productCategories: [
     {
       id: 1,
@@ -71,6 +74,7 @@ export const data = {
       ],
     },
   ],
+  //Product data
   products: [
     {
       id: 1,
@@ -639,6 +643,7 @@ export const data = {
       },
     },
   ],
+  // Data for the dropdown menu in the header
   userActions: [
     {
       id: 1,
@@ -667,6 +672,7 @@ export const data = {
       link: "/login.html",
     },
   ],
+  // Unit lookup object
   specUnitLookup:{
     1: {
       length: "ft",
