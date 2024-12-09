@@ -24,3 +24,9 @@
 .welcome__text {
   font-weight: 200;
 }
+
+@media (max-width: 768px) {
+  .welcome__text {
+    text-align: center;
+  }
+}

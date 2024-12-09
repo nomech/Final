@@ -64,3 +64,15 @@
 .button--plus {
   padding: var(--small);
 }
+
+@media (max-width: 1024px) {
+  .button--view {
+    height: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .button--view {
+    padding: var(--small);
+  }
+}

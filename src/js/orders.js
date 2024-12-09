@@ -289,15 +289,16 @@ const removeItem = (event) => {
   //Gets the updated cart amount
   orders = getCartAmount();
   const totalAmount = sumerize(orders);
-  const summary = document.querySelector(".summary__total");
+  const summaryTotal = document.querySelector(".summary__total");
 
   //Updates the total amount
-  summary.innerText = `Total: ${convertToCurrency("en-US", "currency", "USD", totalAmount)}`;
+  summaryTotal.innerText = `Total: ${convertToCurrency("en-US", "currency", "USD", totalAmount)}`;
 
   //Checks if the cart is empty
   if (cart.length === 0) {
-    //Removes the cart from the local storage
+    // Removes the cart from the local storage
     localStorage.removeItem("cart");
+    
     empty.classList.remove("empty--hide");
     summary.classList.add("summary--hide");
     orderSection.classList.add("orders--hide");

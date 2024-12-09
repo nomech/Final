@@ -147,3 +147,48 @@
   width: var(--small);
   height: var(--small);
 }
+
+
+@media (max-width: 995px) {
+  .header__logo-link {
+    font-size: 18px;
+  }
+  .header__list-item {
+    padding: var(--xsmall);
+    font-size: 12px;
+  }
+  .header__profile{
+    width: 100px;
+  }
+
+  .header__profile-icon{
+    height: var(--large);
+    width: var(--large);
+  }
+
+  .header__profile-dropdown,
+  .header__dropdown-item,
+  .header__dropdown-list {
+    width: 140px;
+  }
+
+  .header__dropdown-link, .header__dropdown-counter{
+    font-size: 12px;
+  }
+
+  .header__dropdown-item {
+    padding: var(--xsmall);
+  }
+}
+
+@media (max-width: 550px) {
+  .header__list-item {
+    display: none;
+  }
+
+}
+@media (max-width: 425px) {
+  .header__logo-link {
+    font-size: 24px;
+  }
+}

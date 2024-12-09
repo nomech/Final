@@ -24,3 +24,9 @@
 .footer__link:hover {
   color: var(--primary-color);
 }
+
+@media (max-width: 768px) {
+  .footer__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}

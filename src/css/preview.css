@@ -71,3 +71,14 @@
     color: var(--primary-color);
   }
 }
+
+@media (max-width: 768px) {
+  .preview {
+    height: fit-content;
+    padding: var(--medium);
+  }
+  .preview__image {
+    width: calc((var(--small) + var(--small)) * 10);
+    height: unset;
+  }
+}

@@ -17,3 +17,16 @@
     padding: var(--medium);
   }
 
+  @media (max-width: 768px) {
+    .contact {
+      padding: 0;
+    }
+
+    .contact__text{
+      padding: var(--medium);
+    }
+    .contact__message {
+      width: 300px;
+      height: 150px;
+    }
+  }

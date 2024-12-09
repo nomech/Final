@@ -29,7 +29,7 @@ main {
 }
 
 .products__image {
-  width:  calc(var(--medium) * 10) 0;
+  width: calc(var(--medium) * 10);
   height: calc(var(--small) * 10);
 }
 
@@ -39,6 +39,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: var(--large);
 }
 
 @keyframes fadeIn {
@@ -47,5 +48,16 @@ main {
   }
   to {
     opacity: 1;
+  }
+}
+
+
+
+@media (max-width: 995px) {
+  .products__image {
+    width: calc(var(--medium) * 9);
+  }
+  .products__text-group {
+    font-size: 12px;
   }
 }
