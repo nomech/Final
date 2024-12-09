@@ -80,7 +80,7 @@
   background-color: var(--primary-color);
 }
 
-.orders__cell--mobile{
+.orders__cell--mobile {
   display: none;
 }
 
@@ -98,19 +98,21 @@
     padding: 0;
   }
 
-  .orders{
+  .orders {
     font-size: 12px;
   }
 
-  .order-button--back{
-    padding: var(--xsmall); 
+  .order-button--back {
+    padding: var(--xsmall);
   }
 
-  .orders__column--total, .orders__cell--total, .orders__cell--remove{
+  .orders__column--total,
+  .orders__cell--total,
+  .orders__cell--remove {
     display: none;
   }
 
-  .orders__cell--mobile{
+  .orders__cell--mobile {
     display: block;
     background-color: var(--primary-color);
     color: var(--secondary-bg-color);
@@ -125,5 +127,8 @@
     width: unset;
     align-items: unset;
   }
-  
+
+  .summary--hide {
+    display: none;
+  }
 }
