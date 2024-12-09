@@ -61,3 +61,14 @@ main {
     font-size: 12px;
   }
 }
+
+@media (max-width: 768px) {
+  .products {
+    flex-flow: row wrap;
+  }
+  
+  .products__item {
+    grid-template-columns: 1fr;
+    width: 216px;
+  }
+}
