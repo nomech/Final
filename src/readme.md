@@ -10,12 +10,16 @@ NOMECH store is a responsive website selling high class and luxery assets such a
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/nomech/Final/tree/main/src/js)
 
+## Description
+
+
 ## Technologies
 
 - **HTML5**
 - **CSS3**
 - **JavaScript**
 - **Netlify**
+- **Google Fonts**
 
 ## Resources 
 - **[Font Awesome Icons](https://fontawesome.com/)**
@@ -24,18 +28,3 @@ NOMECH store is a responsive website selling high class and luxery assets such a
 - **[Find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)**
 - **[FindIndex()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)**
 
-## Setup
-
-1. Clone the repository
-```bash
-git clone https://github.com/nomech/Final.git
-```
-2. Navigate to the project directory
-```bash
-cd Final
-```
-3. Open the Project Locally in live server 
- ```bash
- npm install -g live-server
- live-server
- ```
