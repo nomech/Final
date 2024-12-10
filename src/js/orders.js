@@ -3,7 +3,7 @@ import { updateCartAmount, convertToCurrency } from "./utils.js";
 
 // Cached DOM elements
 const cachedElements = {
-  empty: document.querySelector(".empty"),
+  emptySection: document.querySelector(".empty"),
   orderSection: document.querySelector(".orders"),
   ordersBody: document.querySelector(".orders__body"),
   summary: document.querySelector(".summary"),
@@ -11,7 +11,7 @@ const cachedElements = {
 };
 
 // Destructured DOM Elements
-const { empty, orderSection, summary, ordersBody } = cachedElements;
+const { emptySection, orderSection, summary, ordersBody } = cachedElements;
 
 //Ensures that the page is fully loaded before running the script
 window.document.addEventListener("DOMContentLoaded", () => {
@@ -35,7 +35,7 @@ const getCartAmount = () => {
   //Checks if the cart is empty
   if (cart) {
     //Hides the empty cart message
-    empty.classList.add("empty--hide");
+    emptySection.classList.add("empty--hide");
     //Iterates through the cart and creates the order items
     const orders = cart.map((order) => {
       //Returns the order item
@@ -52,7 +52,7 @@ const getCartAmount = () => {
 
     //Shows the empty cart message
   } else {
-    empty.classList.remove("empty--hide");
+    emptySection.classList.remove("empty--hide");
     summary.classList.add("summary--hide");
     orderSection.classList.add("orders--hide");
   }
@@ -340,8 +340,9 @@ const removeItem = (event) => {
   if (cart.length === 0) {
     // Removes the cart from the local storage
     localStorage.removeItem("cart");
-
-    empty.classList.remove("empty--hide");
+    
+    //Hides the summary and orders section and shows the empty cart message
+    emptySection.classList.remove("empty--hide");
     summary.classList.add("summary--hide");
     orderSection.classList.add("orders--hide");
   }
