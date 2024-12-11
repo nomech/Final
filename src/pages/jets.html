@@ -2,34 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NOMECH Store - Explore the best products and services in the world.">
-    <meta name="keywords" content="luxury, jets, villas, cars, yachts, world class">
-    <meta name="author" content="NOMECH">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/button.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/filter.css">
-    <link rel="stylesheet" href="../css/products.css">
-    <link rel="stylesheet" href="../css/details.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="module" src="../js/header.js" defer></script>
-    <script type="module" src="../js/product.js" defer></script>
-    <title>NOMECH - Jets</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NOMECH Store - Explore the best products and services in the world.">
+  <meta name="keywords" content="luxury, jets, villas, cars, yachts, world class">
+  <meta name="author" content="NOMECH">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/button.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/filter.css">
+  <link rel="stylesheet" href="../css/products.css">
+  <link rel="stylesheet" href="../css/details.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <script type="module" src="../js/header.js" defer></script>
+  <script type="module" src="../js/product.js" defer></script>
+  <title>NOMECH - Jets</title>
 </head>
 
 <body>
   <!-- Header -->
   <header class="header">
+    <!-- Page logo -->
+    <h1 class="header__logo">
+      <a href="../index.html" class="header__logo-link">
+        NOMECH
+      </a>
+    </h1>
     <!-- Navigation menu -->
+    <img class="header__mobile-menu" src="../assets/icons/bars-solid.svg" alt="Mobile menu icon">
     <nav class="header__nav">
-      <!-- Page logo -->
-      <h1 class="header__logo">
-        <a href="../index.html" class="header__logo-link">
-          NOMECH
-        </a>
-      </h1>
       <!-- Navigation links generated dynamically based on data object-->
       <div class="header__nav-links">
         <ul class="header__list">
@@ -50,72 +51,72 @@
       </div>
     </nav>
   </header>
-    <main>
+  <main>
 
-        <!--  Filters section-->
-        <section class="filters">
-            <!-- Filter button -->
-            <button class="filters__home button button--back" type="button">Home</button>
-            <label for="sort">Sort by:</label>
-            <!-- Sort dropdown-->
-            <select name="sort" id="sort" class="filters__sort">
-                <!-- Sort options generated dynamically based on data object-->
-            </select>
-        </section>
+    <!--  Filters section-->
+    <section class="filters">
+      <!-- Filter button -->
+      <button class="filters__home button button--back" type="button">Home</button>
+      <label for="sort">Sort by:</label>
+      <!-- Sort dropdown-->
+      <select name="sort" id="sort" class="filters__sort">
+        <!-- Sort options generated dynamically based on data object-->
+      </select>
+    </section>
 
-        <!-- Products section -->
-        <section class="products products--show">
-            <!-- Product cards generated dynamically based on data object-->
-        </section>
+    <!-- Products section -->
+    <section class="products products--show">
+      <!-- Product cards generated dynamically based on data object-->
+    </section>
 
-        <!-- Details section -->
-        <section class="details">
-            <!-- Details back button -->
-            <button class="details__back-button button button--back" type="button">Back</button>
-            <h2 class="details__title">
-                <!-- Details title generated based pn data object and page-->
-            </h2>
-            <!-- Product details -->
-            <div class="details__product">
-                <!-- Product images -->
-                <div class="details__images">
-                    <!-- Product images generated dynamically based on data object-->
-                    <img src="#" alt="image of product" class="details__image">
-                </div>
+    <!-- Details section -->
+    <section class="details">
+      <!-- Details back button -->
+      <button class="details__back-button button button--back" type="button">Back</button>
+      <h2 class="details__title">
+        <!-- Details title generated based pn data object and page-->
+      </h2>
+      <!-- Product details -->
+      <div class="details__product">
+        <!-- Product images -->
+        <div class="details__images">
+          <!-- Product images generated dynamically based on data object-->
+          <img src="#" alt="image of product" class="details__image">
+        </div>
 
-                <!-- Product information -->
-                <div class="details__information">
-                    <h2 class="details__price"></h2>
-                    <div class="details__text">
-                        <!-- Product description generated dynamically based on data object-->
-                    </div>
-                    <!-- Product specs and amount -->
-                    <div class="details__specs">
-                        <ul class="details__list">
-                            <!-- Product specs generated dynamically based on data object-->
-                        </ul>
-                        <!-- Product amount -->
-                        <div class="details__amount-group">
-                            <!-- Minus and plus buttons -->
-                            <img src="../assets/icons/circle-minus-solid.svg" alt="Minus button" class="details__minus">
-                            <input type="number" class="details__amount" value="1">
-                            <img src="../assets/icons/circle-plus-solid.svg" alt="Plus button" class="details__plus">
-                        </div>
-                    </div>
-                </div>
+        <!-- Product information -->
+        <div class="details__information">
+          <h2 class="details__price"></h2>
+          <div class="details__text">
+            <!-- Product description generated dynamically based on data object-->
+          </div>
+          <!-- Product specs and amount -->
+          <div class="details__specs">
+            <ul class="details__list">
+              <!-- Product specs generated dynamically based on data object-->
+            </ul>
+            <!-- Product amount -->
+            <div class="details__amount-group">
+              <!-- Minus and plus buttons -->
+              <img src="../assets/icons/circle-minus-solid.svg" alt="Minus button" class="details__minus">
+              <input type="number" class="details__amount" value="1">
+              <img src="../assets/icons/circle-plus-solid.svg" alt="Plus button" class="details__plus">
             </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <!-- Footer links -->
-        <ul class="footer__list">
-            <li class="footer__list-item"><a href="#" class="footer__link">About</a></li>
-            <li class="footer__list-item"><a href="#" class="footer__link">Terms of Service</a></li>
-            <li class="footer__list-item"><a href="#" class="footer__link">Privacy Policy</a></li>
-            <li class="footer__list-item"><a href="#" class="footer__link">Help</a></li>
-            <li class="footer__list-item"><a href="#" class="footer__link">Careers</a></li>
-        </ul>
-    </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <!-- Footer links -->
+    <ul class="footer__list">
+      <li class="footer__list-item"><a href="#" class="footer__link">About</a></li>
+      <li class="footer__list-item"><a href="#" class="footer__link">Terms of Service</a></li>
+      <li class="footer__list-item"><a href="#" class="footer__link">Privacy Policy</a></li>
+      <li class="footer__list-item"><a href="#" class="footer__link">Help</a></li>
+      <li class="footer__list-item"><a href="#" class="footer__link">Careers</a></li>
+    </ul>
+  </footer>
 </body>
 
 </html>

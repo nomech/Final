@@ -9,10 +9,13 @@ const domElemets = {
   profileName: document.querySelector(".header__profile-name"),
   headerList: document.querySelector(".header__list"),
   dropdownList: document.querySelector(".header__dropdown-list"),
+  mobileMenu: document.querySelector(".header__mobile-menu"),
+  headerNav: document.querySelector(".header__nav"),
 };
 
 // Destructured DOM Elements
-const { headerDropdown, profileIcon, headerList, dropdownList } = domElemets;
+const { headerDropdown, profileIcon, headerList, dropdownList, headerNav } =
+  domElemets;
 const currentUser = JSON.parse(getLoggedInUser());
 
 //Ensures that the page is fully loaded before running the script
@@ -27,12 +30,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //Delegate event listener to the document for the dropdown items
   document.addEventListener("click", (event) => {
+    console.log(event.target.classList.contains("header__mobile-menu"));
     // Redirects the user to the selected page
     if (event.target.classList.contains("header__dropdown-item")) {
+      console.log("First if");
       window.location.href = getPageUrl(event.target.dataset.id);
       // Closes the dropdown when the user clicks outside the dropdown menu
     } else if (!profileIcon.contains(event.target)) {
       headerDropdown.classList.remove("header__dropdown--show");
+    }
+    if (event.target.classList.contains("header__mobile-menu")) {
+      console.log("Third if");
+      headerNav.classList.toggle("header__nav--show");
     }
   });
 });
