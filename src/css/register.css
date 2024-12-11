@@ -1,15 +1,29 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 10 version
+*/
+
 
 fieldset {
   padding: var(--xlarge);
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
     rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   background-color: #ffffff13;
 }
 
 .register-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 270px;
 }
 
@@ -32,13 +46,17 @@ legend {
 }
 
 .register-form__button {
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   margin-top: var(--large);
   padding: var(--small) var(--medium);
   background-color: var(--primary-color);
   border: none;
   color: var(--secondary-text-color);
   cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
 
@@ -49,13 +67,17 @@ legend {
 .register-form__text {
   margin-top: var(--small);
   font-size: 14px;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   text-transform: none;
   letter-spacing: 0;
 }
 
 .register-form__text a {
   color: var(--primary-color);
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
   text-transform: none; 
   letter-spacing: 0;

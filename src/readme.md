@@ -27,4 +27,4 @@ NOMECH store is a responsive website selling high class and luxery assets such a
 - **https://stackoverflow.com/questions/59944807/how-can-i-select-an-element-basing-on-its-dataset-and-using-template-strings**
 - **[Find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)**
 - **[FindIndex()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)**
-
+- **[Autoprefixer CSS online](https://autoprefixer.github.io/)**

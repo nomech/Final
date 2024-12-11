@@ -1,14 +1,30 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 10 version
+*/
+
 main {
   padding: calc(var(--medium) * 5) 0;
 }
 
 .products {
   visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: var(--large);
 }
 
@@ -18,14 +34,35 @@ main {
 }
 
 .products__item {
+  display: -ms-grid;
   display: grid;
   opacity: 1;
+  -ms-grid-columns: 1fr 2fr 1fr;
   grid-template-columns: 1fr 2fr 1fr;
   background-color: var(--secondary-bg-color);
+  -ms-grid-rows: calc(var(--small) * 10);
   grid-template-rows: calc(var(--small) * 10);
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 80%;
-  animation: fadeIn 0.3s ease-in;
+  -webkit-animation: fadeIn 0.3s ease-in;
+          animation: fadeIn 0.3s ease-in;
+}
+
+.products__item > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.products__item > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+}
+
+.products__item > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
 }
 
 .products__image {
@@ -36,10 +73,26 @@ main {
 .products__text-group {
   text-transform: uppercase;
   letter-spacing: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: var(--large);
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
@@ -65,10 +118,14 @@ main {
 
 @media (max-width: 768px) {
   .products {
-    flex-flow: row wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
   }
 
   .products__item {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     width: 316px;
     justify-items: center;

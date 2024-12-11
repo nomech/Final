@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 10 version
+*/
+
 .button {
   padding: var(--small) var(--large);
   background: var(--primary-color);
@@ -6,13 +13,18 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.9rem;
+  -webkit-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
   transition: background 0.3s ease;
-  animation: fadeIn 3s ease-in-out;
+  -webkit-animation: fadeIn 3s ease-in-out;
+          animation: fadeIn 3s ease-in-out;
   cursor: pointer;
 }
 
 .button:active {
-  transform: scale(0.98);
+  -webkit-transform: scale(0.98);
+      -ms-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .button:hover {
@@ -21,8 +33,11 @@
 
 .button--disabled {
   background: var(--disabled-button);
+  -webkit-transition: none;
+  -o-transition: none;
   transition: none;
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
 }
 
 .button--disabled:hover {
@@ -30,11 +45,14 @@
 }
 
 .button--disabled:active {
-  transform: none;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
 }
 
 .button--order {
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
   width: 300px;
 }
 .button--order:hover {
@@ -42,18 +60,26 @@
 }
 
 .button--view {
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
   height: 70px;
   margin: var(--small);
 }
 
 .button--back {
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
   height: 40px;
   margin: var(--xsmall);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .button--view:hover {

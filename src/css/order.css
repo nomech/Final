@@ -1,9 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 10 version
+*/
+
 .main {
   padding: calc(var(--medium) * 5) calc(var(--large) * 2);
 }
 
 .order-button--back {
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 .orders {
   display: block;
@@ -27,9 +35,15 @@
   text-align: center;
 }
 .orders__cell--amount {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: inherit;
   gap: var(--xsmall);
 }
@@ -39,12 +53,16 @@
 }
 
 .summary {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr calc(var(--xlarge) * 2) 1fr;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   gap: calc(var(--xlarge) * 2);
   width: 100%;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .orders--hide,
@@ -64,7 +82,9 @@
 }
 
 .orders__button:active {
-  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 .orders__decrease img,
@@ -73,6 +93,8 @@
 }
 
 .orders__input {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-items: center;
   width: var(--small);
@@ -123,11 +145,14 @@
 
   .summary {
     display: unset;
+    -ms-grid-columns: unset;
     grid-template-columns: unset;
     justify-items: unset;
     gap: unset;
     width: unset;
-    align-items: unset;
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
   }
 
   .summary--hide {

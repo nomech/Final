@@ -1,17 +1,36 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 10 version
+*/
+
 fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: var(--large);
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
     rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   background-color: #ffffff13;
   width: 375px;
 }
 
 .profile-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .profile-form__label {
@@ -57,18 +76,23 @@ legend {
 .profile__save-button,
 .profile__edit-button,
 .profile-form__button--password {
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
 }
 .profile-form__text {
   margin-top: var(--small);
   font-size: 14px;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   text-transform: none;
   letter-spacing: 0;
 }
 
 .profile-form__text a {
   color: var(--primary-color);
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
   text-transform: none;
   letter-spacing: 0;
@@ -95,8 +119,12 @@ legend {
 }
 
 .profile__button-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: var(--small);
   padding: var(--small) 0;
 }

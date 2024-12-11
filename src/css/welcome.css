@@ -1,8 +1,24 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 10 version
+*/
+
 .welcome {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 90vh;
   gap: var(--xlarge);
 }
@@ -10,13 +26,15 @@
 .welcome__sign {
   text-transform: uppercase;
   letter-spacing: 2px;
-  animation: fadeIn 3s ease-in-out;
+  -webkit-animation: fadeIn 3s ease-in-out;
+          animation: fadeIn 3s ease-in-out;
 }
 
 .welcome__text {
   text-transform: uppercase;
   letter-spacing: 2px;
-  animation: fadeInColor 4s ease-in-out;
+  -webkit-animation: fadeInColor 4s ease-in-out;
+          animation: fadeInColor 4s ease-in-out;
   color: var(--primary-color);
 }
 
