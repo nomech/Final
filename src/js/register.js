@@ -40,7 +40,7 @@ const checkEmail = (event) => {
       registerButton.classList.add("button--disabled");
     } else if (!emailCheck) {
       error.classList.remove("register-form__validity--show");
-      valid.classList.toggle("register-form__validity--show");
+      valid.classList.add("register-form__validity--show");
       registerButton.classList.remove("button--disabled");
     }
   }
