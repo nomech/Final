@@ -4,16 +4,18 @@ NOMECH store is a responsive website selling high class and luxery assets such a
 
 ## Live Demo
 
-[![Netlify Deployment](https://img.shields.io/badge/Deploy-on%20Netlify-brightgreen)](https://nomech-store.netlify.app/)
+- [![Netlify Deployment](https://img.shields.io/badge/Deploy-on%20Netlify-brightgreen)](https://nomech-store.netlify.app/)
+- https://nomech-store.netlify.app/
 
 ## GitHub Repository
 
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/nomech/Final/tree/main/src/js)
-
+- [![GitHub Repository](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/nomech/Final/tree/main/src/js)
+- https://github.com/nomech/Final/tree/main/src/js
 
 ## Figma design
 
-[![Figma design](https://img.shields.io/badge/Design-Figma-pink)](https://www.figma.com/design/nYJgNeWXnTCE9FX0fytFa4/NOMECH---Final-project?node-id=0-1&t=M758HQyVepLFCWpF-1)
+- [![Figma design](https://img.shields.io/badge/Design-Figma-pink)](https://www.figma.com/design/nYJgNeWXnTCE9FX0fytFa4/NOMECH---Final-project?node-id=0-1&t=M758HQyVepLFCWpF-1)
+- https://www.figma.com/design/nYJgNeWXnTCE9FX0fytFa4/NOMECH---Final-project?node-id=0-1&t=M758HQyVepLFCWpF-1
 
 ## Description
 
