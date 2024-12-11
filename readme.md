@@ -13,7 +13,7 @@ NOMECH store is a responsive website selling high class and luxery assets such a
 
 ## Figma design
 
-[![Figma design](https://img.shields.io/badge/Figma-pink)](https://www.figma.com/design/nYJgNeWXnTCE9FX0fytFa4/NOMECH---Final-project?node-id=0-1&t=M758HQyVepLFCWpF-1)
+[![Figma design](https://img.shields.io/badge/Design-Figma-pink)](https://www.figma.com/design/nYJgNeWXnTCE9FX0fytFa4/NOMECH---Final-project?node-id=0-1&t=M758HQyVepLFCWpF-1)
 
 ## Description
 
