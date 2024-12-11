@@ -150,6 +150,11 @@
 
 
 @media (max-width: 1024px) {
+
+  .details {
+    padding: 0 var(--medium);
+  }
+
   .details__product {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
