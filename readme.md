@@ -10,8 +10,14 @@ NOMECH store is a responsive website selling high class and luxery assets such a
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/nomech/Final/tree/main/src/js)
 
+
+## Figma design
+
+[![Figma design] (https://img.shields.io/badge/Figma-pink)](https://www.figma.com/design/nYJgNeWXnTCE9FX0fytFa4/NOMECH---Final-project?node-id=0-1&t=M758HQyVepLFCWpF-1)
+
 ## Description
 
+This project showcases a luxary store. Users needs register and then login, once logged in the user is free to explore the site. The user have the option to send a message to the site owners, change their profile information, add items to the cart and submit the order.
 
 ## Technologies
 
