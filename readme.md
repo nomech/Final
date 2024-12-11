@@ -9,8 +9,8 @@ NOMECH store is a responsive website selling high class and luxery assets such a
 
 ## GitHub Repository
 
-- [![GitHub Repository](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/nomech/Final/tree/main/src/js)
-- https://github.com/nomech/Final/tree/main/src/js
+- [![GitHub Repository](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/nomech/Final.git)
+- https://github.com/nomech/Final.git
 
 ## Figma design
 
